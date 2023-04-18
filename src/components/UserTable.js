@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { DeleteButton } from "./DeleteButton";
-import { Trash } from "react-bootstrap-icons";
+import { Trash, PencilSquare } from "react-bootstrap-icons";
 
 export function UserList (props) {
 
@@ -71,7 +71,7 @@ export function UserList (props) {
                         <td>{user.phoneNumber}</td>
                         <td>{user.email}</td>
                         <td>
-                            <button type="button" className="btn btn-primary btn-sm me-2">Edit</button>
+                            <button type="button" className="btn btn-primary btn-sm me-2"><PencilSquare/></button>
                             <DeleteButton onClick={()=> deleleUser(user.id) } type="button" className="btn btn-danger btn-sm "><Trash/></DeleteButton>
                         </td>
                     </tr>

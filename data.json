@@ -1,20 +1,6 @@
 {
   "users": [
     {
-      "id": "sadasd",
-      "fullName": "Bui Minh Quang",
-      "address": "49 Da Lat",
-      "phoneNumber": "333-962-716",
-      "email": "minhquang.bui@gmail.com"
-    },
-    {
-      "id": "sadfdasdiouahs",
-      "fullName": "Tai Do",
-      "address": "29 Ha Noi",
-      "phoneNumber": "773-206-935",
-      "email": "quangtai.do@gmail.com"
-    },
-    {
       "id": "asduaisgd",
       "fullName": "To Minh Quan",
       "address": "17 Thai Binh",
