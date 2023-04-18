@@ -49,7 +49,7 @@ export function AddUserForm(props){
             }
            return response.json()
         })
-        .then((data)=> props.showList());
+        .then(()=> props.showList());
 
     }
 }
@@ -72,7 +72,7 @@ export function AddUserForm(props){
                        </div>
 
                        <div className="row mb-3">
-                            <label className="col-sm-4 col-form-label">Address</label>
+                            <label className="col-sm-4 col-form-label">Address:</label>
                             <div className="col-sm-8">
                                  <input className="form-control"
                                         name="address"
@@ -83,7 +83,7 @@ export function AddUserForm(props){
                        </div>
 
                        <div className="row mb-3">
-                            <label className="col-sm-4 col-form-label">PhoneNumber</label>
+                            <label className="col-sm-4 col-form-label">PhoneNumber:</label>
                             <div className="col-sm-8">
                                  <input className="form-control"
                                         name="phoneNumber"
@@ -94,7 +94,7 @@ export function AddUserForm(props){
                        </div>
 
                        <div className="row mb-3">
-                            <label className="col-sm-4 col-form-label">Email</label>
+                            <label className="col-sm-4 col-form-label">Email:</label>
                             <div className="col-sm-8">
                                  <input className="form-control"
                                         name="email"
