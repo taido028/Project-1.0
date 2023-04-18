@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { DeleteButton } from "./DeleteButton";
-import { Trash, PencilSquare } from "react-bootstrap-icons";
+import { Trash, PencilSquare, PersonFillAdd } from "react-bootstrap-icons";
 import { deleteUser, fetchUsers } from "./DeleteUser";
 
 
@@ -21,15 +21,15 @@ export function UserList(props) {
         <style>{`.topheader {}`}</style>
       </div>
       <h2 className="text-center mb-2">List of Users</h2>
-      <table className="table table-hover table-stripped">
+      <table class="first">
         <thead>
           <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Address</th>
-            <th>Phone Number</th>
-            <th>Email</th>
-            <th>Actions</th>
+            <th class="top">#</th>
+            <th class="top">Name</th>
+            <th class="top">Address</th>
+            <th class="top">Phone Number</th>
+            <th class="top">Email</th>
+            <th class="top">Actions</th>
           </tr>
         </thead>
 
@@ -37,24 +37,24 @@ export function UserList(props) {
           {users.map((user, index) => {
             return (
               <tr key={index}>
-                <td>{index + 1}</td>
-                <td>{user.fullName}</td>
-                <td>{user.address}</td>
-                <td>{user.phoneNumber}</td>
-                <td>{user.email}</td>
-                <td>
+                <td class="user">{index + 1}</td>
+                <td class="user">{user.fullName}</td>
+                <td class="user">{user.address}</td>
+                <td class="user">{user.phoneNumber}</td>
+                <td class="user">{user.email}</td>
+                <td class="user">
                   <button
                     type="button"
                     className="btn btn-primary btn-sm me-2"
                   >
-                    <PencilSquare />
+                    <PencilSquare class="icon"/>
                   </button>
                   <DeleteButton
                     onClick={() => deleteUserHandler(user.id)}
                     type="button"
                     className="btn btn-danger btn-sm "
                   >
-                    <Trash />
+                    <Trash class="icon"/>
                   </DeleteButton>
                 </td>
               </tr>
@@ -64,10 +64,10 @@ export function UserList(props) {
       </table>
       <button
         onClick={() => props.showForm()}
-        type="button"
-        className="btn btn-primary me-2"
+        class= "add"
       >
-        Add a User
+        <PersonFillAdd class="iconadd"/>
+        Add a user
       </button>
     </div>
   );
