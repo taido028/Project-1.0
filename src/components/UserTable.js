@@ -44,6 +44,7 @@ export function UserList(props) {
                 <td class="user">{user.email}</td>
                 <td class="user">
                   <button
+                    onClick={()=> props.showForm(user)}
                     type="button"
                     className="btn btn-primary btn-sm me-2"
                   >
@@ -53,8 +54,7 @@ export function UserList(props) {
                     onClick={() => deleteUserHandler(user.id)}
                     type="button"
                     className="btn btn-danger btn-sm "
-                  >
-                    <Trash class="icon"/>
+                  ><Trash class="icon"/>
                   </DeleteButton>
                 </td>
               </tr>
@@ -63,11 +63,8 @@ export function UserList(props) {
         </tbody>
       </table>
       <button
-        onClick={() => props.showForm()}
-        class= "add"
-      >
-        <PersonFillAdd class="iconadd"/>
-        Add a user
+        onClick={() => props.showForm({})}
+        class= "add"><PersonFillAdd class="iconadd"/>Add a user
       </button>
     </div>
   );

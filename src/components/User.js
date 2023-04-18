@@ -3,19 +3,19 @@ import { UserList } from "./UserTable";
 import { AddUserForm } from "./AddUser";
 
 export function User(){
-    const [user, setUser] = useState(<UserList showForm={showForm} />)
+    const [users, setUser] = useState(<UserList showForm={showForm} />)
 
     function showList(){
         setUser(<UserList showForm={showForm} />);
     }
 
-    function showForm(){
-        setUser(<AddUserForm showList={showList} />);
+    function showForm(user){
+        setUser(<AddUserForm user={user} showList={showList} />);
 
     }
     return(
         <div className="container my-5">
-            {user}
+            {users}
         </div>
     );
 }
