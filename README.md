@@ -7,7 +7,7 @@ Colaborators: Minh Quang Bui - Quang Tai Do
 1. Run in terminal to install `npm install -g json-server`
 
 2. Run `json-server --watch data.json --port 3004` or `make server` to create port for storage file.
-   _If this doesn't work run `Window Powershell` as administator and run command `Set-ExecutionPolicy Unrestricted` -> press `y`_
+   (_If this doesn't work run `Window Powershell` as administator and run command `Set-ExecutionPolicy Unrestricted` -> press `y`_)
 
 3. Open new terminal and run command `npm start`
 
