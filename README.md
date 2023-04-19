@@ -13,7 +13,7 @@ Colaborators: Minh Quang Bui - Quang Tai Do
 
 ## Features:
 
-### 1. Edit a user data from the table. (Working on progress!)
+### 1. Edit a user data from the table.
 
 ### 2. Remove a user from the table.
 
