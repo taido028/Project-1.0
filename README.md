@@ -1,6 +1,6 @@
 # Project Workflow
 
-Colaborators: Minh Quang Bui - Quang Tai Do
+Contributors: Minh Quang Bui - Quang Tai Do
 
 ## How to run:
 
