@@ -1,5 +1,6 @@
 import React from "react";
 import { Save, ArrowRightSquareFill } from "react-bootstrap-icons";
+import { InputBox } from "./InputBox";
 
 export function AddUserForm(props){
 
@@ -60,50 +61,10 @@ export function AddUserForm(props){
         <div className="row">
             <div className="col-lg-6 mx-auto">
                   <form onSubmit={handleSubmit}>
-                      <div className="row mb-3">
-                            <label className="col-sm-4 col-form-label">Name</label>
-                            <div className="col-sm-8">
-                                 <input className="form-control"
-                                        name="fullName"
-                                        defaultValue={props.user.fullName}
-                                        class="inputbox"
-                                        />
-                            </div>
-                       </div>
-
-                       <div className="row mb-3">
-                            <label className="col-sm-4 col-form-label">Address:</label>
-                            <div className="col-sm-8">
-                                 <input className="form-control"
-                                        name="address"
-                                        defaultValue={props.user.address}
-                                        class="inputbox"
-                                        />
-                            </div>
-                       </div>
-
-                       <div className="row mb-3">
-                            <label className="col-sm-4 col-form-label">PhoneNumber:</label>
-                            <div className="col-sm-8">
-                                 <input className="form-control"
-                                        name="phoneNumber"
-                                        defaultValue={props.user.phoneNumber}
-                                        class="inputbox"
-                                        />
-                            </div>
-                       </div>
-
-                       <div className="row mb-3">
-                            <label className="col-sm-4 col-form-label">Email:</label>
-                            <div className="col-sm-8">
-                                 <input className="form-control"
-                                        name="email"
-                                        defaultValue={props.user.email}
-                                        class="inputbox"
-                                        />
-                            </div>
-                       </div>
-
+                        <InputBox BoxName="Name:" name="fullName" props={props.user.fullName}/>
+                        <InputBox BoxName="Address:" name="address" props={props.user.address}/>
+                        <InputBox BoxName="Phone Number:" name="phoneNumber" props={props.user.phoneNumber}/>
+                        <InputBox BoxName="Email:" name="email" props={props.user.email}/>
                        <div className="row">
                             <div className="offset-sm-4 col-sm-4 d-grid">
                                 <button type="submit" className="btn btn-sm btn-success"><Save class="icon"/></button>

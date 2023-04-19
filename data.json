@@ -1,13 +1,6 @@
 {
   "users": [
     {
-      "id": "sadasd",
-      "fullName": "Bui Minh Quang",
-      "address": "49 Da Lat",
-      "phoneNumber": "333-962-716",
-      "email": "minhquang.bui@gmail.com"
-    },
-    {
       "id": "sadfdasdiouahs",
       "fullName": "Tai Do",
       "address": "29 Ha Noi",
@@ -36,25 +29,18 @@
       "email": "anhnhat.nguyen@gmail.com"
     },
     {
-      "fullName": "Tai Quang Do",
+      "fullName": "Nguyen Minh Dung",
       "address": "2036/4 třída Generála Píky",
       "phoneNumber": "+84397162483",
-      "email": "taibadboy028@gmail.com",
+      "email": "minhdung.nguyen@gmail.com",
       "id": "2RJLw9u"
     },
     {
-      "fullName": "12321",
-      "address": "123213",
-      "phoneNumber": "123123",
-      "email": "12321@123123",
-      "id": "7WclhkD"
-    },
-    {
-      "fullName": "123",
-      "address": "123",
-      "phoneNumber": "123",
-      "email": "123@123",
-      "id": "Z97eekw"
+      "fullName": "Tran Hieu Duc",
+      "address": "2036/4 třída Generála Píky",
+      "phoneNumber": "213-213-312",
+      "email": "hieuduc.tran@gmail.com",
+      "id": "2RJLw9u123"
     }
   ]
 }

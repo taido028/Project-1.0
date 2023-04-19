@@ -19,5 +19,3 @@ export function User(){
         </div>
     );
 }
-
-
