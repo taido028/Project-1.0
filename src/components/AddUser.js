@@ -7,17 +7,19 @@ export function AddUserForm(props){
     const handleSubmit= (event) => {
         event.preventDefault();
 
-        // read form data
+        // Read Form Data
         const formData = new FormData(event.target);
 
-        // convert formData to object
+        // Convert FormData to Object
         const user = Object.fromEntries(formData.entries());
 
+        // Check if the input box is empty
         if(!user.fullName || !user.address || !user.phoneNumber || !user.email){
             console.log("Please enter all fields");
             return;
         }
 
+        // Send Data to Server
         if(props.user.id){
         fetch("http://localhost:3004/users/" +props.user.id ,{
             method:"PATCH",
@@ -61,10 +63,12 @@ export function AddUserForm(props){
         <div className="row">
             <div className="col-lg-6 mx-auto">
                   <form onSubmit={handleSubmit}>
+
                         <InputBox BoxName="Name:" name="fullName" props={props.user.fullName}/>
                         <InputBox BoxName="Address:" name="address" props={props.user.address}/>
                         <InputBox BoxName="Phone Number:" name="phoneNumber" props={props.user.phoneNumber}/>
                         <InputBox BoxName="Email:" name="email" props={props.user.email}/>
+
                        <div className="row">
                             <div className="offset-sm-4 col-sm-4 d-grid">
                                 <button type="submit" className="btn btn-sm btn-success"><Save class="icon"/></button>
