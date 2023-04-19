@@ -19,7 +19,7 @@ Colaborators: Minh Quang Bui - Quang Tai Do
 
 ### 3. Add a user to the table.
 
-### 4. Add a group the the table. (Working on progress!)
+### 4. Add a group the the table. (Working in progress!)
 
 # Assignments:
 
