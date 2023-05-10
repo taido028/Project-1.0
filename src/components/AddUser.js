@@ -1,11 +1,15 @@
 import React from "react";
 import { Save, ArrowRightSquareFill } from "react-bootstrap-icons";
 import { InputBox } from "./InputBox";
+import { useDispatch } from "react-redux";
+import { adduser } from "reducer/userReducer";
 
 export function AddUserForm(props){
+    const dispatch= useDispatch();
 
     const handleSubmit= (event) => {
         event.preventDefault();
+        
 
         // Read Form Data
         const formData = new FormData(event.target);
@@ -55,6 +59,10 @@ export function AddUserForm(props){
         .then(()=> props.showList());
 
     }
+    const action = adduser(user)
+    console.log({user})
+    dispatch(action)
+
 }
        
     return(

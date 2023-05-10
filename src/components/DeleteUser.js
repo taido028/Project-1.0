@@ -15,7 +15,7 @@ export function fetchUsers(setUsers) {
     .catch((error) => console.log("Error: ", error));
 }
 
-export function deleteUser(id, fetchUsers) {
+export function deleteUser(id, fetchUsers){
   fetch("http://localhost:3004/users/" + id, {
     method: "DELETE",
   })

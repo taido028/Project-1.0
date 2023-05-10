@@ -7,12 +7,16 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { User } from 'components/User';
 import "./configurations/ButtonConfig.css";
-import "./configurations/TableConfig.css";
+import "./configurations/TableConfig.css"
+import { AppProvider } from 'pages/store';
 
 
 function App() {
   return (
-  <User/>
+    <AppProvider>
+      <User/>
+    </AppProvider>
+  
   );
 }
 
