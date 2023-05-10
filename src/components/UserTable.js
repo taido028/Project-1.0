@@ -12,6 +12,7 @@ export function UserList(props) {
   function deleteUserHandler(id){
     deleteUser(id, () => fetchUsers(setUsers));
   }
+  console.log({users})
 
   return (
     <div className="app-container">
@@ -36,7 +37,7 @@ export function UserList(props) {
         <tbody>
           {users.map((user, index) => {
             return (
-              <tr>
+              <tr> 
                 <td class="user">{index + 1}</td>
                 <td class="user">{user.fullName}</td>
                 <td class="user">{user.address}</td>
@@ -45,7 +46,7 @@ export function UserList(props) {
                 <td class="user">
 
                   <button
-                    onClick={()=> props.showForm(user)}
+                    onClick={()=> props.showForm({})}
                     type="button"
                     className="btn btn-primary btn-sm me-2"
                   >

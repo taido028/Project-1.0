@@ -6,6 +6,7 @@ export function AddUserForm(props){
 
     const handleSubmit= (event) => {
         event.preventDefault();
+        
 
         // Read Form Data
         const formData = new FormData(event.target);
@@ -53,6 +54,7 @@ export function AddUserForm(props){
            return response.json()
         })
         .then(()=> props.showList());
+        console.log(user)
 
     }
 }
