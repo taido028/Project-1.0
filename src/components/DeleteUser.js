@@ -1,5 +1,5 @@
 export function fetchUsers(setUsers) {
-  fetch("http://localhost:3004/users")
+  fetch("http://localhost:3004/data")
 
     .then((response) => {
       if (!response.ok) {
@@ -16,7 +16,7 @@ export function fetchUsers(setUsers) {
 }
 
 export function deleteUser(id, fetchUsers){
-  fetch("http://localhost:3004/users/" + id, {
+  fetch("http://localhost:3004/data/" + id, {
     method: "DELETE",
   })
     .then((response) => response.json())

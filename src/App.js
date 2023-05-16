@@ -1,21 +1,20 @@
-import logo from './logo.svg';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { NavBar, Footer} from 'pages/Layout';
-import { Home } from 'pages/Home';
+
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { User } from 'components/User';
+import { GroupPageProvider } from 'componentsss/GroupPageProvider';
 import "./configurations/ButtonConfig.css";
 import "./configurations/TableConfig.css"
-import { AppProvider } from 'pages/store';
+import { AppProvider } from 'store/store';
 
 
 function App() {
   return (
+    <div className="App">
     <AppProvider>
-      <User/>
+      <GroupPageProvider id="cd49e153-610c-11ed-bf19-001a7dda7110" />
     </AppProvider>
+    </div>
   
   );
 }

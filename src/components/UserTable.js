@@ -45,7 +45,7 @@ export function UserList(props) {
                 <td class="user">
 
                   <button
-                    onClick={()=> props.showForm(user)}
+                    onClick={()=> props.showForm({})}
                     type="button"
                     className="btn btn-primary btn-sm me-2"
                   >

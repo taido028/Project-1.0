@@ -1,46 +1,79 @@
 {
-  "users": [
-    {
-      "id": "sadfdasdiouahs",
-      "fullName": "Tai Do",
-      "address": "29 Ha Noi",
-      "phoneNumber": "773-206-935",
-      "email": "quangtai.do@gmail.com"
-    },
-    {
-      "id": "asduaisgd",
-      "fullName": "To Minh Quan",
-      "address": "17 Thai Binh",
-      "phoneNumber": "788-962-751",
-      "email": "minhquan.to@gmail.com"
-    },
-    {
-      "id": "adasnwqkeuioqw",
-      "fullName": "Quach Phung Hieu",
-      "address": "19 Hai Phong",
-      "phoneNumber": "011-962-111",
-      "email": "phunghieu.quach@gmail.com"
-    },
-    {
-      "id": "asdhgasbd",
-      "fullName": "Nguyen Anh Nhat",
-      "address": "20 Thai Nguyen",
-      "phoneNumber": "331-962-716",
-      "email": "anhnhat.nguyen@gmail.com"
-    },
-    {
-      "fullName": "Nguyen Minh Dung",
-      "address": "2036/4 třída Generála Píky",
-      "phoneNumber": "+84397162483",
-      "email": "minhdung.nguyen@gmail.com",
-      "id": "2RJLw9u"
-    },
-    {
-      "fullName": "Tran Hieu Duc",
-      "address": "2036/4 třída Generála Píky",
-      "phoneNumber": "213-213-312",
-      "email": "hieuduc.tran@gmail.com",
-      "id": "2RJLw9u123"
-    }
-  ]
+
+  "data": {
+
+    "authorizationPage": [
+
+      {
+
+        "id": "a854adb9-b29a-4062-95b3-cfd685071f16",
+
+        "users": [
+
+          {
+
+            "id": "16c92914-0f71-437d-ace3-9661abe4c6cd",
+
+            "user": {
+
+              "id": "2d9dc5ca-a4a2-11ed-b9df-0242ac120003",
+
+              "email": "john.newbie@world.com"
+
+            }
+
+          }
+
+        ],
+
+        "groups": [
+
+          {
+
+            "id": "4390a9cc-4751-482c-932b-908f0354380e",
+
+            "group": {
+
+              "id": "2d9dcd22-a4a2-11ed-b9df-0242ac120003",
+
+              "name": "Uni"
+
+            }
+
+          }
+
+        ],
+
+        "roleTypes": [
+
+          {
+
+            "id": "1125f3ed-cf55-4a57-9eb7-7e8f1447b9b0",
+
+            "roleType": {
+
+              "id": "05a3e0f5-f71e-4caa-8012-229d868aa8ca",
+
+              "name": "já"
+
+            },
+
+            "group": {
+
+              "id": "2d9dcd22-a4a2-11ed-b9df-0242ac120003",
+
+              "name": "Uni"
+
+            }
+
+          }
+
+        ]
+
+      }
+
+    ]
+
+  }
+
 }

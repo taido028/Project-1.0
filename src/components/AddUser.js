@@ -2,10 +2,10 @@ import React from "react";
 import { Save, ArrowRightSquareFill } from "react-bootstrap-icons";
 import { InputBox } from "./InputBox";
 import { useDispatch } from "react-redux";
-import { adduser } from "reducer/userReducer";
+import { adduser } from "reducer/UsersReducer";
 
 export function AddUserForm(props){
-    const dispatch= useDispatch();
+   // const dispatch= useDispatch();
 
     const handleSubmit= (event) => {
         event.preventDefault();
@@ -25,7 +25,7 @@ export function AddUserForm(props){
 
         // Send Data to Server
         if(props.user.id){
-        fetch("http://localhost:3004/users/" +props.user.id ,{
+        fetch("http://localhost:3004/data/" +props.user.id ,{
             method:"PATCH",
             headers:{
                 "Content-Type": "application/json",
@@ -42,7 +42,7 @@ export function AddUserForm(props){
         .then((data)=> props.showList());
     }
     else{
-        fetch("http://localhost:3004/users/" ,{
+        fetch("http://localhost:3004/data/" ,{
             method:"POST",
             headers:{
                 "Content-Type": "application/json",
@@ -59,9 +59,9 @@ export function AddUserForm(props){
         .then(()=> props.showList());
 
     }
-    const action = adduser(user)
-    console.log({user})
-    dispatch(action)
+    //const action = adduser(user)
+    //console.log({user})
+    //dispatch(action)
 
 }
        

@@ -3,11 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "/ui",
+  "proxy": "http://localhost:31180/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.6",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "apollo-server-express": "^3.12.0",
     "bootstrap": "5.2.3",
     "react": "^18.2.0",
     "react-bootstrap": "^2.1.2",
@@ -44,6 +46,11 @@
     ]
   },
   "devDependencies": {
-    "json-server": "^0.17.3"
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "express-graphql": "^0.12.0",
+    "graphql": "^15.8.0",
+    "json-server": "^0.17.3",
+    "nodemon": "^2.0.22"
   }
 }
