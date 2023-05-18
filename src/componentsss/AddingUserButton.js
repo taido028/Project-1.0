@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { PersonAdd, Save,X } from 'react-bootstrap-icons';
+import { PersonFillAdd, Save,X } from 'react-bootstrap-icons';
 import { v1 } from 'uuid';
 
 export const Adding_Member = ({new_user,set_new_user, onClick,setState0,setState1,state}) =>{ 
@@ -7,7 +7,7 @@ export const Adding_Member = ({new_user,set_new_user, onClick,setState0,setState
     if ( state === 0 ) 
     {
         return (
-            <button className='btn btn-sm btn-primary' onClick={setState1}><PersonAdd></PersonAdd></button>
+            <button className='btn btn-sm btn-primary' onClick={setState1}><PersonFillAdd>Add a user</PersonFillAdd></button>
              )
     } else {
 
@@ -73,6 +73,6 @@ export const Adding_Member_Button = ({group,  actions}) => {
   const setState1 = useCallback(() => setState(1))
 
   return (
-      <Adding_Member new_user={new_user} state={state} setState0={setState0} setState1={setState1} set_new_user={set_new_user} onClick={onClick}><PersonAdd></PersonAdd></Adding_Member>
+      <Adding_Member new_user={new_user} state={state} setState0={setState0} setState1={setState1} set_new_user={set_new_user} onClick={onClick}><PersonFillAdd></PersonFillAdd> Add a user </Adding_Member>
   )
 }
