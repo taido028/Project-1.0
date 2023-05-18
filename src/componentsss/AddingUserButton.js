@@ -37,15 +37,6 @@ export const Adding_Member_Button = ({group,  actions}) => {
     const [new_user, set_new_user] = useState({
         id:"",
         email:"", 
-        roles:
-        [
-            {
-                roletype:
-                {
-                    name:''
-                }
-            }
-        ],
         users:
         [
             {
