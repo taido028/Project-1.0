@@ -7,7 +7,6 @@ import { bindGroupActions } from "reducer/main";
 export const store = configureStore({
     reducer: {
         groups: GroupReducer,
-
     }, 
     preloadedState:{
         groups:{},

@@ -10,7 +10,7 @@ export const GroupMembersCard = ({group, actions}) => {
         <Card>
             <Card.Header>
                 <Card.Title>
-                    Členové
+                    List of Users
                 </Card.Title>
             </Card.Header>
             <Card.Body>

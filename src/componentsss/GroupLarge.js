@@ -12,9 +12,8 @@ export const GroupLarge = ({group, actions}) => {
         <Card>
             <Card.Header>
                 <Card.Title>
-                    Skupina {group.id} <br />
-                    
-                    
+                   AuthorizationPage<br />
+                   ID of the page: {group.id} <br/>
                 </Card.Title>
             </Card.Header>
             <Card.Body>

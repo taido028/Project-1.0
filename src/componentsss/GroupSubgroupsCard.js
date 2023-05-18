@@ -13,7 +13,7 @@ export const GroupSubgroupsCard = ({group, actions}) => {
                 </Card.Title>
             </Card.Header>
             <Card.Body>
-                {JSON.stringify(group.roleTypes)}
+                {JSON.stringify(group.users)}
             </Card.Body>
         </Card>
     )

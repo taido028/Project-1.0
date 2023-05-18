@@ -14,9 +14,11 @@ export const bindGroupActions = (dispatch) => {
         onGroupUpdate: (g) => dispatch(GroupActions.group_update(g)),
         onGroupAdd: (g) => dispatch(GroupActions.group_add(g)),
     
-        onGroupMemberRemove: ({user, group}) => dispatch(GroupActions.group_memberRemove({user, group})),
-        onGroupMemberUpdate: (group, user) => dispatch(GroupActions.group_memberUpdate(group,user)),
-    
+        onGroupMemberRemove: ({group, user}) => dispatch(GroupActions.group_memberRemove({group, user})),
+        onGroupMemberUpdate: ({group, user}) => dispatch(GroupActions.group_memberUpdate({group,user})),
+        onGroupMemberAdd:({user,group})=>dispatch(GroupActions.group_memberAdd({user,group})),
+
+        
         groupFetch: (id) => dispatch(GroupFetch(id)),
         
         //groupFakeFetch: (id) => dispatch(GroupFakeFetch(id)),   

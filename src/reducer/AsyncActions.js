@@ -43,7 +43,7 @@ export const GroupFetchHelper = (id, query, resultselector, dispatch, getState) 
 * @returns 
 */
 export const GroupFetch = (id) => (dispatch, getState) => {
-    const groupSelector = (json) => json.data.groupById
+    const groupSelector = (json) => json.data.authorizationById
     const bodyfunc = async () => {
         let groupData = await GroupFetchHelper(id, GroupQuery, groupSelector, dispatch, getState)
         console.log(groupData)

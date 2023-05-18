@@ -9,13 +9,8 @@ import { GroupMemberRemoveButton } from './GroupMemberRemoveButton';
  * @param {*} param0 
  * @returns 
  */
-export const GroupMemberTableRow = ({ user, actions, gid}) => {
+export const GroupMemberTableRow = ({ index, user, actions, gid}) => {
     
-    //remove button action
-    const onclick = () => {
-        const payload = {group: {id: gid}, user: user}
-        actions.onGroupMemberRemove(payload)
-    }
 
     //change email callback
     const onChangeEmail = (value) => {
@@ -29,14 +24,12 @@ export const GroupMemberTableRow = ({ user, actions, gid}) => {
    
     return (
         <tr>
+            <td>{index}</td>
             <td>{user.id}</td>
-            
-            
             <td>
                 <TextInput placeholder={"email"} id={user.id} value={user.email} onChange={onChangeEmail}/>
             </td>
             <td>
-                <DeleteButton onClick={onclick}><Trash /> Smaž</DeleteButton><br/>
                 <GroupMemberRemoveButton group={{id: gid}} user={user} actions={actions} />
             </td>
         </tr>

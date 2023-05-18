@@ -9,7 +9,7 @@ import { CreateItem, DeleteItem, ReplaceItem, UpdateItem, SelectItem} from './Us
  * @returns 
  */
 const GroupMemberRemove = (state, action) => {
-    console.log('volani stavove funkce, smazat uzivatele')
+    console.log('delete user in store')
     const g = action.payload.group
     const u = action.payload.user
     console.log(u)
@@ -18,6 +18,14 @@ const GroupMemberRemove = (state, action) => {
     return state
 }
 
+const GroupMemberAdd =(state, action)=>{
+    console.log("adding user in store")
+    const group=action.payload.group
+    const user = action.payload.user
+    const grouptake= state[group.id]
+    grouptake.users.push(user)
+    return state
+}
 /**
  * Stavova funkce, ktera provede update uzivatele ve skupine
  * @param {*} state 
@@ -48,7 +56,8 @@ export const GroupSlice = createSlice({
         group_select: SelectItem,
         
         group_memberRemove: GroupMemberRemove,
-        group_memberUpdate: GroupMemberUpdate
+        group_memberUpdate: GroupMemberUpdate,
+        group_memberAdd: GroupMemberAdd,
     }
 })
 
