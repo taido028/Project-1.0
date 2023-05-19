@@ -7,18 +7,12 @@ export const Adding_Member = ({new_user,set_new_user, onClick,setState0,setState
     if ( state === 0 ) 
     {
         return (
-            <button className='btn btn-sm btn-primary' onClick={setState1}><PersonFillAdd>Add a user</PersonFillAdd></button>
-             )
+            <button className='btn btn-sm btn-primary' onClick={setState1} class="add"><PersonFillAdd class="iconadd"></PersonFillAdd>Add</button>)
     } else {
-
-            function handleChange(evt) 
+            function handleChange(event) 
             {
-                const value = evt.target.value;
-                set_new_user({
-                  ...new_user,
-                  [evt.target.name]: value
-                });
-               
+                const value = event.target.value;
+                set_new_user({...new_user,[event.target.name]: value});
             }
             
         return (
@@ -26,7 +20,7 @@ export const Adding_Member = ({new_user,set_new_user, onClick,setState0,setState
             <label>User's email address:<input type="text" name="email" value={new_user.email} placeholder='Enter user email' onChange={handleChange} /> </label>
            
                 <button className='btn btn-sm btn-warning' onClick={setState0}><X></X></button>
-                <button className='btn btn-sm btn-success' onClick={onClick}><Save></Save></button>
+                <button className='btn btn-sm btn-success' onClick={onClick}><Save></Save>Save</button>
             </>
         )
     }
@@ -35,22 +29,15 @@ export const Adding_Member = ({new_user,set_new_user, onClick,setState0,setState
 
 export const Adding_Member_Button = ({group,  actions}) => {
     const [new_user, set_new_user] = useState({
-        id:"",
+        id:v1(),
         email:"", 
-        users:
-        [
-            {
-                id:v1()
-            }
-        ]
-        
     })
   const onClick = () => 
   {
     set_new_user({...new_user,id:v1()})
     const user=
     {
-        id:new_user.users[0].id,
+        id:new_user.id,
         user:{...new_user,id:v1()}
     }
     actions.onGroupMemberAdd({user, group})
