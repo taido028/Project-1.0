@@ -14,6 +14,8 @@ export const UsersTable = ({ page, actions }) => {
         <tr>
           <th>#</th>
           <th>Id</th>
+          <th>Jméno</th>
+          <th>Příjmení</th>
           <th>Email</th>
           <th>Actions</th>
         </tr>

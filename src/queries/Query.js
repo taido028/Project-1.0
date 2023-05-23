@@ -10,6 +10,8 @@ export const GroupQueryJSON = (id) => ({
                   id 
                   user {
                      id
+                     name
+                     surname
                      email
                   }    
                }

@@ -1,4 +1,4 @@
-import { GroupActions } from "./PageReducer";
+import { PageActions } from "./PageReducer";
 import { GroupFetch, GroupAsyncUpdate } from "./AsyncActions";
 
 /**
@@ -9,22 +9,20 @@ import { GroupFetch, GroupAsyncUpdate } from "./AsyncActions";
  */
 export const bindGroupActions = (dispatch) => {
   return {
-    onGroupUpdate: (g) => dispatch(GroupActions.group_update(g)),
-    onGroupAdd: (g) => dispatch(GroupActions.group_add(g)),
-
+    onPageUpdate: (g) => dispatch(PageActions.page_update(g)),
     onUserRemove: ({ page, user }) =>
-      dispatch(GroupActions.page_userRemove({ page, user })),
+      dispatch(PageActions.page_userRemove({ page, user })),
     onUserUpdate: ({ page, user }) =>
-      dispatch(GroupActions.page_userUpdate({ page, user })),
+      dispatch(PageActions.page_userUpdate({ page, user })),
     onUserAdd: ({ user, page }) =>
-      dispatch(GroupActions.page_userAdd({ user, page })),
+      dispatch(PageActions.page_userAdd({ user, page })),
 
     onGroupRemove: ({ page, group }) =>
-      dispatch(GroupActions.page_groupRemove({ page, group })),
+      dispatch(PageActions.page_groupRemove({ page, group })),
     onGroupUpdate: ({ page, group }) =>
-      dispatch(GroupActions.page_groupUpdate({ page, group })),
+      dispatch(PageActions.page_groupUpdate({ page, group })),
     onGroupAdd: ({ page, group }) =>
-      dispatch(GroupActions.page_groupAdd({ page, group })),
+      dispatch(PageActions.page_groupAdd({ page, group })),
 
     groupFetch: (id) => dispatch(GroupFetch(id)),
 

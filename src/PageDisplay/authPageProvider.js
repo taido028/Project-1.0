@@ -1,5 +1,5 @@
-import { useState, useEffect, useMemo } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 import { GroupLarge } from "./authPageLarge";
 
@@ -12,15 +12,15 @@ import { actions } from "store/store";
  */
 export const PageProvider = ({ id }) => {
   //vyber vsech skupin ze store
-  const groups = useSelector((state) => state.groups);
+  const pages = useSelector((state) => state.pages);
   //vyber idcka u skupiny, ktere bylo vybrano
-  const selectedId = useSelector((state) => state.groups.selectedId);
+  const selectedId = useSelector((state) => state.pages.selectedId);
   //vyber skupiny ze store, ktera ma byt zobrazena
-  const group = groups[id]; //|| {id: id}
+  const page = pages[id]; //|| {id: id}
 
   //console.log(group)
   console.log("prekresleni");
-  if (group?.memberships) {
+  if (page?.memberships) {
     //console.log(group.memberships)
   }
 
@@ -29,14 +29,14 @@ export const PageProvider = ({ id }) => {
 
     actions.groupFetch(id);
   }, [id, selectedId]);
-  if (group) {
+  if (page) {
     //skupina je ve store
-    return <GroupLarge page={group} actions={actions} />;
+    return <GroupLarge page={page} actions={actions} />;
   } else {
     //skupina ve store neni
     return (
       <div>
-        Loading... {id}, {group}
+        Loading... {id}, {page}
       </div>
     );
   }

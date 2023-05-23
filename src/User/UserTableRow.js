@@ -22,12 +22,13 @@ export const UserTableRow = ({ index, user, actions, gid }) => {
       <td>{index}</td>
       <td>{user.id}</td>
       <td>
-        <TextInput
-          placeholder={"email"}
-          id={user.id}
-          value={user.email}
-          onChange={onChangeEmail}
-        />
+        {user.name}
+      </td>
+      <td>
+        {user.surname} 
+      </td>
+      <td>
+        {user.email} 
       </td>
       <td>
         <UserRemoveButton page={{ id: gid }} user={user} actions={actions} />

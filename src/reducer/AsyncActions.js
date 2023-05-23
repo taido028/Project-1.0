@@ -1,4 +1,4 @@
-import { GroupActions } from "./PageReducer";
+import { PageActions } from "./PageReducer";
 
 import { GroupQuery } from "queries/Query";
 
@@ -35,7 +35,7 @@ export const GroupFetchHelper = (
       (error) => error
     )
     .then(
-      (json) => log("dispatching")(dispatch(GroupActions.group_update(json))),
+      (json) => log("dispatching")(dispatch(PageActions.page_update(json))),
       (error) => error
     );
 
@@ -102,7 +102,7 @@ export const GroupAsyncUpdate = (group) => (dispatch, getState) => {
           //mame hlasku, ze ok, musime si prebrat token (lastchange) a pouzit jej pro priste
           const lastchange = json.data.groupUpdate.group.lastchange;
           dispatch(
-            GroupActions.group_update({ ...group, lastchange: lastchange })
+            PageActions.group_update({ ...group, lastchange: lastchange })
           );
         }
         return json;

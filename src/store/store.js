@@ -1,14 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
-import { GroupReducer } from "reducer/PageReducer";
+import { PageReducer } from "reducer/PageReducer";
 import { bindGroupActions } from "reducer/main";
 
 export const store = configureStore({
   reducer: {
-    groups: GroupReducer,
+    pages: PageReducer,
   },
   preloadedState: {
-    groups: {},
+    pages: {},
   },
 });
 

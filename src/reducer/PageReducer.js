@@ -79,15 +79,15 @@ const GroupAdd = (state, action) => {
  * Kompletni rez budocim store.
  * Obsluhuje skupiny
  */
-export const GroupSlice = createSlice({
-  name: "groups",
+export const PageSlice = createSlice({
+  name: "pages",
   initialState: {},
   reducers: {
-    group_add: CreateItem,
-    group_delete: DeleteItem,
-    group_replace: ReplaceItem,
-    group_update: UpdateItem,
-    group_select: SelectItem,
+    page_add: CreateItem,
+    page_delete: DeleteItem,
+    page_replace: ReplaceItem,
+    page_update: UpdateItem,
+    page_select: SelectItem,
 
     page_userRemove: UserRemove,
     page_userUpdate: UserUpdate,
@@ -100,6 +100,6 @@ export const GroupSlice = createSlice({
 });
 
 //z rezu odvozene akce
-export const GroupActions = GroupSlice.actions;
+export const PageActions = PageSlice.actions;
 //z rezu odvozeny stavovy automat
-export const GroupReducer = GroupSlice.reducer;
+export const PageReducer = PageSlice.reducer;

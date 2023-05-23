@@ -1,7 +1,7 @@
 import Card from "react-bootstrap/Card";
 import { GroupNameInput } from "../User/GroupNameInput";
 import { UsersCard } from "User/UserCard";
-import { GroupSubgroupsCard } from "./GroupSubgroupsCard";
+import { PageUsersCard } from "./PageUsersCard";
 import { GroupCard } from "Group/GroupCard";
 /**
  * Renders a card describing a group im detailed form.
@@ -20,7 +20,7 @@ export const GroupLarge = ({ page, actions }) => {
       </Card.Header>
       <Card.Body>
         <UsersCard page={page} actions={actions} />
-        <GroupSubgroupsCard page={page} actions={actions} />
+        <PageUsersCard page={page} actions={actions} />
         <GroupCard page={page} actions={actions} />
       </Card.Body>
       <Card.Body>{JSON.stringify(page)}</Card.Body>

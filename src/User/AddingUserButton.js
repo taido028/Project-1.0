@@ -28,17 +28,9 @@ export const Adding_User = ({
 
     return (
       <>
-        <label>
-          User's email address:
-          <input
-            type="text"
-            name="email"
-            value={new_user.email}
-            placeholder="Enter user email"
-            onChange={handleChange}
-          />{" "}
-        </label>
-
+      <label>User's first name:<input type="text" name="name" value={new_user.name} placeholder='Enter user first name' onChange={handleChange} /> </label>
+      <label>User's surname:<input type="text" name="surname" value={new_user.lastName} placeholder='Enter user surname' onChange={handleChange} /> </label> 
+      <label>User's email address:<input type="text" name="email" value={new_user.email}placeholder="Enter user email" onChange={handleChange}/></label>
         <button className="btn btn-sm btn-warning" onClick={setState0}>
           <X></X>
         </button>
@@ -53,6 +45,8 @@ export const Adding_User = ({
 export const Adding_User_Button = ({ page, actions }) => {
   const [new_user, set_new_user] = useState({
     id: v1(),
+    name: "",
+    surname: "",
     email: "",
   });
   const onClick = () => {
