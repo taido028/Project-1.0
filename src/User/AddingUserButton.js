@@ -28,9 +28,36 @@ export const Adding_User = ({
 
     return (
       <>
-      <label>User's first name:<input type="text" name="name" value={new_user.name} placeholder='Enter user first name' onChange={handleChange} /> </label>
-      <label>User's surname:<input type="text" name="surname" value={new_user.lastName} placeholder='Enter user surname' onChange={handleChange} /> </label> 
-      <label>User's email address:<input type="text" name="email" value={new_user.email}placeholder="Enter user email" onChange={handleChange}/></label>
+        <label>
+          User's first name:
+          <input
+            type="text"
+            name="name"
+            value={new_user.name}
+            placeholder="Enter user first name"
+            onChange={handleChange}
+          />{" "}
+        </label>
+        <label>
+          User's surname:
+          <input
+            type="text"
+            name="surname"
+            value={new_user.lastName}
+            placeholder="Enter user surname"
+            onChange={handleChange}
+          />{" "}
+        </label>
+        <label>
+          User's email address:
+          <input
+            type="text"
+            name="email"
+            value={new_user.email}
+            placeholder="Enter user email"
+            onChange={handleChange}
+          />
+        </label>
         <button className="btn btn-sm btn-warning" onClick={setState0}>
           <X></X>
         </button>

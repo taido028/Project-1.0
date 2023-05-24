@@ -50,12 +50,12 @@ export const ReplaceItem = (state, action) => {
  * @returns
  */
 export const UpdateItem = (state, action) => {
-    const newItem = action.payload;
-    const oldItem = state[newItem.id]
-    state[newItem.id] = {...oldItem, ...newItem}
-    
-    return state
-}    
+  const newItem = action.payload;
+  const oldItem = state[newItem.id];
+  state[newItem.id] = { ...oldItem, ...newItem };
+
+  return state;
+};
 /**
  * Stavova funkce nad dict, pracude s klicem selectedId
  * @param {*} state

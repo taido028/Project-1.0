@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 
-import { GroupLarge } from "./authPageLarge";
+import { PageLarge } from "./authPageLarge";
 
 import { actions } from "store/store";
 
@@ -25,13 +25,13 @@ export const PageProvider = ({ id }) => {
   }
 
   useEffect(() => {
-    console.log("GroupPageProvider refetch " + id);
+    console.log("PageProvider refetch " + id);
 
-    actions.groupFetch(id);
+    actions.pageFetch(id);
   }, [id, selectedId]);
   if (page) {
     //skupina je ve store
-    return <GroupLarge page={page} actions={actions} />;
+    return <PageLarge page={page} actions={actions} />;
   } else {
     //skupina ve store neni
     return (

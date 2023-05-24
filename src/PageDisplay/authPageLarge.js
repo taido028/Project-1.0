@@ -8,7 +8,7 @@ import { GroupCard } from "Group/GroupCard";
  * @param {*} param0
  * @returns
  */
-export const GroupLarge = ({ page, actions }) => {
+export const PageLarge = ({ page, actions }) => {
   return (
     <Card>
       <Card.Header>

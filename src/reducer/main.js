@@ -1,5 +1,5 @@
 import { PageActions } from "./PageReducer";
-import { GroupFetch, GroupAsyncUpdate } from "./AsyncActions";
+import { AuthorizationPageFetch } from "./AsyncActions";
 
 /**
  * vytvori actions, ktere pri volani uz vse radne provedou
@@ -24,10 +24,10 @@ export const bindGroupActions = (dispatch) => {
     onGroupAdd: ({ page, group }) =>
       dispatch(PageActions.page_groupAdd({ page, group })),
 
-    groupFetch: (id) => dispatch(GroupFetch(id)),
+    pageFetch: (id) => dispatch(AuthorizationPageFetch(id)),
 
     //groupFakeFetch: (id) => dispatch(GroupFakeFetch(id)),
 
-    groupAsyncUpdate: (group) => dispatch(GroupAsyncUpdate(group)),
+    //groupAsyncUpdate: (group) => dispatch(GroupAsyncUpdate(group)),
   };
 };

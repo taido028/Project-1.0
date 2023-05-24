@@ -1,13 +1,13 @@
 import { PageActions } from "./PageReducer";
 
-import { GroupQuery } from "queries/Query";
+import { AuthorizationPageQuery } from "queries/Query";
 
 /**
  * Ask for the item on server and adds it or update it in the store to the heap
  * @param {*} id
  * @returns promise
  */
-export const GroupFetchHelper = (
+export const AuthorizationPageFetchHelper = (
   id,
   query,
   resultselector,
@@ -42,22 +42,22 @@ export const GroupFetchHelper = (
   return p;
 };
 /**
- * Fetch the group from server checks its type and asks once more for detailed data. Finally puts the result in the store.
+ * Fetch the page from server checks its type and asks once more for detailed data. Finally puts the result in the store.
  * @param {*} id
  * @returns
  */
-export const GroupFetch = (id) => (dispatch, getState) => {
-  const groupSelector = (json) => json.data.authorizationById;
+export const AuthorizationPageFetch = (id) => (dispatch, getState) => {
+  const pageSelector = (json) => json.data.authorizationById;
   const bodyfunc = async () => {
-    let groupData = await GroupFetchHelper(
+    let pageData = await AuthorizationPageFetchHelper(
       id,
-      GroupQuery,
-      groupSelector,
+      AuthorizationPageQuery,
+      pageSelector,
       dispatch,
       getState
     );
-    console.log(groupData);
-    return groupData;
+    console.log(pageData);
+    return pageData;
   };
   return bodyfunc();
 };

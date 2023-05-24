@@ -1,9 +1,7 @@
-import { authorizedFetch } from "../fetch/authorizedFetch"
+import { authorizedFetch } from "../fetch/authorizedFetch";
 
-
-export const GroupQueryJSON = (id) => ({
-    "query":
-       `query($id: ID!){
+export const AuthorizationPageQueryJSON = (id) => ({
+  query: `query($id: ID!){
            authorizationById (id: $id){
                id
                users {
@@ -35,10 +33,10 @@ export const GroupQueryJSON = (id) => ({
                }
            }
        }`,
-       "variables": {"id": id}
-})
+  variables: { id: id },
+});
 
-export const GroupQuery = (id) =>
-    authorizedFetch('/gql', {
-        body: JSON.stringify(GroupQueryJSON(id)),
-    })
+export const AuthorizationPageQuery = (id) =>
+  authorizedFetch("/gql", {
+    body: JSON.stringify(AuthorizationPageQueryJSON(id)),
+  });
