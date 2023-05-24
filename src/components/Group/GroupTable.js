@@ -11,11 +11,11 @@ export const GroupTable = ({ page, actions }) => {
   return (
     <table className="table table-hover table-stripped">
       <thead>
-        <tr>
+        <tr class="first top">
           <th>#</th>
-          <th>Id</th>
-          <th>Group Name</th>
-          <th>Actions</th>
+          <th class="first top">Id</th>
+          <th class="first top">Group Name</th>
+          <th class="first top">Actions</th>
         </tr>
       </thead>
       <tbody>

@@ -8,7 +8,7 @@ export const UserRemoveButton = ({ page, user, actions }) => {
   };
   return (
     <DeleteButton onClick={onClick}>
-      <Trash /> Delete
+      <Trash />
     </DeleteButton>
   );
 };

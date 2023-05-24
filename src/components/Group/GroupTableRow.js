@@ -20,11 +20,11 @@ export const GroupTableRow = ({ index, group, actions, gid }) => {
 
   return (
     <tr>
-      <td>{index}</td>
-      <td>{group.id}</td>
-      <td>{group.name}</td>
+      <td class="user">{index}</td>
+      <td class="user">{group.id}</td>
+      <td class="user">{group.name}</td>
       {
-        <td>
+        <td class="user">
           <GroupRemoveButton
             page={{ id: gid }}
             group={group}

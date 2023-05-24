@@ -8,7 +8,7 @@ export const GroupRemoveButton = ({ page, group, actions }) => {
   };
   return (
     <DeleteButton onClick={onClick}>
-      <Trash /> Delete
+      <Trash />
     </DeleteButton>
   );
 };

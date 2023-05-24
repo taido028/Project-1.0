@@ -34,3 +34,47 @@
     height: 30px;
     width: 30px;
 }
+
+.save{
+    height: 50px;
+    color: white;
+    background-color: rgb(2, 204, 2);
+    border-radius: 5px;
+    width: 150px;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    box-shadow: 0 9px #999;
+}
+
+.save:hover{
+    background-color: rgb(2, 204, 2);
+}
+
+.save:active{
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.cancel{
+    height: 50px;
+    color: white;
+    background-color: red;
+    border-radius: 5px;
+    width: 150px;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    box-shadow: 0 9px #999;
+}
+
+.cancel:hover{
+    background-color: red
+}
+
+.cancel:active{
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}

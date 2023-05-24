@@ -11,13 +11,13 @@ export const UsersTable = ({ page, actions }) => {
   return (
     <table className="table table-hover table-stripped">
       <thead>
-        <tr>
+        <tr class="first top">
           <th>#</th>
-          <th>Id</th>
-          <th>Jméno</th>
-          <th>Příjmení</th>
-          <th>Email</th>
-          <th>Actions</th>
+          <th class="first top">Id</th>
+          <th class="first top">Jméno</th>
+          <th class="first top">Příjmení</th>
+          <th class="first top">Email</th>
+          <th class="first top">Actions</th>
         </tr>
       </thead>
       <tbody>
