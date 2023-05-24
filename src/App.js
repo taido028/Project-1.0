@@ -1,6 +1,6 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { PageProvider } from "PageDisplay/authPageProvider";
+import { PageProvider } from "components/PageDisplay/authPageProvider";
 import "./configurations/ButtonConfig.css";
 import "./configurations/TableConfig.css";
 import { AppProvider } from "store/store";

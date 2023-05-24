@@ -1,6 +1,3 @@
-import { Trash } from "react-bootstrap-icons";
-import { TextInput } from "PageDisplay/TextInput";
-import { DeleteButton } from "components/DeleteButton";
 import { UserRemoveButton } from "./RemovingUserButton";
 
 /**

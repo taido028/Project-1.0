@@ -1,8 +1,7 @@
 import Card from "react-bootstrap/Card";
-import { GroupNameInput } from "../User/GroupNameInput";
-import { UsersCard } from "User/UserCard";
+import { UsersCard } from "components/User/UserCard";
 import { PageUsersCard } from "./PageUsersCard";
-import { GroupCard } from "Group/GroupCard";
+import { GroupCard } from "components/Group/GroupCard";
 /**
  * Renders a card describing a group im detailed form.
  * @param {*} param0
