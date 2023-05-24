@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react";
-import { PersonFillAdd, Save, X } from "react-bootstrap-icons";
+import { PersonFillAdd, SaveFill, ArrowLeft } from "react-bootstrap-icons";
 import { v1 } from "uuid";
 
 export const Adding_Group = ({
@@ -39,11 +39,19 @@ export const Adding_Group = ({
           />{" "}
         </label>
 
-        <button className="btn btn-sm btn-warning" onClick={setState0}>
-          <X></X>
+        <button
+          className="btn btn-sm btn-warning"
+          class="cancel"
+          onClick={setState0}
+        >
+          <ArrowLeft class="iconadd"></ArrowLeft>Return
         </button>
-        <button className="btn btn-sm btn-success" onClick={onClick}>
-          <Save></Save>Save
+        <button
+          className="btn btn-sm btn-success"
+          onClick={onClick}
+          class="save"
+        >
+          <SaveFill class="iconadd"></SaveFill>Save
         </button>
       </>
     );

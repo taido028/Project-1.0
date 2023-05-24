@@ -16,12 +16,12 @@ export const UserTableRow = ({ index, user, actions, gid }) => {
 
   return (
     <tr>
-      <td>{index}</td>
-      <td>{user.id}</td>
-      <td>{user.name}</td>
-      <td>{user.surname}</td>
-      <td>{user.email}</td>
-      <td>
+      <td class="user">{index}</td>
+      <td class="user">{user.id}</td>
+      <td class="user">{user.name}</td>
+      <td class="user">{user.surname}</td>
+      <td class="user">{user.email}</td>
+      <td class="user">
         <UserRemoveButton page={{ id: gid }} user={user} actions={actions} />
       </td>
     </tr>
