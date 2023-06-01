@@ -1,6 +1,9 @@
 import { useState, useCallback } from "react";
 import { PersonFillAdd, SaveFill, ArrowLeft } from "react-bootstrap-icons";
 import { v1 } from "uuid";
+import { ADD_USER_MUTATION } from "mutations/authAddUser";
+import { useMutation, gql } from "@apollo/client";
+import { Mutation } from "react-query";
 
 export const Adding_User = ({
   new_user,
@@ -84,6 +87,9 @@ export const Adding_User_Button = ({ page, actions }) => {
     surname: "",
     email: "",
   });
+
+  const [addUserMutation] = useMutation(ADD_USER_MUTATION);
+
   const onClick = () => {
     set_new_user({ ...new_user, id: v1() });
     const user = {
@@ -91,9 +97,14 @@ export const Adding_User_Button = ({ page, actions }) => {
       user: { ...new_user, id: v1() },
     };
     actions.onUserAdd({ user, page });
-    /*
-    const membership = {userId = user.user.id, groupId = group.id}
-    */
+    //const membership = {userId = user.user.id, groupId = group.id}
+
+    addUserMutation({
+      variables: {
+        authorizationId: page.id,
+        userId: user.id,
+      },
+    });
   };
   const [state, setState] = useState(0);
   const setState0 = useCallback(() => setState(0));

@@ -10,6 +10,7 @@ import { AuthorizationPageFetch } from "./AsyncActions";
 export const bindPageActions = (dispatch) => {
   return {
     onPageUpdate: (g) => dispatch(PageActions.page_update(g)),
+
     onUserRemove: ({ page, user }) =>
       dispatch(PageActions.page_userRemove({ page, user })),
     onUserUpdate: ({ page, user }) =>

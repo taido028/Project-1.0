@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+import { useAddUserMutation } from "mutations/authAddUser";
 import {
   CreateItem,
   DeleteItem,
@@ -14,6 +14,8 @@ import {
  * @param {*} action
  * @returns
  */
+
+// User
 const UserRemove = (state, action) => {
   console.log("delete user in store");
   const p = action.payload.page;
@@ -32,12 +34,7 @@ const UserAdd = (state, action) => {
   pagetake.users.push(user);
   return state;
 };
-/**
- * Stavova funkce, ktera provede update uzivatele ve skupine
- * @param {*} state
- * @param {*} action
- * @returns
- */
+
 const UserUpdate = (state, action) => {
   const p = action.payload.page;
   const u = action.payload.user;
@@ -48,6 +45,7 @@ const UserUpdate = (state, action) => {
   return state;
 };
 
+// Group
 const GroupRemove = (state, action) => {
   const p = action.payload.page;
   const g = action.payload.group;
