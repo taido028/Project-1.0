@@ -12,7 +12,7 @@ import {
 } from "@apollo/client";
 
 const client = new ApolloClient({
-  uri: "http://192.168.5.103:31180/ui/api",
+  uri: "http://192.168.5.104:31180/ui/api",
   cache: new InMemoryCache(),
 });
 

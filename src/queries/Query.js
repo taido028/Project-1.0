@@ -6,11 +6,14 @@ export const AuthorizationPageQueryJSON = (id) => ({
                id
                users {
                   id 
+                  accesslevel
                   user {
                      id
                      name
                      surname
                      email
+                     valid
+                     lastchange
                   }    
                }
                groups{

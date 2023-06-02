@@ -23,6 +23,7 @@ const UserRemove = (state, action) => {
   console.log(u);
   const page = state[p.id];
   page.users = page.users.filter((m) => m.user.id !== u.id);
+
   return state;
 };
 

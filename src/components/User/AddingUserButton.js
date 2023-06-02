@@ -1,17 +1,14 @@
 import { useState, useCallback } from "react";
 import { PersonFillAdd, SaveFill, ArrowLeft } from "react-bootstrap-icons";
 import { v1 } from "uuid";
-import { ADD_USER_MUTATION } from "mutations/authAddUser";
-import { useMutation, gql } from "@apollo/client";
-import { Mutation } from "react-query";
 
 export const Adding_User = ({
-  new_user,
-  set_new_user,
-  onClick,
+  page,
   setState0,
   setState1,
   state,
+  id,
+  onClick,
 }) => {
   if (state === 0) {
     return (
@@ -26,38 +23,18 @@ export const Adding_User = ({
   } else {
     function handleChange(event) {
       const value = event.target.value;
-      set_new_user({ ...new_user, [event.target.name]: value });
+      id = value;
     }
 
     return (
       <>
         <label>
-          User's first name:
+          User's ID:
           <input
             type="text"
-            name="name"
-            value={new_user.name}
-            placeholder="Enter user first name"
-            onChange={handleChange}
-          />{" "}
-        </label>
-        <label>
-          User's surname:
-          <input
-            type="text"
-            name="surname"
-            value={new_user.lastName}
-            placeholder="Enter user surname"
-            onChange={handleChange}
-          />{" "}
-        </label>
-        <label>
-          User's email address:
-          <input
-            type="text"
-            name="email"
-            value={new_user.email}
-            placeholder="Enter user email"
+            name="id"
+            value={id}
+            placeholder="Enter user ID"
             onChange={handleChange}
           />
         </label>
@@ -70,7 +47,7 @@ export const Adding_User = ({
         </button>
         <button
           className="btn btn-sm btn-success"
-          onClick={onClick}
+          onClick={() => onClick(page, id)}
           class="save"
         >
           <SaveFill class="iconadd"></SaveFill>Save
@@ -81,30 +58,12 @@ export const Adding_User = ({
 };
 
 export const Adding_User_Button = ({ page, actions }) => {
-  const [new_user, set_new_user] = useState({
-    id: v1(),
-    name: "",
-    surname: "",
-    email: "",
-  });
-
-  const [addUserMutation] = useMutation(ADD_USER_MUTATION);
-
-  const onClick = () => {
-    set_new_user({ ...new_user, id: v1() });
-    const user = {
-      id: new_user.id,
-      user: { ...new_user, id: v1() },
-    };
-    actions.onUserAdd({ user, page });
-    //const membership = {userId = user.user.id, groupId = group.id}
-
-    addUserMutation({
-      variables: {
-        authorizationId: page.id,
-        userId: user.id,
-      },
-    });
+  const onClick = (page, userId) => {
+    //actions.onUserAdd({ user, page });
+    /*
+    const membership = {userId = user.user.id, groupId = group.id}
+    */
+    actions.onMutationAddUser({ userId, pageId: page.id });
   };
   const [state, setState] = useState(0);
   const setState0 = useCallback(() => setState(0));
@@ -112,11 +71,10 @@ export const Adding_User_Button = ({ page, actions }) => {
 
   return (
     <Adding_User
-      new_user={new_user}
       state={state}
       setState0={setState0}
       setState1={setState1}
-      set_new_user={set_new_user}
+      page={page}
       onClick={onClick}
     >
       <PersonFillAdd></PersonFillAdd> Add a user{" "}

@@ -1,5 +1,7 @@
 import { PageActions } from "./PageReducer";
 import { AuthorizationPageFetch } from "./AsyncActions";
+import { AddUserMutation } from "mutations/authAddUser";
+import { UpdateUserMutation } from "mutations/authUserUpdateAction";
 
 /**
  * vytvori actions, ktere pri volani uz vse radne provedou
@@ -26,6 +28,14 @@ export const bindPageActions = (dispatch) => {
       dispatch(PageActions.page_groupAdd({ page, group })),
 
     pageFetch: (id) => dispatch(AuthorizationPageFetch(id)),
+
+    onMutationAddUser: ({ userId, pageId }) => {
+      return dispatch(AddUserMutation(userId, pageId));
+    },
+
+    onMutationUpdateUser: ({ user }) => {
+      return dispatch(UpdateUserMutation(user));
+    },
 
     //groupFakeFetch: (id) => dispatch(GroupFakeFetch(id)),
 

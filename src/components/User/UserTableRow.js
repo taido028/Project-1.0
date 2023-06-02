@@ -13,17 +13,18 @@ export const UserTableRow = ({ index, user, actions, gid }) => {
       actions.onUserUpdate(payload);
     }
   };
-
-  return (
-    <tr>
-      <td class="user">{index}</td>
-      <td class="user">{user.id}</td>
-      <td class="user">{user.name}</td>
-      <td class="user">{user.surname}</td>
-      <td class="user">{user.email}</td>
-      <td class="user">
-        <UserRemoveButton page={{ id: gid }} user={user} actions={actions} />
-      </td>
-    </tr>
-  );
+  if (user.valid !== true) {
+    return (
+      <tr>
+        <td class="user">{index}</td>
+        <td class="user">{user.id}</td>
+        <td class="user">{user.name}</td>
+        <td class="user">{user.surname}</td>
+        <td class="user">{user.email}</td>
+        <td class="user">
+          <UserRemoveButton page={{ id: gid }} user={user} actions={actions} />
+        </td>
+      </tr>
+    );
+  }
 };
