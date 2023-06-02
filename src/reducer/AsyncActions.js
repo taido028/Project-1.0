@@ -1,6 +1,7 @@
 import { PageActions } from "./PageReducer";
-
 import { AuthorizationPageQuery } from "queries/Query";
+import { UserActions } from "./UsersReducer";
+import { UserQuery } from "queries/UserQuery";
 
 /**
  * Ask for the item on server and adds it or update it in the store to the heap
@@ -108,4 +109,52 @@ export const GroupAsyncUpdate = (group) => (dispatch, getState) => {
         return json;
       })
   );
+};
+
+////////User Actions
+
+export const UserFetchHelper = (
+  id,
+  query,
+  resultselector,
+  dispatch,
+  getState
+) => {
+  const log = (text) => (p) => {
+    console.log(text);
+    console.log(JSON.stringify(p));
+    return p;
+  };
+  const p = query(id)
+    .then(
+      (response) => response.json(),
+      (error) => error
+    )
+    .then((i) => log("incomming")(i))
+    .then(
+      (json) => log("converted")(resultselector(json)),
+      (error) => error
+    )
+    .then(
+      (json) => log("dispatching")(dispatch(UserActions.users_update(json))),
+      (error) => error
+    );
+
+  return p;
+};
+
+export const UserFetch = (id) => (dispatch, getState) => {
+  const userSelector = (json) => json.data.userById;
+  const bodyfunc = async () => {
+    let userData = await UserFetchHelper(
+      id,
+      UserQuery,
+      userSelector,
+      dispatch,
+      getState
+    );
+    console.log(userData);
+    return userData;
+  };
+  return bodyfunc();
 };

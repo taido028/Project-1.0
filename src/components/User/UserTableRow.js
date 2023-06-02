@@ -13,7 +13,7 @@ export const UserTableRow = ({ index, user, actions, gid }) => {
       actions.onUserUpdate(payload);
     }
   };
-  if (user.valid !== true) {
+  if (user.valid === true) {
     return (
       <tr>
         <td class="user">{index}</td>

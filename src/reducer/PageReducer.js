@@ -1,12 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { useAddUserMutation } from "mutations/authAddUser";
-import {
-  CreateItem,
-  DeleteItem,
-  ReplaceItem,
-  UpdateItem,
-  SelectItem,
-} from "./UsersReducer";
 
 /**
  * stavova funkce, ktera odebere uzivatele ze skupiny
@@ -74,6 +66,14 @@ const GroupAdd = (state, action) => {
   return state;
 };
 
+export const UpdateItem = (state, action) => {
+  const newItem = action.payload;
+  const oldItem = state[newItem.id];
+  state[newItem.id] = { ...oldItem, ...newItem };
+
+  return state;
+};
+
 /**
  * Kompletni rez budocim store.
  * Obsluhuje skupiny
@@ -83,10 +83,10 @@ export const PageSlice = createSlice({
   initialState: {},
   reducers: {
     //page_add: CreateItem,
-    page_delete: DeleteItem,
+    //page_delete: DeleteItem,
     //page_replace: ReplaceItem,
     page_update: UpdateItem,
-    page_select: SelectItem,
+    //page_select: SelectItem,
 
     page_userRemove: UserRemove,
     page_userUpdate: UserUpdate,

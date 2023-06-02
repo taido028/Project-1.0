@@ -2,13 +2,16 @@ import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import { PageReducer } from "reducer/PageReducer";
 import { bindPageActions } from "reducer/main";
+import { UserReducer } from "reducer/UsersReducer";
 
 export const store = configureStore({
   reducer: {
     pages: PageReducer,
+    users: UserReducer,
   },
   preloadedState: {
     pages: {},
+    users: {},
   },
 });
 
