@@ -7,13 +7,7 @@ import { UserRemoveButton } from "./RemovingUserButton";
  */
 export const UserTableRow = ({ index, user, actions, gid }) => {
   //change email callback
-  const onChangeEmail = (value) => {
-    if (actions.UserUpdate) {
-      const payload = { group: { id: gid }, user: { ...user, email: value } };
-      actions.onUserUpdate(payload);
-    }
-  };
-  if (user.valid !== true) {
+  if (user.valid === true) {
     return (
       <tr>
         <td class="user">{index}</td>

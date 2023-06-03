@@ -1,6 +1,6 @@
 import { PageActions } from "./PageReducer";
 
-import { AuthorizationPageQuery } from "queries/Query";
+import { AuthorizationPageQuery } from "queries/authPageQuery";
 
 /**
  * Ask for the item on server and adds it or update it in the store to the heap

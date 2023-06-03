@@ -1,7 +1,6 @@
 import { useState, useCallback } from "react";
 import { PersonFillAdd, SaveFill, ArrowLeft } from "react-bootstrap-icons";
-import { v1 } from "uuid";
-
+import { getUserById } from "queries/UserByIdQuery";
 export const Adding_User = ({
   page,
   setState0,
@@ -59,11 +58,19 @@ export const Adding_User = ({
 
 export const Adding_User_Button = ({ page, actions }) => {
   const onClick = (page, userId) => {
-    //actions.onUserAdd({ user, page });
+    getUserById(userId).then((user) => {
+      console.log(user);
+      // Use the user data for other operations
+      actions.onMutationUpdateUser({ user: user, uservalid: true });
+      //actions.onUserAdd({ user: user, page: page });
+      actions.onMutationAddUser({ pageId: page.id, userId: userId });
+      window.location.reload(true);
+    });
     /*
-    const membership = {userId = user.user.id, groupId = group.id}
-    */
-    actions.onMutationAddUser({ userId, pageId: page.id });
+      .catch((error) => {
+        console.error(error);
+      });
+      */
   };
   const [state, setState] = useState(0);
   const setState0 = useCallback(() => setState(0));

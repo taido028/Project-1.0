@@ -33,8 +33,8 @@ export const bindPageActions = (dispatch) => {
       return dispatch(AddUserMutation(userId, pageId));
     },
 
-    onMutationUpdateUser: ({ user }) => {
-      return dispatch(UpdateUserMutation(user));
+    onMutationUpdateUser: ({ user, uservalid }) => {
+      return dispatch(UpdateUserMutation(user, uservalid));
     },
 
     //groupFakeFetch: (id) => dispatch(GroupFakeFetch(id)),

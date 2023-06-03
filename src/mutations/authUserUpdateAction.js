@@ -1,4 +1,4 @@
-export const UpdateUserMutation = (user) => (dispatch, getState) => {
+export const UpdateUserMutation = (user, uservalid) => (dispatch, getState) => {
   const authorizationUpdateUserMutationJSON = (user) => {
     return {
       query: `mutation ($id:ID!, $name:String!, $surname:String!, $email:String!, $lastchange:DateTime!, $valid:Boolean!){
@@ -21,7 +21,7 @@ export const UpdateUserMutation = (user) => (dispatch, getState) => {
         name: user.name,
         surname: user.surname,
         email: user.email,
-        valid: true,
+        valid: uservalid,
         lastchange: user.lastchange,
       },
     };
@@ -42,7 +42,6 @@ export const UpdateUserMutation = (user) => (dispatch, getState) => {
       //return authorizedFetch('/api/gql', params)
       .then((resp) => resp.json())
       .then((json) => {
-        window.location.reload(true);
         return json;
       })
   );
