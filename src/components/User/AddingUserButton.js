@@ -62,6 +62,10 @@ export const Adding_User_Button = ({ page, actions }) => {
       console.log(user);
       // Use the user data for other operations
       actions.onMutationUpdateUser({ user: user, uservalid: true });
+
+      // if you can fix duplicated fetch data
+      //then you can use the function below
+
       //actions.onUserAdd({ user: user, page: page });
       actions.onMutationAddUser({ pageId: page.id, userId: userId });
       window.location.reload(true);
