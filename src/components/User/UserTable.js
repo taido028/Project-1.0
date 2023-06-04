@@ -1,6 +1,5 @@
 import { Adding_User_Button } from "./AddingUserButton";
 import { UserTableRow } from "./UserTableRow";
-import { useAddUserMutation } from "mutations/authAddUser";
 
 /**
  * List of members as a table
@@ -8,7 +7,11 @@ import { useAddUserMutation } from "mutations/authAddUser";
  * @returns
  */
 export const UsersTable = ({ page, actions }) => {
-  //console.log(group.memberships)
+  const indexcheck = (user, index) => {
+    if (user.valid === true) return index + 1;
+    else return index;
+  };
+
   return (
     <table className="table table-hover table-stripped">
       <thead>
@@ -28,7 +31,7 @@ export const UsersTable = ({ page, actions }) => {
             <UserTableRow
               key={u.user.id}
               user={u.user}
-              index={index + 1}
+              index={indexcheck(u.user, index)}
               actions={actions}
               gid={page.id}
             />

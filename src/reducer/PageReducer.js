@@ -1,4 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
+<<<<<<< HEAD
+=======
+import {
+  CreateItem,
+  DeleteItem,
+  ReplaceItem,
+  UpdateItem,
+  SelectItem,
+} from "./UsersReducer";
+>>>>>>> ca40bb74ad85e0a9ca93be70022ce9b2640962f4
 
 /**
  * stavova funkce, ktera odebere uzivatele ze skupiny

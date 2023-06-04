@@ -20,9 +20,6 @@ export const PageProvider = ({ id }) => {
 
   //console.log(group)
   console.log("prekresleni");
-  if (page?.memberships) {
-    //console.log(group.memberships)
-  }
 
   useEffect(() => {
     console.log("PageProvider refetch " + id);

@@ -40,7 +40,6 @@ export const AddUserMutation = (userId, pageId) => (dispatch, getState) => {
       //return authorizedFetch('/api/gql', params)
       .then((resp) => resp.json())
       .then((json) => {
-        window.location.reload(true);
         return json;
       })
   );
