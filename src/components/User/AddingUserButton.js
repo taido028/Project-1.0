@@ -57,11 +57,15 @@ export const Adding_User = ({
 };
 
 export const Adding_User_Button = ({ page, actions }) => {
+  const [state, setState] = useState(0);
+  const setState0 = useCallback(() => setState(0));
+  const setState1 = useCallback(() => setState(1));
+
   const onClick = (page, userId) => {
     getUserById(userId, page).then((user) => {
       console.log("user added :" + user);
       // Use the user data for other operations
-
+      setState(0);
       //window.location.reload(true);
     });
     /*
@@ -70,9 +74,6 @@ export const Adding_User_Button = ({ page, actions }) => {
       });
       */
   };
-  const [state, setState] = useState(0);
-  const setState0 = useCallback(() => setState(0));
-  const setState1 = useCallback(() => setState(1));
 
   return (
     <Adding_User
