@@ -7,19 +7,14 @@ import { UserTableRow } from "./UserTableRow";
  * @returns
  */
 export const UsersTable = ({ page, actions }) => {
-  const indexcheck = (user, index) => {
-    if (user.valid === true) return index + 1;
-    else return index;
-  };
-
   return (
     <table className="table table-hover table-stripped">
       <thead>
         <tr class="first top">
           <th>#</th>
           <th class="first top">Id</th>
-          <th class="first top">Jméno</th>
-          <th class="first top">Příjmení</th>
+          <th class="first top">Name</th>
+          <th class="first top">Surname</th>
           <th class="first top">Email</th>
           <th class="first top">Actions</th>
         </tr>
@@ -31,7 +26,7 @@ export const UsersTable = ({ page, actions }) => {
             <UserTableRow
               key={u.user.id}
               user={u.user}
-              index={indexcheck(u.user, index)}
+              index={index + 1}
               actions={actions}
               gid={page.id}
             />
