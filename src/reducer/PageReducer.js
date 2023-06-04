@@ -40,7 +40,7 @@ const UserUpdate = (state, action) => {
   const u = action.payload.user;
   const page = state[p.id];
   page.users = page.users.map((user) =>
-    user.id === u.id ? { ...user, ...u } : user
+    user.id === u.id && user.valid === true ? { ...user, ...u } : user
   );
   return state;
 };
