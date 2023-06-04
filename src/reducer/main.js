@@ -38,7 +38,7 @@ export const bindPageActions = (dispatch) => {
       return dispatch(UpdateUserMutation(user, uservalid));
     },
 
-    userFetch: (id) => dispatch(UserFetch(id)),
+    //userFetch: (id) => dispatch(UserFetch(id)),
 
     //groupFakeFetch: (id) => dispatch(GroupFakeFetch(id)),
 
