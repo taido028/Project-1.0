@@ -82,10 +82,11 @@ export const PageSlice = createSlice({
   initialState: {},
   reducers: {
     //page_add: CreateItem,
-    page_delete: DeleteItem,
+    //page_delete: DeleteItem,
     //page_replace: ReplaceItem,
+    //page_select: SelectItem,
+
     page_update: UpdateItem,
-    page_select: SelectItem,
 
     page_userRemove: UserRemove,
     page_userUpdate: UserUpdate,

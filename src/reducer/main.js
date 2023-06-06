@@ -29,8 +29,8 @@ export const bindPageActions = (dispatch) => {
 
     pageFetch: (id) => dispatch(AuthorizationPageFetch(id)),
 
-    onMutationAddUser: ({ userId, pageId }) => {
-      return dispatch(AddUserMutation(userId, pageId));
+    onMutationAddUser: ({ userId, page }) => {
+      return dispatch(AddUserMutation(userId, page));
     },
 
     onMutationUpdateUser: ({ user, uservalid }) => {
