@@ -1,5 +1,9 @@
-export const AddUserMutation = (userId, pageId) => (dispatch, getState) => {
-  const authorizationAddUserMutationJSON = (userId, pageId) => {
+import { actions } from "store/store";
+import { useDispatch } from "react-redux";
+import { addUserById } from "queries/UserByIdQuery";
+
+export const AddUserMutation = (userId, page) => (dispatch, getState) => {
+  const authorizationAddUserMutationJSON = (userId) => {
     return {
       query: `mutation (
         $authorizationId: ID!
@@ -14,11 +18,26 @@ export const AddUserMutation = (userId, pageId) => (dispatch, getState) => {
           }
         ) {
           id
+          msg
+          authorization{
+            id
+            users{
+              id
+              user{
+                id
+                name
+                surname
+                email
+                valid
+                lastchange
+              }
+            }
+          }
         }
       }
     `,
       variables: {
-        authorizationId: pageId,
+        authorizationId: page.id,
         userId: userId,
         accesslevel: 1,
       },
@@ -32,7 +51,7 @@ export const AddUserMutation = (userId, pageId) => (dispatch, getState) => {
     },
     cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
     redirect: "follow", // manual, *follow, error
-    body: JSON.stringify(authorizationAddUserMutationJSON(userId, pageId)),
+    body: JSON.stringify(authorizationAddUserMutationJSON(userId)),
   };
 
   return (
@@ -41,6 +60,23 @@ export const AddUserMutation = (userId, pageId) => (dispatch, getState) => {
       .then((resp) => resp.json())
       .then((json) => {
         return json;
+      })
+      .then((json) => {
+        const users = json.data.authorizationAddUser.authorization.users;
+        console.log("Users list:");
+        console.log(users);
+        const FilterUser = users.filter((users) => users.user.id === userId)[0];
+        console.log("Added user:");
+        const AddedUser = FilterUser.user;
+        console.log(AddedUser);
+        const page = json.data.authorizationAddUser.authorization;
+        // update valid for user already exist in store with valid = false
+        actions.onMutationUpdateUser({ user: AddedUser, uservalid: true });
+        actions.onUserUpdate({ user: AddedUser, page: page });
+        //actions.onPageUpdate(page);
+
+        console.log(page.users);
+        console.log("Sucessfully added new user");
       })
   );
 };

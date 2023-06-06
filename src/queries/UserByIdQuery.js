@@ -15,7 +15,7 @@ export const UserByIdQueryJSON = (id) => ({
   variables: { id: id },
 });
 
-export const getUserById = async (id, page) => {
+export const addUserById = async (id) => {
   try {
     const response = await authorizedFetch("/gql", {
       body: JSON.stringify(UserByIdQueryJSON(id)),
@@ -25,15 +25,12 @@ export const getUserById = async (id, page) => {
       const data = await response.json();
       const user = data.data.userById; // Retrieve the user data
 
-      actions.onMutationUpdateUser({ user: user, uservalid: true });
-      actions.onMutationAddUser({ pageId: page.id, userId: id });
+      //actions.onMutationUpdateUser({ user: user, uservalid: true });
+      //actions.onMutationAddUser({ pageId: page.id, userId: id });
 
-      actions.pageFetch(page.id);
       //actions.onUserAdd({ user: user, page: page });
-
-      // if you can fix duplicated fetch data
-      //then you can use the function below
-      //actions.onUserAdd({ user: user, page: page });
+      console.log(user);
+      //actions.pageFetch(page.id);
 
       return user; // Return the user data
     } else {

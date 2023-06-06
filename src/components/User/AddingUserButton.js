@@ -46,7 +46,7 @@ export const Adding_User = ({
         </button>
         <button
           className="btn btn-sm btn-success"
-          onClick={() => onClick(page, id)}
+          onClick={() => onClick(id)}
           class="save"
         >
           <SaveFill class="iconadd"></SaveFill>Save
@@ -57,22 +57,9 @@ export const Adding_User = ({
 };
 
 export const Adding_User_Button = ({ page, actions }) => {
-  const [state, setState] = useState(0);
-  const setState0 = useCallback(() => setState(0));
-  const setState1 = useCallback(() => setState(1));
-
-  const onClick = (page, userId) => {
-    getUserById(userId, page).then((user) => {
-      console.log("user added :" + user);
-      // Use the user data for other operations
-      setState(0);
-      //window.location.reload(true);
-    });
-    /*
-      .catch((error) => {
-        console.error(error);
-      });
-      */
+  const onClick = (userId) => {
+    actions.onMutationAddUser({ page: page, userId: userId });
+    setState(0);
   };
 
   return (

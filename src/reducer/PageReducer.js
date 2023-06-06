@@ -85,8 +85,9 @@ export const PageSlice = createSlice({
     //page_add: CreateItem,
     //page_delete: DeleteItem,
     //page_replace: ReplaceItem,
-    page_update: UpdateItem,
     //page_select: SelectItem,
+
+    page_update: UpdateItem,
 
     page_userRemove: UserRemove,
     page_userUpdate: UserUpdate,
