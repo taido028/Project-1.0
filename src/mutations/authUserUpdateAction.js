@@ -13,6 +13,15 @@ export const UpdateUserMutation = (user, uservalid) => (dispatch, getState) => {
             {
               id
               msg
+              user
+              {
+                id
+                name
+                surname
+                email
+                valid
+                lastchange
+              }
             }
           }
       `,
@@ -43,6 +52,10 @@ export const UpdateUserMutation = (user, uservalid) => (dispatch, getState) => {
       .then((resp) => resp.json())
       .then((json) => {
         return json;
+      })
+      .then((json) => {
+        console.log("Updated User");
+        console.log(json.data.userUpdate.user);
       })
   );
 };

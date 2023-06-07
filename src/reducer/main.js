@@ -30,8 +30,8 @@ export const bindPageActions = (dispatch) => {
 
     pageFetch: (id) => dispatch(AuthorizationPageFetch(id)),
 
-    onMutationAddUser: ({ userId, page }) => {
-      return dispatch(AddUserMutation(userId, page));
+    onMutationAddUser: ({ userId, page, accesslevel }) => {
+      return dispatch(AddUserMutation(userId, page, accesslevel));
     },
 
     onMutationUpdateUser: ({ user, uservalid }) => {

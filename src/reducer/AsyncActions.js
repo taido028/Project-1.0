@@ -24,6 +24,7 @@ export const AuthorizationPageFetchHelper = (
       (response) => response.json(),
       (error) => error
     )
+
     .then((i) => log("incomming")(i))
     // .then(
     //     response => log('received')(response.json()),
@@ -38,7 +39,6 @@ export const AuthorizationPageFetchHelper = (
       (json) => log("dispatching")(dispatch(PageActions.page_update(json))),
       (error) => error
     );
-
   return p;
 };
 /**
@@ -61,6 +61,7 @@ export const AuthorizationPageFetch = (id) => (dispatch, getState) => {
   };
   return bodyfunc();
 };
+<<<<<<< HEAD
 
 export const GroupAsyncUpdate = (group) => (dispatch, getState) => {
   const groupMutationJSON = (group) => {
@@ -111,3 +112,5 @@ export const GroupAsyncUpdate = (group) => (dispatch, getState) => {
 };
 
 ////////User Actions
+=======
+>>>>>>> f1ea2702e3797392bde28b80f444fcbb9448190d

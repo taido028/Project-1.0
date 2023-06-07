@@ -8,16 +8,6 @@ import { GroupRemoveButton } from "./GroupRemoveButton";
  * @returns
  */
 export const GroupTableRow = ({ index, group, actions, gid }) => {
-  //change email callback
-  /*
-    const onChangeEmail = (value) => {
-        if (actions.GroupUpdate) {
-            const payload = {group: {id: gid}, user: {...user, email: value}}
-            actions.onGroupUpdate(payload)
-        }
-    }
-    */
-
   return (
     <tr>
       <td class="user">{index}</td>

@@ -1,11 +1,12 @@
 import { UserRemoveButton } from "./RemovingUserButton";
-
+import { AccessLevelDisplay } from "components/User/AccessLevelDisplay";
+import { ChangeAccessLevelButton } from "components/User/ChangeAccessLevelButton";
 /**
  * One member as a table row
  * @param {*} param0
  * @returns
  */
-export const UserTableRow = ({ index, user, actions, gid }) => {
+export const UserTableRow = ({ index, user, actions, page }) => {
   //change email callback
   if (user.valid === true) {
     return (
@@ -16,7 +17,23 @@ export const UserTableRow = ({ index, user, actions, gid }) => {
         <td class="user">{user.surname}</td>
         <td class="user">{user.email}</td>
         <td class="user">
-          <UserRemoveButton page={{ id: gid }} user={user} actions={actions} />
+          <AccessLevelDisplay user={user} page={page} />
+        </td>
+        <td class="user">
+          <td>
+            <UserRemoveButton
+              page={{ id: page.id }}
+              user={user}
+              actions={actions}
+            />
+          </td>
+          <td>
+            <ChangeAccessLevelButton
+              page={page}
+              user={user}
+              actions={actions}
+            />
+          </td>
         </td>
       </tr>
     );

@@ -1,13 +1,12 @@
 import { useState, useCallback } from "react";
 import { PersonFillAdd, SaveFill, ArrowLeft } from "react-bootstrap-icons";
-import { getUserById } from "queries/UserByIdQuery";
 export const Adding_User = ({
-  page,
   setState0,
   setState1,
   state,
   id,
-  onClick,
+  page,
+  actions,
 }) => {
   if (state === 0) {
     return (
@@ -20,22 +19,11 @@ export const Adding_User = ({
       </button>
     );
   } else {
-    function handleChange(event) {
-      const value = event.target.value;
-      id = value;
-    }
-
     return (
       <>
         <label>
           User's ID:
-          <input
-            type="text"
-            name="id"
-            value={id}
-            placeholder="Enter user ID"
-            onChange={handleChange}
-          />
+          <input type="text" name="id" value={id} placeholder="Enter user ID" />
         </label>
         <button
           className="btn btn-sm btn-warning"
@@ -46,7 +34,14 @@ export const Adding_User = ({
         </button>
         <button
           className="btn btn-sm btn-success"
-          onClick={() => onClick(id)}
+          onClick={() => {
+            actions.onMutationAddUser({
+              page: page,
+              userId: id,
+              accesslevel: 1,
+            });
+            setState0();
+          }}
           class="save"
         >
           <SaveFill class="iconadd"></SaveFill>Save
@@ -57,10 +52,16 @@ export const Adding_User = ({
 };
 
 export const Adding_User_Button = ({ page, actions }) => {
+<<<<<<< HEAD
   const onClick = (userId) => {
     actions.onMutationAddUser({ page: page, userId: userId });
     setState(0);
   };
+=======
+  const [state, setState] = useState(0);
+  const setState0 = useCallback(() => setState(0));
+  const setState1 = useCallback(() => setState(1));
+>>>>>>> f1ea2702e3797392bde28b80f444fcbb9448190d
 
   return (
     <Adding_User
@@ -68,7 +69,7 @@ export const Adding_User_Button = ({ page, actions }) => {
       setState0={setState0}
       setState1={setState1}
       page={page}
-      onClick={onClick}
+      actions={actions}
     >
       <PersonFillAdd></PersonFillAdd> Add a user{" "}
     </Adding_User>
