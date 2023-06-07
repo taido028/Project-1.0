@@ -29,10 +29,10 @@ const UserRemove = (state, action) => {
 
 const UserAdd = (state, action) => {
   console.log("adding user in store");
-  const page = action.payload.page;
-  const user = action.payload.user;
-  const pagetake = state[page.id];
-  pagetake.users.push(user);
+  const p = action.payload.PageId;
+  const AddUser = action.payload.user;
+  const page = state[p];
+  page.users.push(AddUser);
   return state;
 };
 
