@@ -8,6 +8,19 @@ export const Adding_User = ({
   page,
   actions,
 }) => {
+  const [UserId, setAddUserId] = useState("");
+
+  const handleAddUser = () => {
+    const PageId = page.id;
+    const user = {
+      id: UserId.id,
+      //pageId: page.id,
+      //accesslevel: AddUser.accesslevel,
+    };
+    actions.onUserAdd({ PageId, user });
+    actions.onMutationAddUser({ page: page, userId: id, accesslevel: 1 });
+    setState0();
+  };
   if (state === 0) {
     return (
       <button
@@ -15,15 +28,27 @@ export const Adding_User = ({
         onClick={setState1}
         class="add"
       >
-        <PersonFillAdd class="iconadd"></PersonFillAdd>Add
+        <PersonFillAdd class="iconadd" />
+        Add
       </button>
     );
   } else {
+    const handleChange = (event) => {
+      const value = event.target.value;
+      id = value;
+    };
+
     return (
       <>
         <label>
           User's ID:
-          <input type="text" name="id" value={id} placeholder="Enter user ID" />
+          <input
+            type="text"
+            name="id"
+            value={id}
+            placeholder="Enter user ID"
+            onChange={handleChange}
+          />
         </label>
         <button
           className="btn btn-sm btn-warning"
@@ -44,6 +69,7 @@ export const Adding_User = ({
           }}
           class="save"
         >
+          {" "}
           <SaveFill class="iconadd"></SaveFill>Save
         </button>
       </>
