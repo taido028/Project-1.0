@@ -19,11 +19,21 @@ export const Adding_User = ({
       </button>
     );
   } else {
+    function handleChange(event) {
+      const value = event.target.value;
+      id = value;
+    }
     return (
       <>
         <label>
           User's ID:
-          <input type="text" name="id" value={id} placeholder="Enter user ID" />
+          <input
+            type="text"
+            name="id"
+            value={id}
+            placeholder="Enter user ID"
+            onChange={handleChange}
+          />
         </label>
         <button
           className="btn btn-sm btn-warning"
@@ -64,7 +74,7 @@ export const Adding_User_Button = ({ page, actions }) => {
       page={page}
       actions={actions}
     >
-      <PersonFillAdd></PersonFillAdd> Add a user{" "}
+      <PersonFillAdd /> Add a user{" "}
     </Adding_User>
   );
 };
