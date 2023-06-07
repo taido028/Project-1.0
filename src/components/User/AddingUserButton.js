@@ -52,16 +52,9 @@ export const Adding_User = ({
 };
 
 export const Adding_User_Button = ({ page, actions }) => {
-<<<<<<< HEAD
-  const onClick = (userId) => {
-    actions.onMutationAddUser({ page: page, userId: userId });
-    setState(0);
-  };
-=======
   const [state, setState] = useState(0);
   const setState0 = useCallback(() => setState(0));
   const setState1 = useCallback(() => setState(1));
->>>>>>> f1ea2702e3797392bde28b80f444fcbb9448190d
 
   return (
     <Adding_User

@@ -1,6 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-<<<<<<< HEAD
-=======
 
 export const UpdateItem = (state, action) => {
   const newItem = action.payload;
@@ -9,7 +7,6 @@ export const UpdateItem = (state, action) => {
 
   return state;
 };
->>>>>>> f1ea2702e3797392bde28b80f444fcbb9448190d
 
 /**
  * stavova funkce, ktera odebere uzivatele ze skupiny
@@ -74,14 +71,6 @@ const GroupAdd = (state, action) => {
   const g = action.payload.group;
   const page = state[p.id];
   page.groups.push(g);
-  return state;
-};
-
-export const UpdateItem = (state, action) => {
-  const newItem = action.payload;
-  const oldItem = state[newItem.id];
-  state[newItem.id] = { ...oldItem, ...newItem };
-
   return state;
 };
 
