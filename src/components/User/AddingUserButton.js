@@ -1,13 +1,12 @@
 import { useState, useCallback } from "react";
 import { PersonFillAdd, SaveFill, ArrowLeft } from "react-bootstrap-icons";
-import { getUserById } from "queries/UserByIdQuery";
 export const Adding_User = ({
-  page,
   setState0,
   setState1,
   state,
   id,
-  onClick,
+  page,
+  actions,
 }) => {
   if (state === 0) {
     return (
@@ -46,7 +45,14 @@ export const Adding_User = ({
         </button>
         <button
           className="btn btn-sm btn-success"
-          onClick={() => onClick(id)}
+          onClick={() => {
+            actions.onMutationAddUser({
+              page: page,
+              userId: id,
+              accesslevel: 1,
+            });
+            setState0();
+          }}
           class="save"
         >
           <SaveFill class="iconadd"></SaveFill>Save
@@ -57,10 +63,6 @@ export const Adding_User = ({
 };
 
 export const Adding_User_Button = ({ page, actions }) => {
-  const onClick = (userId) => {
-    actions.onMutationAddUser({ page: page, userId: userId });
-    setState(0);
-  };
   const [state, setState] = useState(0);
   const setState0 = useCallback(() => setState(0));
   const setState1 = useCallback(() => setState(1));
@@ -71,7 +73,7 @@ export const Adding_User_Button = ({ page, actions }) => {
       setState0={setState0}
       setState1={setState1}
       page={page}
-      onClick={onClick}
+      actions={actions}
     >
       <PersonFillAdd></PersonFillAdd> Add a user{" "}
     </Adding_User>

@@ -24,6 +24,7 @@ export const AuthorizationPageFetchHelper = (
       (response) => response.json(),
       (error) => error
     )
+
     .then((i) => log("incomming")(i))
     // .then(
     //     response => log('received')(response.json()),
@@ -38,7 +39,6 @@ export const AuthorizationPageFetchHelper = (
       (json) => log("dispatching")(dispatch(PageActions.page_update(json))),
       (error) => error
     );
-
   return p;
 };
 /**
@@ -60,52 +60,4 @@ export const AuthorizationPageFetch = (id) => (dispatch, getState) => {
     return pageData;
   };
   return bodyfunc();
-};
-
-export const GroupAsyncUpdate = (group) => (dispatch, getState) => {
-  const groupMutationJSON = (group) => {
-    return {
-      query: `mutation ($id: ID!, $name: String!, $lastchange: DateTime!) {
-                groupUpdate(group: {id: $id, name: $name, lastchange: $lastchange}) {
-                  id
-                  msg
-                  group {
-                    id
-                    name
-                    lastchange
-                  }
-                }
-              }`,
-      variables: group,
-    };
-  };
-
-  const params = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-    redirect: "follow", // manual, *follow, error
-    body: JSON.stringify(groupMutationJSON(group)),
-  };
-
-  return (
-    fetch("/api/gql", params)
-      //return authorizedFetch('/api/gql', params)
-      .then((resp) => resp.json())
-      .then((json) => {
-        const msg = json.data.groupUpdate.msg;
-        if (msg === "fail") {
-          console.log("Update selhalo");
-        } else {
-          //mame hlasku, ze ok, musime si prebrat token (lastchange) a pouzit jej pro priste
-          const lastchange = json.data.groupUpdate.group.lastchange;
-          dispatch(
-            PageActions.group_update({ ...group, lastchange: lastchange })
-          );
-        }
-        return json;
-      })
-  );
 };

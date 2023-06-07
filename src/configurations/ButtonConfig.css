@@ -78,3 +78,45 @@
     box-shadow: 0 5px #666;
     transform: translateY(4px);
 }
+
+.read{
+    height: 30px;
+    width: 30px;
+    color: green;
+}
+
+.write{
+    height: 30px;
+    width: 30px;
+    color: orange;
+}
+
+.up{
+    height: 30px;
+    width: 30px;
+    color: green;
+}
+
+.up:hover{
+    background-color: rgb(172, 241, 172);
+}
+
+.up:active{
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.down{
+    height: 30px;
+    width: 30px;
+    color: red;
+}
+
+.down:hover{
+    background-color: lightcoral;
+}
+
+.down:active{
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}

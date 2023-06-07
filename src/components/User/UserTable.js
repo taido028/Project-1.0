@@ -1,6 +1,5 @@
 import { Adding_User_Button } from "./AddingUserButton";
 import { UserTableRow } from "./UserTableRow";
-
 /**
  * List of members as a table
  * @param {*} param0
@@ -16,6 +15,7 @@ export const UsersTable = ({ page, actions }) => {
           <th class="first top">Name</th>
           <th class="first top">Surname</th>
           <th class="first top">Email</th>
+          <th class="first top">Access Level</th>
           <th class="first top">Actions</th>
         </tr>
       </thead>
@@ -28,7 +28,7 @@ export const UsersTable = ({ page, actions }) => {
               user={u.user}
               index={index + 1}
               actions={actions}
-              gid={page.id}
+              page={page}
             />
           ))}{" "}
           <br />
