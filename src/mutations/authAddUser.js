@@ -53,35 +53,29 @@ export const AddUserMutation =
       body: JSON.stringify(authorizationAddUserMutationJSON(userId)),
     };
 
-    return (
-      fetch("/api/gql", params)
-        //return authorizedFetch('/api/gql', params)
-        .then((resp) => resp.json())
-        .then((json) => {
-          return json;
-        })
-        .then((json) => {
-          // Get user list from response
-          const users = json.data.authorizationAddUser.authorization.users;
+    return fetch("/api/gql", params)
+      .then((resp) => resp.json())
+      .then((json) => {
+        return json;
+      })
+      .then((json) => {
+        // Get user list from response
+        const users = json.data.authorizationAddUser.authorization.users;
 
-          // Get the added user from user list
-          const FilterUser = users.filter(
-            (users) => users.user.id === userId
-          )[0];
-          //console.log("Added user:");
-          const AddedUser = FilterUser.user;
-          //console.log(AddedUser);
+        // Get the added user from user list
+        const FilterUser = users.filter((users) => users.user.id === userId)[0];
 
-          // Get the new page from response
-          const page = json.data.authorizationAddUser.authorization;
+        // Show added user in console
+        console.log("Added user:");
+        const AddedUser = FilterUser.user;
+        console.log(AddedUser);
 
-          // update valid for user already exist in store with valid = false
-          actions.onMutationUpdateUser({ user: AddedUser, uservalid: true });
-          actions.pageFetch(page.id);
-          //actions.onUserUpdate({ user: AddedUser, page: page });
-          //actions.onPageUpdate(page);
+        // update valid for user already exist in store with valid = false
+        actions.onMutationUpdateUser({ user: AddedUser, uservalid: true });
 
-          console.log("Sucessfully added new user");
-        })
-    );
+        // update page
+        actions.pageFetch(page.id);
+
+        console.log("Sucessfully added new user");
+      });
   };

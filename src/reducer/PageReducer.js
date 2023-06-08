@@ -27,50 +27,12 @@ const UserRemove = (state, action) => {
   return state;
 };
 
-const UserAdd = (state, action) => {
-  console.log("adding user in store");
-  const p = action.payload.PageId;
-  const AddUser = action.payload.user;
-  const page = state[p];
-  page.users.push(AddUser);
-  return state;
-};
-
-const UserUpdate = (state, action) => {
-  const p = action.payload.page;
-  const u = action.payload.user;
-  const page = state[p.id];
-  page.users = page.users.map((user) =>
-    user.id === u.id ? { ...user, ...u } : user
-  );
-  return state;
-};
-
 // Group
 const GroupRemove = (state, action) => {
   const p = action.payload.page;
   const g = action.payload.group;
   const page = state[p.id];
   page.groups = page.groups.filter((m) => m.group.id !== g.id);
-  return state;
-};
-
-const GroupUpdate = (state, action) => {
-  const p = action.payload.page;
-  const g = action.payload.group;
-  const page = state[p.id];
-  page.groups = page.groups.map((group) =>
-    group.id === g.id ? { ...group, ...g } : group
-  );
-  return state;
-};
-
-const GroupAdd = (state, action) => {
-  console.log("adding group in store");
-  const p = action.payload.page;
-  const g = action.payload.group;
-  const page = state[p.id];
-  page.groups.push(g);
   return state;
 };
 
@@ -90,12 +52,8 @@ export const PageSlice = createSlice({
     page_update: UpdateItem,
 
     page_userRemove: UserRemove,
-    page_userUpdate: UserUpdate,
-    page_userAdd: UserAdd,
 
     page_groupRemove: GroupRemove,
-    page_groupUpdate: GroupUpdate,
-    page_groupAdd: GroupAdd,
   },
 });
 

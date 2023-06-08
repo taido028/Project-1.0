@@ -40,16 +40,14 @@ export const UpdateGroupMutation =
       body: JSON.stringify(authorizationUpdateGroupMutationJSON(group)),
     };
 
-    return (
-      fetch("/api/gql", params)
-        //return authorizedFetch('/api/gql', params)
-        .then((resp) => resp.json())
-        .then((json) => {
-          return json;
-        })
-        .then((json) => {
-          //console.log("Updated Group");
-          //console.log(json.data.groupUpdate.group);
-        })
-    );
+    return fetch("/api/gql", params)
+      .then((resp) => resp.json())
+      .then((json) => {
+        return json;
+      })
+      .then((json) => {
+        // show updated group in console
+        console.log("Updated Group");
+        console.log(json.data.groupUpdate.group);
+      });
   };

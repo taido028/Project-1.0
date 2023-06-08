@@ -46,16 +46,14 @@ export const UpdateUserMutation = (user, uservalid) => (dispatch, getState) => {
     body: JSON.stringify(authorizationUpdateUserMutationJSON(user)),
   };
 
-  return (
-    fetch("/api/gql", params)
-      //return authorizedFetch('/api/gql', params)
-      .then((resp) => resp.json())
-      .then((json) => {
-        return json;
-      })
-      .then((json) => {
-        //console.log("Updated User");
-        //console.log(json.data.userUpdate.user);
-      })
-  );
+  return fetch("/api/gql", params)
+    .then((resp) => resp.json())
+    .then((json) => {
+      return json;
+    })
+    .then((json) => {
+      // show updated user in console
+      console.log("Updated User");
+      console.log(json.data.userUpdate.user);
+    });
 };

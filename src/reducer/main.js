@@ -13,8 +13,6 @@ import { UpdateGroupMutation } from "mutations/authGroupUpdateAction";
  */
 export const bindPageActions = (dispatch) => {
   return {
-    //onPageUpdate: (g) => dispatch(PageActions.page_update(g)),
-
     onUserRemove: ({ page, user }) =>
       dispatch(PageActions.page_userRemove({ page, user })),
 

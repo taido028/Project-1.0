@@ -65,13 +65,13 @@ export const Adding_User = ({
 
 export const Adding_User_Button = ({ page, actions }) => {
   const [state, setState] = useState(0);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+
   const setState0 = useCallback(() => setState(0));
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+
   const setState1 = useCallback(() => setState(1));
 
   return (
-    // eslint-disable-next-line react/jsx-pascal-case
+    // pass function for adding user
     <Adding_User
       state={state}
       setState0={setState0}

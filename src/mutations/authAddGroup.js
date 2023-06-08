@@ -51,36 +51,34 @@ export const AddGroupMutation =
       body: JSON.stringify(authorizationAddGroupMutationJSON(groupId)),
     };
 
-    return (
-      fetch("/api/gql", params)
-        //return authorizedFetch('/api/gql', params)
-        .then((resp) => resp.json())
-        .then((json) => {
-          return json;
-        })
-        .then((json) => {
-          // Get group list from response
-          const groups = json.data.authorizationAddGroup.authorization.groups;
+    return fetch("/api/gql", params)
+      .then((resp) => resp.json())
+      .then((json) => {
+        return json;
+      })
+      .then((json) => {
+        // Get group list from response
+        const groups = json.data.authorizationAddGroup.authorization.groups;
 
-          // Get the added group from group list
-          const FilterGroup = groups.filter(
-            (groups) => groups.group.id === groupId
-          )[0];
-          //console.log("Added group:");
-          const AddedGroup = FilterGroup.group;
-          //console.log(AddedGroup);
+        // Get the added group from group list
+        const FilterGroup = groups.filter(
+          (groups) => groups.group.id === groupId
+        )[0];
 
-          // Get the new page from response
-          const page = json.data.authorizationAddGroup.authorization;
+        // Show added group in console
+        console.log("Added group:");
+        const AddedGroup = FilterGroup.group;
+        console.log(AddedGroup);
 
-          // update valid for group already exist in store with valid = false
-          actions.onMutationUpdateGroup({
-            group: AddedGroup,
-            groupvalid: true,
-          });
-          actions.pageFetch(page.id);
+        // update valid for group already exist in store with valid = false
+        actions.onMutationUpdateGroup({
+          group: AddedGroup,
+          groupvalid: true,
+        });
 
-          console.log("Sucessfully added new group");
-        })
-    );
+        // update page
+        actions.pageFetch(page.id);
+
+        console.log("Sucessfully added new group");
+      });
   };

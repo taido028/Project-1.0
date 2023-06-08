@@ -26,11 +26,6 @@ export const AuthorizationPageFetchHelper = (
     )
 
     .then((i) => log("incomming")(i))
-    // .then(
-    //     response => log('received')(response.json()),
-    //     error => error
-    //     //error
-    //     )
     .then(
       (json) => log("converted")(resultselector(json)),
       (error) => error
