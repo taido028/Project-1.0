@@ -6,12 +6,11 @@ import { ChangeAccessLevelButton } from "components/User/ChangeAccessLevelButton
  * @param {*} param0
  * @returns
  */
-export const UserTableRow = ({ index, user, actions, page }) => {
+export const UserTableRow = ({ user, actions, page }) => {
   //change email callback
   if (user.valid === true) {
     return (
       <tr>
-        <td class="user">{index}</td>
         <td class="user">{user.id}</td>
         <td class="user">{user.name}</td>
         <td class="user">{user.surname}</td>

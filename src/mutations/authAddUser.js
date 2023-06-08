@@ -68,9 +68,9 @@ export const AddUserMutation =
           const FilterUser = users.filter(
             (users) => users.user.id === userId
           )[0];
-          console.log("Added user:");
+          //console.log("Added user:");
           const AddedUser = FilterUser.user;
-          console.log(AddedUser);
+          //console.log(AddedUser);
 
           // Get the new page from response
           const page = json.data.authorizationAddUser.authorization;

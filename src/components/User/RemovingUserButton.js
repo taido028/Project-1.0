@@ -6,7 +6,7 @@ export const UserRemoveButton = ({ page, user, actions }) => {
     actions.onUserRemove({ page: page, user: user });
     actions.onMutationUpdateUser({ user: user, uservalid: false });
     console.log("User deleted");
-    console.log(user);
+    //console.log(user);
     actions.pageFetch(page.id);
   };
   return (

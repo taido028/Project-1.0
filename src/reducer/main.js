@@ -2,7 +2,8 @@ import { PageActions } from "./PageReducer";
 import { AuthorizationPageFetch } from "./AsyncActions";
 import { AddUserMutation } from "mutations/authAddUser";
 import { UpdateUserMutation } from "mutations/authUserUpdateAction";
-import { UserFetch } from "./AsyncActions";
+import { AddGroupMutation } from "mutations/authAddGroup";
+import { UpdateGroupMutation } from "mutations/authGroupUpdateAction";
 
 /**
  * vytvori actions, ktere pri volani uz vse radne provedou
@@ -12,21 +13,13 @@ import { UserFetch } from "./AsyncActions";
  */
 export const bindPageActions = (dispatch) => {
   return {
-    onPageUpdate: (g) => dispatch(PageActions.page_update(g)),
+    //onPageUpdate: (g) => dispatch(PageActions.page_update(g)),
 
     onUserRemove: ({ page, user }) =>
       dispatch(PageActions.page_userRemove({ page, user })),
-    onUserUpdate: ({ page, user }) =>
-      dispatch(PageActions.page_userUpdate({ page, user })),
-    onUserAdd: ({ user, page }) =>
-      dispatch(PageActions.page_userAdd({ user, page })),
 
     onGroupRemove: ({ page, group }) =>
       dispatch(PageActions.page_groupRemove({ page, group })),
-    onGroupUpdate: ({ page, group }) =>
-      dispatch(PageActions.page_groupUpdate({ page, group })),
-    onGroupAdd: ({ page, group }) =>
-      dispatch(PageActions.page_groupAdd({ page, group })),
 
     pageFetch: (id) => dispatch(AuthorizationPageFetch(id)),
 
@@ -38,10 +31,12 @@ export const bindPageActions = (dispatch) => {
       return dispatch(UpdateUserMutation(user, uservalid));
     },
 
-    //userFetch: (id) => dispatch(UserFetch(id)),
+    onMutationAddGroup: ({ groupId, page, accesslevel }) => {
+      return dispatch(AddGroupMutation(groupId, page, accesslevel));
+    },
 
-    //groupFakeFetch: (id) => dispatch(GroupFakeFetch(id)),
-
-    //groupAsyncUpdate: (group) => dispatch(GroupAsyncUpdate(group)),
+    onMutationUpdateGroup: ({ group, groupvalid }) => {
+      return dispatch(UpdateGroupMutation(group, groupvalid));
+    },
   };
 };

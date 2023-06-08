@@ -10,7 +10,6 @@ export const UsersTable = ({ page, actions }) => {
     <table className="table table-hover table-stripped">
       <thead>
         <tr class="first top">
-          <th>#</th>
           <th class="first top">Id</th>
           <th class="first top">Name</th>
           <th class="first top">Surname</th>
@@ -22,11 +21,10 @@ export const UsersTable = ({ page, actions }) => {
       <tbody>
         <>
           {" "}
-          {page?.users?.map((u, index) => (
+          {page?.users?.map((u) => (
             <UserTableRow
               key={u.user.id}
               user={u.user}
-              index={index + 1}
               actions={actions}
               page={page}
             />

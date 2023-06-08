@@ -3,8 +3,11 @@ import { Trash } from "react-bootstrap-icons";
 
 export const GroupRemoveButton = ({ page, group, actions }) => {
   const onClick = () => {
-    console.log("delete user");
     actions.onGroupRemove({ page: page, group: group });
+    actions.onMutationUpdateGrouo({ group: group, groupvalid: false });
+    console.log("User deleted");
+    //console.log(group);
+    actions.pageFetch(page.id);
   };
   return (
     <DeleteButton onClick={onClick}>

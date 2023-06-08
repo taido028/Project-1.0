@@ -8,19 +8,6 @@ export const Adding_User = ({
   page,
   actions,
 }) => {
-  const [UserId, setAddUserId] = useState("");
-
-  const handleAddUser = () => {
-    const PageId = page.id;
-    const user = {
-      id: UserId.id,
-      //pageId: page.id,
-      //accesslevel: AddUser.accesslevel,
-    };
-    actions.onUserAdd({ PageId, user });
-    actions.onMutationAddUser({ page: page, userId: id, accesslevel: 1 });
-    setState0();
-  };
   if (state === 0) {
     return (
       <button
@@ -69,7 +56,6 @@ export const Adding_User = ({
           }}
           class="save"
         >
-          {" "}
           <SaveFill class="iconadd"></SaveFill>Save
         </button>
       </>
@@ -79,10 +65,13 @@ export const Adding_User = ({
 
 export const Adding_User_Button = ({ page, actions }) => {
   const [state, setState] = useState(0);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const setState0 = useCallback(() => setState(0));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const setState1 = useCallback(() => setState(1));
 
   return (
+    // eslint-disable-next-line react/jsx-pascal-case
     <Adding_User
       state={state}
       setState0={setState0}

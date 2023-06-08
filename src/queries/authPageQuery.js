@@ -18,9 +18,12 @@ export const AuthorizationPageQueryJSON = (id) => ({
                }
                groups{
                   id
+                  accesslevel
                   group{
                      id
                      name
+                     valid
+                     lastchange
                   }
                }
                roleTypes{

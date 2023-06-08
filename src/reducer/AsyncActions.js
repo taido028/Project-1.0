@@ -15,8 +15,8 @@ export const AuthorizationPageFetchHelper = (
   getState
 ) => {
   const log = (text) => (p) => {
-    console.log(text);
-    console.log(JSON.stringify(p));
+    //console.log(text);
+    //console.log(JSON.stringify(p));
     return p;
   };
   const p = query(id)

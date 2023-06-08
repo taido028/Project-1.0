@@ -12,22 +12,21 @@ export const GroupTable = ({ page, actions }) => {
     <table className="table table-hover table-stripped">
       <thead>
         <tr class="first top">
-          <th>#</th>
           <th class="first top">Id</th>
           <th class="first top">Group Name</th>
+          <th class="first top">Access Level</th>
           <th class="first top">Actions</th>
         </tr>
       </thead>
       <tbody>
         <>
           {" "}
-          {page?.groups?.map((u, index) => (
+          {page?.groups?.map((u) => (
             <GroupTableRow
               key={u.group.id}
               group={u.group}
-              index={index + 1}
               actions={actions}
-              gid={page.id}
+              page={page}
             />
           ))}{" "}
           <br />

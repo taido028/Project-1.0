@@ -1,27 +1,38 @@
-import { Trash } from "react-bootstrap-icons";
-import { DeleteButton } from "components/DeleteButton";
+import { AccessLevelDisplay } from "components/Group/AccessLevelDisplay";
 import { GroupRemoveButton } from "./GroupRemoveButton";
+import { ChangeAccessLevelButtonGroup } from "./ChangeAccessLevelButtonGroup";
 
 /**
  * One member as a table row
  * @param {*} param0
  * @returns
  */
-export const GroupTableRow = ({ index, group, actions, gid }) => {
-  return (
-    <tr>
-      <td class="user">{index}</td>
-      <td class="user">{group.id}</td>
-      <td class="user">{group.name}</td>
-      {
+export const GroupTableRow = ({ group, actions, page }) => {
+  if (group.valid === true) {
+    return (
+      <tr>
+        <td class="user">{group.id}</td>
+        <td class="user">{group.name}</td>
         <td class="user">
-          <GroupRemoveButton
-            page={{ id: gid }}
-            group={group}
-            actions={actions}
-          />
+          <AccessLevelDisplay group={group} page={page} />
         </td>
-      }
-    </tr>
-  );
+        <td class="user">
+          <td>
+            <GroupRemoveButton
+              page={{ id: page.id }}
+              group={group}
+              actions={actions}
+            />
+          </td>
+          <td>
+            <ChangeAccessLevelButtonGroup
+              page={page}
+              group={group}
+              actions={actions}
+            />
+          </td>
+        </td>
+      </tr>
+    );
+  }
 };

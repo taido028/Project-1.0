@@ -54,8 +54,8 @@ export const UpdateUserMutation = (user, uservalid) => (dispatch, getState) => {
         return json;
       })
       .then((json) => {
-        console.log("Updated User");
-        console.log(json.data.userUpdate.user);
+        //console.log("Updated User");
+        //console.log(json.data.userUpdate.user);
       })
   );
 };
