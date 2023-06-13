@@ -2,24 +2,26 @@
 
 Contributors: Minh Quang Bui - Quang Tai Do
 
+## Requirements:
+
+
+
+
 ## How to run:
 
-1. Run in terminal to install `npm install -g json-server`
-
-2. Run `json-server --watch data.json --port 3004` or `make server` to create port for storage file.
-   (_If this doesn't work run `Window Powershell` as administator and run command `Set-ExecutionPolicy Unrestricted` -> press `y`_)
-
-3. Open new terminal and run command `npm start`
+1. Open new terminal and run command `npm start`
 
 ## Features:
 
-### 1. Edit a user data from the table.
+### 1. Edit user or group access level.
 
 ### 2. Remove a user from the table.
 
 ### 3. Add a user to the table.
 
-### 4. Add a group the the table. (Working in progress!)
+### 4. Add a group from the table.
+
+### 5. Remove a group from the table. 
 
 # Assignments:
 
@@ -30,3 +32,5 @@ Contributors: Minh Quang Bui - Quang Tai Do
 3. A button to add the group list of read/write groups.
 
 4. A button to remove a group from the list of read/write groups.
+
+5. A button to edit group or user access level
