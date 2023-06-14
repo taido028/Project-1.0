@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { PageProvider } from "components/PageDisplay/authPageProvider";
 import "./configurations/ButtonConfig.css";
 import "./configurations/TableConfig.css";
+import "configurations/Background.css";
 import { AppProvider } from "store/store";
 
 function App() {

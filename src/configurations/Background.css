@@ -1,0 +1,35 @@
+.page-title-background{
+    background-image: url('https://cdn.discordapp.com/attachments/1108373856613306458/1118561542439436339/okay_2.5_times.gif');
+    background-size: cover;
+    text-shadow: black 0.1em 0.1em 0.2em;
+    text-rendering: optimizeLegibility;
+    background-blend-mode: darken;
+}
+
+.page-title{
+    font-size: xx-large;
+    font-weight: bold;
+    color: white;
+}
+
+.usercard-title{
+    font-size: x-large;
+    font-weight: bold;
+    color: black;
+}
+
+.groupcard-title{
+    font-size: x-large;
+    font-weight: bold;
+    color: black;
+}
+
+.user-card-background{
+    background-color: rgb(190, 232, 247);
+    background-size: cover;
+}
+
+.group-card-background{
+    background-color: lightgoldenrodyellow;
+    background-size: cover;
+}

@@ -11,14 +11,14 @@ export const UserTableRow = ({ user, actions, page }) => {
   if (user.valid === true) {
     return (
       <tr>
-        <td class="user">{user.id}</td>
-        <td class="user">{user.name}</td>
-        <td class="user">{user.surname}</td>
-        <td class="user">{user.email}</td>
-        <td class="user">
+        <td className="user">{user.id}</td>
+        <td className="user">{user.name}</td>
+        <td className="user">{user.surname}</td>
+        <td className="user">{user.email}</td>
+        <td className="user">
           <AccessLevelDisplay user={user} page={page} />
         </td>
-        <td class="user">
+        <td className="user">
           <td>
             <UserRemoveButton
               page={{ id: page.id }}

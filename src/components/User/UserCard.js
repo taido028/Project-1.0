@@ -7,9 +7,9 @@ import { UsersTable } from "./UserTable";
  */
 export const UsersCard = ({ page, actions }) => {
   return (
-    <Card>
+    <Card className="user-card-background">
       <Card.Header>
-        <Card.Title>List of Users</Card.Title>
+        <Card.Title className="usercard-title">List of Users</Card.Title>
       </Card.Header>
       <Card.Body>
         <UsersTable page={page} actions={actions} />
