@@ -81,7 +81,7 @@ export const AddUserMutation =
 
           console.log("Sucessfully added new user");
         } else {
-          console.log("User's accesslevel updated" + accesslevel);
+          console.log("User's accesslevel updated " + accesslevel);
           actions.onUserUpdate({
             user: AddedUser,
             page: newpage,

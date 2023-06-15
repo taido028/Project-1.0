@@ -82,7 +82,7 @@ export const AddGroupMutation =
 
           console.log("Sucessfully added new group");
         } else {
-          console.log("Group's accesslevel updated" + accesslevel);
+          console.log("Group's accesslevel updated " + accesslevel);
           actions.onGroupUpdate({
             group: AddedGroup,
             page: newpage,
