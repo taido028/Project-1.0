@@ -17,8 +17,8 @@ export const PageLarge = ({ page, actions }) => {
         <h1>---------</h1>
         <UsersCard page={page} actions={actions} />
         <h1>---------</h1>
-        {/*<PageUsersCard page={page} actions={actions} />*/}
-        {/*<h1>---------</h1>*/}
+        {/*<PageUsersCard page={page} actions={actions} />}
+        {<h1>---------</h1>*/}
         <GroupCard page={page} actions={actions} />
         <h1>---------</h1>
       </Card.Body>

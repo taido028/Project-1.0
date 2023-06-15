@@ -8,33 +8,23 @@ import { ChangeAccessLevelButton } from "components/User/ChangeAccessLevelButton
  */
 export const UserTableRow = ({ user, actions, page }) => {
   //change email callback
-  if (user.valid === true) {
-    return (
-      <tr>
-        <td className="user">{user.id}</td>
-        <td className="user">{user.name}</td>
-        <td className="user">{user.surname}</td>
-        <td className="user">{user.email}</td>
-        <td className="user">
-          <AccessLevelDisplay user={user} page={page} />
+  return (
+    <tr>
+      <td className="user">{user.id}</td>
+      <td className="user">{user.name}</td>
+      <td className="user">{user.surname}</td>
+      <td className="user">{user.email}</td>
+      <td className="user">
+        <AccessLevelDisplay user={user} page={page} />
+      </td>
+      <td className="user">
+        <td>
+          <UserRemoveButton page={page} user={user} actions={actions} />
         </td>
-        <td className="user">
-          <td>
-            <UserRemoveButton
-              page={{ id: page.id }}
-              user={user}
-              actions={actions}
-            />
-          </td>
-          <td>
-            <ChangeAccessLevelButton
-              page={page}
-              user={user}
-              actions={actions}
-            />
-          </td>
+        <td>
+          <ChangeAccessLevelButton page={page} user={user} actions={actions} />
         </td>
-      </tr>
-    );
-  }
+      </td>
+    </tr>
+  );
 };

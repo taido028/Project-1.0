@@ -17,7 +17,6 @@ export const UpdateItem = (state, action) => {
 
 // User
 const UserRemove = (state, action) => {
-  console.log("delete user in store");
   const p = action.payload.page;
   const u = action.payload.user;
   console.log(u);
@@ -27,12 +26,26 @@ const UserRemove = (state, action) => {
   return state;
 };
 
+const UserAdd = (state, action) => {
+  const newpage = action.payload.page;
+  const oldpage = state[newpage.id];
+  state[newpage.id] = { ...oldpage, ...newpage };
+  return state;
+};
+
 // Group
 const GroupRemove = (state, action) => {
   const p = action.payload.page;
   const g = action.payload.group;
   const page = state[p.id];
   page.groups = page.groups.filter((m) => m.group.id !== g.id);
+  return state;
+};
+
+const GroupAdd = (state, action) => {
+  const newpage = action.payload.page;
+  const oldpage = state[newpage.id];
+  state[newpage.id] = { ...oldpage, ...newpage };
   return state;
 };
 
@@ -52,8 +65,10 @@ export const PageSlice = createSlice({
     page_update: UpdateItem,
 
     page_userRemove: UserRemove,
+    page_userAdd: UserAdd,
 
     page_groupRemove: GroupRemove,
+    page_groupAdd: GroupAdd,
   },
 });
 

@@ -2,8 +2,6 @@
 
 Contributors: Minh Quang Bui - Quang Tai Do
 
-## Requirements:
-
 ## How to run:
 
 1. Open new terminal and run command `npm start`
@@ -56,3 +54,9 @@ Contributors: Minh Quang Bui - Quang Tai Do
 10. 5.6: Second online consultation with teacher and with the help of teacher, we were able to update the valid of user.
 
 11. 8.6 - 13.6 : Made changes to adding or removing group in page, optimized code.
+
+12. 15.6: Made changes to remove user/group in page, optimized code and added css. (After 3rd online Consultation)
+
+# Code Structure Diagram:
+
+![Alt text](Diagram.png)

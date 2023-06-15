@@ -6,15 +6,21 @@ export const GroupRemoveButton = ({ page, group, actions }) => {
     // remove group from page
     actions.onGroupRemove({ page: page, group: group });
 
-    // update group valid to false in server
-    actions.onMutationUpdateGroup({ group: group, groupvalid: false });
+    const GroupList = page.groups;
+    const Target = GroupList.find((g) => g.group.id === group.id);
+
+    actions.onMutationRemoveGroup({
+      groupId: group.id,
+      page: page,
+      accesslevel: Target.accesslevel,
+    });
 
     // show deleted group in console
     console.log("User deleted");
     console.log(group);
 
     // update page
-    actions.pageFetch(page.id);
+    //actions.pageFetch(page.id);
   };
   return (
     <DeleteButton onClick={onClick}>

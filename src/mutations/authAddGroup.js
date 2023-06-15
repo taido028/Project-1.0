@@ -2,7 +2,7 @@ import { actions } from "store/store";
 
 export const AddGroupMutation =
   (groupId, page, accesslevel) => (dispatch, getState) => {
-    const authorizationAddGroupMutationJSON = (groupId) => {
+    const authorizationAddGroupMutationJSON = () => {
       return {
         query: `mutation (
             $authorizationId: ID!
@@ -22,6 +22,7 @@ export const AddGroupMutation =
                 id
                 groups{
                   id
+                  accesslevel
                   group{
                     id
                     name
@@ -48,7 +49,7 @@ export const AddGroupMutation =
       },
       cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
       redirect: "follow", // manual, *follow, error
-      body: JSON.stringify(authorizationAddGroupMutationJSON(groupId)),
+      body: JSON.stringify(authorizationAddGroupMutationJSON()),
     };
 
     return fetch("/api/gql", params)
@@ -59,6 +60,7 @@ export const AddGroupMutation =
       .then((json) => {
         // Get group list from response
         const groups = json.data.authorizationAddGroup.authorization.groups;
+        const newpage = json.data.authorizationAddGroup.authorization;
 
         // Get the added group from group list
         const FilterGroup = groups.filter(
@@ -70,14 +72,8 @@ export const AddGroupMutation =
         const AddedGroup = FilterGroup.group;
         console.log(AddedGroup);
 
-        // update valid for group already exist in store with valid = false
-        actions.onMutationUpdateGroup({
-          group: AddedGroup,
-          groupvalid: true,
-        });
-
-        // update page
-        actions.pageFetch(page.id);
+        // Add group to store
+        actions.onGroupAdd({ group: AddedGroup, page: newpage });
 
         console.log("Sucessfully added new group");
       });

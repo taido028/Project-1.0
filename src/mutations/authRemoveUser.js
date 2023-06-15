@@ -1,15 +1,13 @@
-import { actions } from "store/store";
-
-export const AddUserMutation =
+export const RemoveUserMutation =
   (userId, page, accesslevel) => (dispatch, getState) => {
-    const authorizationAddUserMutationJSON = () => {
+    const authorizationRemoveUserMutationJSON = () => {
       return {
         query: `mutation (
         $authorizationId: ID!
         $userId: ID!
         $accesslevel: Int!
       ) {
-        authorizationAddUser(
+        authorizationRemoveUser(
           authorization: {
             authorizationId: $authorizationId
             userId: $userId
@@ -21,7 +19,6 @@ export const AddUserMutation =
           authorization{
             id
             users{
-              accesslevel
               id
               user{
                 id
@@ -51,32 +48,12 @@ export const AddUserMutation =
       },
       cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
       redirect: "follow", // manual, *follow, error
-      body: JSON.stringify(authorizationAddUserMutationJSON()),
+      body: JSON.stringify(authorizationRemoveUserMutationJSON()),
     };
 
     return fetch("/api/gql", params)
       .then((resp) => resp.json())
       .then((json) => {
         return json;
-      })
-      .then((json) => {
-        // Get user list from response
-        const users = json.data.authorizationAddUser.authorization.users;
-
-        const newpage = json.data.authorizationAddUser.authorization;
-
-        // Get the added user from user list
-        const FilterUser = users.filter((users) => users.user.id === userId)[0];
-
-        // Show added user in console
-        console.log("Added user:");
-        const AddedUser = FilterUser.user;
-        console.log(AddedUser);
-
-        // Add user to store
-        actions.onUserAdd({ user: AddedUser, page: newpage });
-  
-
-        console.log("Sucessfully added new user");
       });
   };
