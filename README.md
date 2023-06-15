@@ -57,6 +57,8 @@ Contributors: Minh Quang Bui - Quang Tai Do
 
 12. 15.6: Made changes to remove user/group in page, optimized code and added css. (After 3rd online Consultation)
 
+13. 16.6: Made changes to access level button for both group and user. (Using user/group update)
+
 # Code Structure Diagram:
 
 ![Alt text](Diagram.png)
