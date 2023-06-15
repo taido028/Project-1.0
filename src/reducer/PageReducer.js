@@ -33,6 +33,22 @@ const UserAdd = (state, action) => {
   return state;
 };
 
+const UserUpdate = (state, action) => {
+  const p = action.payload.page;
+  const u = action.payload.user;
+  const accesslevel = action.payload.accesslevel;
+  const page = state[p.id];
+
+  const target = page.users.filter((t) => t.user.id === u.id)[0];
+  target.accesslevel = accesslevel;
+  page.users = page.users.map((user) =>
+    user.id === target.id ? { ...user, ...target } : user
+  );
+
+  state[p.id] = { ...page, ...p };
+  return state;
+};
+
 // Group
 const GroupRemove = (state, action) => {
   const p = action.payload.page;
@@ -49,6 +65,22 @@ const GroupAdd = (state, action) => {
   return state;
 };
 
+const GroupUpdate = (state, action) => {
+  const p = action.payload.page;
+  const g = action.payload.group;
+  const accesslevel = action.payload.accesslevel;
+  const page = state[p.id];
+
+  const target = page.groups.filter((t) => t.group.id === g.id)[0];
+  target.accesslevel = accesslevel;
+  page.groups = page.groups.map((group) =>
+    group.id === target.id ? { ...group, ...target } : group
+  );
+
+  state[p.id] = { ...page, ...p };
+  return state;
+};
+
 /**
  * Kompletni rez budocim store.
  * Obsluhuje skupiny
@@ -57,18 +89,15 @@ export const PageSlice = createSlice({
   name: "pages",
   initialState: {},
   reducers: {
-    //page_add: CreateItem,
-    //page_delete: DeleteItem,
-    //page_replace: ReplaceItem,
-    //page_select: SelectItem,
-
     page_update: UpdateItem,
 
     page_userRemove: UserRemove,
     page_userAdd: UserAdd,
+    page_userUpdate: UserUpdate,
 
     page_groupRemove: GroupRemove,
     page_groupAdd: GroupAdd,
+    page_groupUpdate: GroupUpdate,
   },
 });
 

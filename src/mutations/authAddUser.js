@@ -67,16 +67,26 @@ export const AddUserMutation =
 
         // Get the added user from user list
         const FilterUser = users.filter((users) => users.user.id === userId)[0];
-
-        // Show added user in console
-        console.log("Added user:");
         const AddedUser = FilterUser.user;
-        console.log(AddedUser);
 
-        // Add user to store
-        actions.onUserAdd({ user: AddedUser, page: newpage });
-  
+        const CheckUser = page.users.find((users) => users.user.id === userId);
 
-        console.log("Sucessfully added new user");
+        if (!CheckUser) {
+          // Show added user in console
+          console.log("Added user:");
+          console.log(AddedUser);
+
+          // Add user to store
+          actions.onUserAdd({ user: AddedUser, page: newpage });
+
+          console.log("Sucessfully added new user");
+        } else {
+          console.log("User's accesslevel updated" + accesslevel);
+          actions.onUserUpdate({
+            user: AddedUser,
+            page: newpage,
+            accesslevel: accesslevel,
+          });
+        }
       });
   };

@@ -66,15 +66,28 @@ export const AddGroupMutation =
         const FilterGroup = groups.filter(
           (groups) => groups.group.id === groupId
         )[0];
-
-        // Show added group in console
-        console.log("Added group:");
         const AddedGroup = FilterGroup.group;
-        console.log(AddedGroup);
 
-        // Add group to store
-        actions.onGroupAdd({ group: AddedGroup, page: newpage });
+        const CheckGroup = page.groups.find(
+          (groups) => groups.group.id === groupId
+        );
 
-        console.log("Sucessfully added new group");
+        if (!CheckGroup) {
+          // Show added user in console
+          console.log("Added group:");
+          console.log(AddedGroup);
+
+          // Add user to store
+          actions.onGroupAdd({ group: AddedGroup, page: newpage });
+
+          console.log("Sucessfully added new group");
+        } else {
+          console.log("Group's accesslevel updated" + accesslevel);
+          actions.onGroupUpdate({
+            group: AddedGroup,
+            page: newpage,
+            accesslevel: accesslevel,
+          });
+        }
       });
   };
