@@ -21,11 +21,16 @@ export const GroupForm = ({ page, actions, onCancel, id, setId }) => {
         />{" "}
       </label>
 
-      <button className="btn btn-sm btn-warning" onClick={onCancel}>
-        <ArrowLeft class="cancel"></ArrowLeft>Return
+      <button
+        className="btn btn-sm btn-warning"
+        onClick={onCancel}
+        class="cancel"
+      >
+        <ArrowLeft class="icon"></ArrowLeft>Return
       </button>
       <button
         className="btn btn-sm btn-success"
+        class="save"
         onClick={() => {
           actions.onMutationAddGroup({
             page: page,
@@ -35,7 +40,8 @@ export const GroupForm = ({ page, actions, onCancel, id, setId }) => {
           onCancel();
         }}
       >
-        <SaveFill class="save"></SaveFill>Save
+        <SaveFill class="icon" />
+        Save
       </button>
     </>
   );

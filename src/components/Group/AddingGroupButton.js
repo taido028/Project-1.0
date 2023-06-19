@@ -5,10 +5,11 @@ import { GroupForm } from "./GroupForm";
 /**
  * Component for the button that initiates the adding of a group.
  */
-export const AddButton = ({ onStart }) => {
+export const AddButton = ({ onClick }) => {
   return (
-    <button className="btn btn-sm btn-primary" onClick={onStart}>
-      <PersonFillAdd class="add"></PersonFillAdd>Add
+    <button className="btn btn-sm btn-primary" onClick={onClick} class="add">
+      <PersonFillAdd class="iconadd" />
+      Add
     </button>
   );
 };
@@ -20,7 +21,7 @@ export const AddingGroupButton = ({ page, actions }) => {
   const setState1 = useCallback(() => setState(1));
 
   return state === 0 ? (
-    <AddButton onStart={setState1} />
+    <AddButton onClick={setState1} />
   ) : (
     <GroupForm
       page={page}
