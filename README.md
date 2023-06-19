@@ -22,6 +22,10 @@ Contributors: Minh Quang Bui - Quang Tai Do
 
 ![Alt text](Assignments.png)
 
+# Code Structure Diagram:
+
+![Alt text](Diagram.png)
+
 # Process of project
 
 1. 18.4 : First commit on github and first project day.
@@ -51,6 +55,4 @@ Contributors: Minh Quang Bui - Quang Tai Do
 
 13. 16.6: Made changes to access level button for both group and user. (Using user/group update)
 
-# Code Structure Diagram:
-
-![Alt text](Diagram.png)
+14. 19.6: Replaced fetch function with authorizedFetch and optimized css.
