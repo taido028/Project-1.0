@@ -20,7 +20,7 @@
     font-size: xx-large;
     font-weight: bold;
     color: white;
-    animation: moveText 9s linear infinite;
+    animation: moveText 12s linear infinite;
 }
 
 @keyframes moveText {
@@ -40,7 +40,8 @@
 }
 
 .user-card-background{
-    background-color: rgb(190, 232, 247);
+    margin-top: 50px;
+    background-color: rgb(197, 234, 248);
     text-shadow: black 0.01em 0.01em 0.01em;
     background-size: cover;
     margin-left: 100px;
@@ -49,7 +50,8 @@
 }
 
 .group-card-background{
-    background-color: lightgoldenrodyellow;
+    margin-top: 100px;
+    background-color: rgb(241, 241, 214);
     text-shadow: black 0.01em 0.01em 0.01em;
     background-size: cover;
     margin-left: 100px;

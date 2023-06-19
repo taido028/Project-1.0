@@ -14,13 +14,10 @@ export const PageLarge = ({ page, actions }) => {
         <Card.Title className="page-title">AuthorizationPage</Card.Title>
       </Card.Header>
       <Card.Body>
-        <h1>---------</h1>
         <UsersCard page={page} actions={actions} />
-        <h1>---------</h1>
         {/*<PageUsersCard page={page} actions={actions} />}
         {<h1>---------</h1>*/}
         <GroupCard page={page} actions={actions} />
-        <h1>---------</h1>
       </Card.Body>
     </Card>
   );
