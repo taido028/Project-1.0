@@ -20,15 +20,7 @@ Contributors: Minh Quang Bui - Quang Tai Do
 
 # Assignments:
 
-1. A button to add a user to the list of users with read/write permission.
-
-2. A button to remove a user from the list of users with read/write permission.
-
-3. A button to add the group list of read/write groups.
-
-4. A button to remove a group from the list of read/write groups.
-
-5. A button to edit group or user access level
+![Alt text](Assignments.png)
 
 # Process of project
 
