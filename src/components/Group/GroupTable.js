@@ -1,4 +1,4 @@
-import { Adding_Group_Button } from "./AddingGroupButton";
+import { AddingGroupButton } from "./AddingGroupButton";
 import { GroupTableRow } from "./GroupTableRow";
 
 /**
@@ -30,7 +30,7 @@ export const GroupTable = ({ page, actions }) => {
             />
           ))}{" "}
           <br />
-          <Adding_Group_Button page={page} actions={actions} />
+          <AddingGroupButton page={page} actions={actions} />
         </>
       </tbody>
     </table>

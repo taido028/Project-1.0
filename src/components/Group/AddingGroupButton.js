@@ -1,85 +1,33 @@
 import { useState, useCallback } from "react";
-import { PersonFillAdd, SaveFill, ArrowLeft } from "react-bootstrap-icons";
-export const Adding_Group = ({
-  setState0,
-  setState1,
-  state,
-  id,
-  page,
-  actions,
-}) => {
-  if (state === 0) {
-    return (
-      <button
-        className="btn btn-sm btn-primary"
-        onClick={setState1}
-        class="add"
-      >
-        <PersonFillAdd class="iconadd"></PersonFillAdd>Add
-      </button>
-    );
-  } else {
-    const handleChange = (event) => {
-      const value = event.target.value;
-      id = value;
-    };
+import { PersonFillAdd } from "react-bootstrap-icons";
+import { GroupForm } from "./GroupForm";
 
-    return (
-      <>
-        <label>
-          Group's Id:
-          <input
-            type="text"
-            name="name"
-            value={id}
-            placeholder="Enter group name"
-            onChange={handleChange}
-          />{" "}
-        </label>
-
-        <button
-          className="btn btn-sm btn-warning"
-          class="cancel"
-          onClick={setState0}
-        >
-          <ArrowLeft class="iconadd"></ArrowLeft>Return
-        </button>
-        <button
-          className="btn btn-sm btn-success"
-          onClick={() => {
-            actions.onMutationAddGroup({
-              page: page,
-              groupId: id,
-              accesslevel: 1,
-            });
-            setState0();
-          }}
-          class="save"
-        >
-          <SaveFill class="iconadd"></SaveFill>Save
-        </button>
-      </>
-    );
-  }
+/**
+ * Component for the button that initiates the adding of a group.
+ */
+export const AddButton = ({ onStart }) => {
+  return (
+    <button className="btn btn-sm btn-primary" onClick={onStart}>
+      <PersonFillAdd class="add"></PersonFillAdd>Add
+    </button>
+  );
 };
 
-export const Adding_Group_Button = ({ page, actions }) => {
+export const AddingGroupButton = ({ page, actions }) => {
   const [state, setState] = useState(0);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const [id, setId] = useState("");
   const setState0 = useCallback(() => setState(0));
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const setState1 = useCallback(() => setState(1));
 
-  return (
-    // eslint-disable-next-line react/jsx-pascal-case
-    <Adding_Group
-      state={state}
-      setState0={setState0}
-      setState1={setState1}
+  return state === 0 ? (
+    <AddButton onStart={setState1} />
+  ) : (
+    <GroupForm
       page={page}
       actions={actions}
-    >
-      <PersonFillAdd />
-    </Adding_Group>
+      onCancel={setState0}
+      id={id}
+      setId={setId}
+    />
   );
 };
