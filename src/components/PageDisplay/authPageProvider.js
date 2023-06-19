@@ -32,8 +32,10 @@ export const PageProvider = ({ id }) => {
   } else {
     //skupina ve store neni
     return (
-      <div>
-        Loading... {id}, {page}
+      <div className="loading-background">
+        <h1 className="page-title">
+          Loading... {id} {page}
+        </h1>
       </div>
     );
   }

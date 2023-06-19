@@ -1,4 +1,5 @@
 import { actions } from "store/store";
+import { authorizedFetch } from "fetch/authorizedFetch";
 
 export const AddGroupMutation =
   (groupId, page, accesslevel) => (dispatch, getState) => {
@@ -52,7 +53,7 @@ export const AddGroupMutation =
       body: JSON.stringify(authorizationAddGroupMutationJSON()),
     };
 
-    return fetch("/api/gql", params)
+    return authorizedFetch("/api/gql", params)
       .then((resp) => resp.json())
       .then((json) => {
         return json;

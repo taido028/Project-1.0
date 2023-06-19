@@ -1,4 +1,5 @@
 import { actions } from "store/store";
+import { authorizedFetch } from "fetch/authorizedFetch";
 
 export const AddUserMutation =
   (userId, page, accesslevel) => (dispatch, getState) => {
@@ -54,7 +55,7 @@ export const AddUserMutation =
       body: JSON.stringify(authorizationAddUserMutationJSON()),
     };
 
-    return fetch("/api/gql", params)
+    return authorizedFetch("/api/gql", params)
       .then((resp) => resp.json())
       .then((json) => {
         return json;
@@ -81,7 +82,7 @@ export const AddUserMutation =
 
           console.log("Sucessfully added new user");
         } else {
-          console.log("User's accesslevel updated " + accesslevel);
+          console.log("User's accesslevel updated: " + accesslevel);
           actions.onUserUpdate({
             user: AddedUser,
             page: newpage,

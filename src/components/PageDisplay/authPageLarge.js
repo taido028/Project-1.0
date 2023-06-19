@@ -9,7 +9,7 @@ import { GroupCard } from "components/Group/GroupCard";
  */
 export const PageLarge = ({ page, actions }) => {
   return (
-    <Card>
+    <Card className="page-background">
       <Card.Header className="page-title-background">
         <Card.Title className="page-title">AuthorizationPage</Card.Title>
       </Card.Header>

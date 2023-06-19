@@ -1,3 +1,5 @@
+import { authorizedFetch } from "fetch/authorizedFetch";
+
 export const RemoveGroupMutation =
   (groupId, page, accesslevel) => (dispatch, getState) => {
     const authorizationRemoveGroupMutationJSON = () => {
@@ -49,7 +51,7 @@ export const RemoveGroupMutation =
       body: JSON.stringify(authorizationRemoveGroupMutationJSON()),
     };
 
-    return fetch("/api/gql", params)
+    return authorizedFetch("/api/gql", params)
       .then((resp) => resp.json())
       .then((json) => {
         return json;
