@@ -1,4 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
+/**
+ * Updates an item in the state based on the action payload.
+ *
+ * @param {Object} state - The current state.
+ * @param {Object} action - The action with payload to update the page.
+ * @returns {Object} The updated state.
+ */
 
 export const UpdateItem = (state, action) => {
   const newItem = action.payload;
@@ -9,10 +16,11 @@ export const UpdateItem = (state, action) => {
 };
 
 /**
- * stavova funkce, ktera odebere uzivatele ze skupiny
- * @param {*} state
- * @param {*} action
- * @returns
+ * Removes a user from a page.
+ *
+ * @param {Object} state - The current state.
+ * @param {Object} action - The action with payload indicating the user and page.
+ * @returns {Object} The updated state.
  */
 
 // User
@@ -26,12 +34,27 @@ const UserRemove = (state, action) => {
   return state;
 };
 
+/**
+ * Adds a user to a page.
+ *
+ * @param {Object} state - The current state.
+ * @param {Object} action - The action with payload indicating the user and page.
+ * @returns {Object} The updated state.
+ */
 const UserAdd = (state, action) => {
-  const newpage = action.payload.page;
-  const oldpage = state[newpage.id];
-  state[newpage.id] = { ...oldpage, ...newpage };
+  const p = action.payload.page;
+  const user = state[p.id];
+  state[p.id] = { ...user, ...p };
   return state;
 };
+
+/**
+ * Updates a user's access level.
+ *
+ * @param {Object} state - The current state.
+ * @param {Object} action - The action with payload indicating the user, page, and access level.
+ * @returns {Object} The updated state.
+ */
 
 const UserUpdate = (state, action) => {
   const p = action.payload.page;
@@ -49,6 +72,14 @@ const UserUpdate = (state, action) => {
   return state;
 };
 
+/**
+ * Removes a group from a page.
+ *
+ * @param {Object} state - The current state.
+ * @param {Object} action - The action with payload indicating the group and page.
+ * @returns {Object} The updated state.
+ */
+
 // Group
 const GroupRemove = (state, action) => {
   const p = action.payload.page;
@@ -58,12 +89,28 @@ const GroupRemove = (state, action) => {
   return state;
 };
 
+/**
+ * Adds a group to a page.
+ *
+ * @param {Object} state - The current state.
+ * @param {Object} action - The action with payload indicating the group and page.
+ * @returns {Object} The updated state.
+ */
+
 const GroupAdd = (state, action) => {
   const newpage = action.payload.page;
   const oldpage = state[newpage.id];
   state[newpage.id] = { ...oldpage, ...newpage };
   return state;
 };
+
+/**
+ * Updates a group's access level.
+ *
+ * @param {Object} state - The current state.
+ * @param {Object} action - The action with payload indicating the group, page, and access level.
+ * @returns {Object} The updated state.
+ */
 
 const GroupUpdate = (state, action) => {
   const p = action.payload.page;
@@ -82,8 +129,7 @@ const GroupUpdate = (state, action) => {
 };
 
 /**
- * Kompletni rez budocim store.
- * Obsluhuje skupiny
+ * Slice for handling actions related to pages, users, and groups.
  */
 export const PageSlice = createSlice({
   name: "pages",

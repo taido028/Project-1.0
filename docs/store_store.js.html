@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/User/UserTable.js</title>
+    <title>JSDoc: Source: store/store.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/User/UserTable.js</h1>
+    <h1 class="page-title">Source: store/store.js</h1>
 
     
 
@@ -26,51 +26,40 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { AddingUserButton } from "./AddingUserButton";
-import { UserTableRow } from "./UserTableRow";
-/**
- * Renders a table displaying a list of users. Each user has an id, name, surname,
- * email, access level and associated actions. There's also an option to add a new user.
- *
- * @component
- *
- * @param {Object} props - The properties passed to this component.
- * @param {Object} props.page - Page object which contains information about the users.
- * @param {Object} props.actions - Actions which can be performed on a user.
- *
- * @returns {JSX.Element} JSX to create a table of users.
- */
+            <pre class="prettyprint source linenums"><code>import { configureStore } from "@reduxjs/toolkit";
+import { Provider } from "react-redux";
+import { PageReducer } from "reducer/PageReducer";
+import { bindPageActions } from "reducer/main";
 
-export const UsersTable = ({ page, actions }) => {
-  return (
-    &lt;table className="table table-hover table-stripped">
-      &lt;thead>
-        &lt;tr class="first top">
-          &lt;th class="first top">Id&lt;/th>
-          &lt;th class="first top">Name&lt;/th>
-          &lt;th class="first top">Surname&lt;/th>
-          &lt;th class="first top">Email&lt;/th>
-          &lt;th class="first top">Access Level&lt;/th>
-          &lt;th class="first top">Actions&lt;/th>
-        &lt;/tr>
-      &lt;/thead>
-      &lt;tbody>
-        &lt;>
-          {" "}
-          {page?.users?.map((u) => (
-            &lt;UserTableRow
-              key={u.user.id}
-              user={u.user}
-              actions={actions}
-              page={page}
-            />
-          ))}{" "}
-          &lt;br />
-          &lt;AddingUserButton page={page} actions={actions} />
-        &lt;/>
-      &lt;/tbody>
-    &lt;/table>
-  );
+/**
+ * Configures and creates the Redux store with PageReducer as a reducer.
+ * The pages property in the preloaded state is initialized as an empty object.
+ */
+export const store = configureStore({
+  reducer: {
+    pages: PageReducer,
+  },
+  preloadedState: {
+    pages: {},
+  },
+});
+
+const dispatch = store.dispatch;
+
+/**
+ * Binds page actions to the store's dispatch function.
+ */
+export const actions = { ...bindPageActions(dispatch) };
+
+/**
+ * The main provider component for the app.
+ * Wraps the application with the Redux provider that makes the Redux store available to the rest of the app.
+ *
+ * @param {Object} props - The properties passed to this component, including children.
+ * @returns {JSX.Element} The provider-wrapped app.
+ */
+export const AppProvider = (props) => {
+  return &lt;Provider store={store}>{props.children}&lt;/Provider>;
 };
 </code></pre>
         </article>

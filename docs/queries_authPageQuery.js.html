@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/User/UserTable.js</title>
+    <title>JSDoc: Source: queries/authPageQuery.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/User/UserTable.js</h1>
+    <h1 class="page-title">Source: queries/authPageQuery.js</h1>
 
     
 
@@ -26,52 +26,67 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { AddingUserButton } from "./AddingUserButton";
-import { UserTableRow } from "./UserTableRow";
+            <pre class="prettyprint source linenums"><code>import { authorizedFetch } from "../fetch/authorizedFetch";
 /**
- * Renders a table displaying a list of users. Each user has an id, name, surname,
- * email, access level and associated actions. There's also an option to add a new user.
+ * Function that returns the GraphQL query string for the AuthorizationPageQuery operation.
  *
- * @component
- *
- * @param {Object} props - The properties passed to this component.
- * @param {Object} props.page - Page object which contains information about the users.
- * @param {Object} props.actions - Actions which can be performed on a user.
- *
- * @returns {JSX.Element} JSX to create a table of users.
+ * @param {string} id - The id of the authorization.
+ * @returns {Object} The GraphQL query string and variables for the AuthorizationPageQuery operation.
  */
 
-export const UsersTable = ({ page, actions }) => {
-  return (
-    &lt;table className="table table-hover table-stripped">
-      &lt;thead>
-        &lt;tr class="first top">
-          &lt;th class="first top">Id&lt;/th>
-          &lt;th class="first top">Name&lt;/th>
-          &lt;th class="first top">Surname&lt;/th>
-          &lt;th class="first top">Email&lt;/th>
-          &lt;th class="first top">Access Level&lt;/th>
-          &lt;th class="first top">Actions&lt;/th>
-        &lt;/tr>
-      &lt;/thead>
-      &lt;tbody>
-        &lt;>
-          {" "}
-          {page?.users?.map((u) => (
-            &lt;UserTableRow
-              key={u.user.id}
-              user={u.user}
-              actions={actions}
-              page={page}
-            />
-          ))}{" "}
-          &lt;br />
-          &lt;AddingUserButton page={page} actions={actions} />
-        &lt;/>
-      &lt;/tbody>
-    &lt;/table>
-  );
-};
+export const AuthorizationPageQueryJSON = (id) => ({
+  query: `query($id: ID!){
+           authorizationById (id: $id){
+               id
+               users {
+                  id 
+                  accesslevel
+                  user {
+                     id
+                     name
+                     surname
+                     email
+                     valid
+                     lastchange
+                  }    
+               }
+               groups{
+                  id
+                  accesslevel
+                  group{
+                     id
+                     name
+                     valid
+                     lastchange
+                  }
+               }
+               roleTypes{
+                id
+                roleType{
+                    id
+                    name
+                }
+                group{
+                    id
+                    name
+                }
+               }
+           }
+       }`,
+  variables: { id: id },
+});
+/**
+ * Function that performs a GraphQL request to get the authorization details.
+ *
+ * @function
+ * @param {string} id - The id of the authorization.
+ * @returns {Promise} A promise that resolves to the response of the GraphQL request.
+ */
+
+export const AuthorizationPageQuery = (id) =>
+  authorizedFetch("/gql", {
+    body: JSON.stringify(AuthorizationPageQueryJSON(id)),
+  });
 </code></pre>
         </article>
     </section>

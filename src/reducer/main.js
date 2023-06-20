@@ -6,13 +6,15 @@ import { RemoveGroupMutation } from "mutations/authRemoveGroup";
 import { RemoveUserMutation } from "mutations/authRemoveUser";
 
 /**
+ * This function binds a given dispatch function to several action creators.
+ * These include both synchronous actions (related to page, user, and group updates)
+ * and asynchronous actions (related to fetching a page or executing mutations).
+ *
+ * @param {Function} dispatch - Dispatch function provided by Redux.
+ * @returns {Object} An object containing several functions that when invoked,
+ *                   dispatch certain actions tied to the provided dispatch function.
+ */
 
-Binds page actions that perform necessary operations upon invocation, including "asynchronous" actions.
-
-@param {function} dispatch - The dispatch function from Redux.
-@returns {object} - An object containing bound page actions.
-*
-*/
 export const bindPageActions = (dispatch) => {
   return {
     // Store

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/User/UserTable.js</title>
+    <title>JSDoc: Source: App.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/User/UserTable.js</h1>
+    <h1 class="page-title">Source: App.js</h1>
 
     
 
@@ -26,52 +26,32 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { AddingUserButton } from "./AddingUserButton";
-import { UserTableRow } from "./UserTableRow";
-/**
- * Renders a table displaying a list of users. Each user has an id, name, surname,
- * email, access level and associated actions. There's also an option to add a new user.
- *
- * @component
- *
- * @param {Object} props - The properties passed to this component.
- * @param {Object} props.page - Page object which contains information about the users.
- * @param {Object} props.actions - Actions which can be performed on a user.
- *
- * @returns {JSX.Element} JSX to create a table of users.
- */
+            <pre class="prettyprint source linenums"><code>import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { PageProvider } from "components/PageDisplay/authPageProvider";
+import "./configurations/ButtonConfig.css";
+import "./configurations/TableConfig.css";
+import "configurations/Background.css";
+import { AppProvider } from "store/store";
 
-export const UsersTable = ({ page, actions }) => {
+/**
+ * Main application component.
+ *
+ * @returns {JSX.Element} The rendered App component.
+ */
+function App() {
   return (
-    &lt;table className="table table-hover table-stripped">
-      &lt;thead>
-        &lt;tr class="first top">
-          &lt;th class="first top">Id&lt;/th>
-          &lt;th class="first top">Name&lt;/th>
-          &lt;th class="first top">Surname&lt;/th>
-          &lt;th class="first top">Email&lt;/th>
-          &lt;th class="first top">Access Level&lt;/th>
-          &lt;th class="first top">Actions&lt;/th>
-        &lt;/tr>
-      &lt;/thead>
-      &lt;tbody>
-        &lt;>
-          {" "}
-          {page?.users?.map((u) => (
-            &lt;UserTableRow
-              key={u.user.id}
-              user={u.user}
-              actions={actions}
-              page={page}
-            />
-          ))}{" "}
-          &lt;br />
-          &lt;AddingUserButton page={page} actions={actions} />
-        &lt;/>
-      &lt;/tbody>
-    &lt;/table>
+    &lt;div className="App">
+      {/* Wrap the app in the Redux store provider */}
+      &lt;AppProvider>
+        {/* The provider for the page with the given id */}
+        &lt;PageProvider id="a854adb9-b29a-4062-95b3-cfd685071f16" />
+      &lt;/AppProvider>
+    &lt;/div>
   );
-};
+}
+
+export default App;
 </code></pre>
         </article>
     </section>

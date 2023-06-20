@@ -27,6 +27,13 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import { createSlice } from "@reduxjs/toolkit";
+/**
+ * Updates an item in the state based on the action payload.
+ *
+ * @param {Object} state - The current state.
+ * @param {Object} action - The action with payload to update the page.
+ * @returns {Object} The updated state.
+ */
 
 export const UpdateItem = (state, action) => {
   const newItem = action.payload;
@@ -37,10 +44,11 @@ export const UpdateItem = (state, action) => {
 };
 
 /**
- * stavova funkce, ktera odebere uzivatele ze skupiny
- * @param {*} state
- * @param {*} action
- * @returns
+ * Removes a user from a page.
+ *
+ * @param {Object} state - The current state.
+ * @param {Object} action - The action with payload indicating the user and page.
+ * @returns {Object} The updated state.
  */
 
 // User
@@ -54,12 +62,27 @@ const UserRemove = (state, action) => {
   return state;
 };
 
+/**
+ * Adds a user to a page.
+ *
+ * @param {Object} state - The current state.
+ * @param {Object} action - The action with payload indicating the user and page.
+ * @returns {Object} The updated state.
+ */
 const UserAdd = (state, action) => {
-  const newpage = action.payload.page;
-  const oldpage = state[newpage.id];
-  state[newpage.id] = { ...oldpage, ...newpage };
+  const p = action.payload.page;
+  const user = state[p.id];
+  state[p.id] = { ...user, ...p };
   return state;
 };
+
+/**
+ * Updates a user's access level.
+ *
+ * @param {Object} state - The current state.
+ * @param {Object} action - The action with payload indicating the user, page, and access level.
+ * @returns {Object} The updated state.
+ */
 
 const UserUpdate = (state, action) => {
   const p = action.payload.page;
@@ -77,6 +100,14 @@ const UserUpdate = (state, action) => {
   return state;
 };
 
+/**
+ * Removes a group from a page.
+ *
+ * @param {Object} state - The current state.
+ * @param {Object} action - The action with payload indicating the group and page.
+ * @returns {Object} The updated state.
+ */
+
 // Group
 const GroupRemove = (state, action) => {
   const p = action.payload.page;
@@ -86,12 +117,28 @@ const GroupRemove = (state, action) => {
   return state;
 };
 
+/**
+ * Adds a group to a page.
+ *
+ * @param {Object} state - The current state.
+ * @param {Object} action - The action with payload indicating the group and page.
+ * @returns {Object} The updated state.
+ */
+
 const GroupAdd = (state, action) => {
   const newpage = action.payload.page;
   const oldpage = state[newpage.id];
   state[newpage.id] = { ...oldpage, ...newpage };
   return state;
 };
+
+/**
+ * Updates a group's access level.
+ *
+ * @param {Object} state - The current state.
+ * @param {Object} action - The action with payload indicating the group, page, and access level.
+ * @returns {Object} The updated state.
+ */
 
 const GroupUpdate = (state, action) => {
   const p = action.payload.page;
@@ -110,8 +157,7 @@ const GroupUpdate = (state, action) => {
 };
 
 /**
- * Kompletni rez budocim store.
- * Obsluhuje skupiny
+ * Slice for handling actions related to pages, users, and groups.
  */
 export const PageSlice = createSlice({
   name: "pages",
@@ -143,13 +189,13 @@ export const PageReducer = PageSlice.reducer;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AccessLevelDisplay">AccessLevelDisplay</a></li><li><a href="global.html#AddButton">AddButton</a></li><li><a href="global.html#AddGroupMutation">AddGroupMutation</a></li><li><a href="global.html#AddUserMutation">AddUserMutation</a></li><li><a href="global.html#AddingGroupButton">AddingGroupButton</a></li><li><a href="global.html#AddingUserButton">AddingUserButton</a></li><li><a href="global.html#AuthorizationPageFetch">AuthorizationPageFetch</a></li><li><a href="global.html#AuthorizationPageFetchHelper">AuthorizationPageFetchHelper</a></li><li><a href="global.html#ChangeAccessLevelButton">ChangeAccessLevelButton</a></li><li><a href="global.html#ChangeAccessLevelButtonGroup">ChangeAccessLevelButtonGroup</a></li><li><a href="global.html#DeleteButton">DeleteButton</a></li><li><a href="global.html#GroupCard">GroupCard</a></li><li><a href="global.html#GroupInput">GroupInput</a></li><li><a href="global.html#GroupRemoveButton">GroupRemoveButton</a></li><li><a href="global.html#GroupTable">GroupTable</a></li><li><a href="global.html#GroupTableRow">GroupTableRow</a></li><li><a href="global.html#PageLarge">PageLarge</a></li><li><a href="global.html#PageProvider">PageProvider</a></li><li><a href="global.html#PageSlice">PageSlice</a></li><li><a href="global.html#PageUsersCard">PageUsersCard</a></li><li><a href="global.html#RemoveGroupMutation">RemoveGroupMutation</a></li><li><a href="global.html#RemoveUserMutation">RemoveUserMutation</a></li><li><a href="global.html#UserInput">UserInput</a></li><li><a href="global.html#UserRemove">UserRemove</a></li><li><a href="global.html#UserRemoveButton">UserRemoveButton</a></li><li><a href="global.html#UserTableRow">UserTableRow</a></li><li><a href="global.html#UsersCard">UsersCard</a></li><li><a href="global.html#UsersTable">UsersTable</a></li><li><a href="global.html#authorizedFetch">authorizedFetch</a></li><li><a href="global.html#bindPageActions">bindPageActions</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AccessLevelDisplay">AccessLevelDisplay</a></li><li><a href="global.html#AddButton">AddButton</a></li><li><a href="global.html#AddGroupMutation">AddGroupMutation</a></li><li><a href="global.html#AddUserMutation">AddUserMutation</a></li><li><a href="global.html#AddingGroupButton">AddingGroupButton</a></li><li><a href="global.html#AddingUserButton">AddingUserButton</a></li><li><a href="global.html#App">App</a></li><li><a href="global.html#AppProvider">AppProvider</a></li><li><a href="global.html#AuthorizationPageFetch">AuthorizationPageFetch</a></li><li><a href="global.html#AuthorizationPageFetchHelper">AuthorizationPageFetchHelper</a></li><li><a href="global.html#AuthorizationPageQuery">AuthorizationPageQuery</a></li><li><a href="global.html#AuthorizationPageQueryJSON">AuthorizationPageQueryJSON</a></li><li><a href="global.html#ChangeAccessLevelButton">ChangeAccessLevelButton</a></li><li><a href="global.html#ChangeAccessLevelButtonGroup">ChangeAccessLevelButtonGroup</a></li><li><a href="global.html#DeleteButton">DeleteButton</a></li><li><a href="global.html#GroupAdd">GroupAdd</a></li><li><a href="global.html#GroupCard">GroupCard</a></li><li><a href="global.html#GroupInput">GroupInput</a></li><li><a href="global.html#GroupRemove">GroupRemove</a></li><li><a href="global.html#GroupRemoveButton">GroupRemoveButton</a></li><li><a href="global.html#GroupTable">GroupTable</a></li><li><a href="global.html#GroupTableRow">GroupTableRow</a></li><li><a href="global.html#GroupUpdate">GroupUpdate</a></li><li><a href="global.html#PageLarge">PageLarge</a></li><li><a href="global.html#PageProvider">PageProvider</a></li><li><a href="global.html#PageSlice">PageSlice</a></li><li><a href="global.html#PageUsersCard">PageUsersCard</a></li><li><a href="global.html#RemoveGroupMutation">RemoveGroupMutation</a></li><li><a href="global.html#RemoveUserMutation">RemoveUserMutation</a></li><li><a href="global.html#UpdateItem">UpdateItem</a></li><li><a href="global.html#UserAdd">UserAdd</a></li><li><a href="global.html#UserInput">UserInput</a></li><li><a href="global.html#UserRemove">UserRemove</a></li><li><a href="global.html#UserRemoveButton">UserRemoveButton</a></li><li><a href="global.html#UserTableRow">UserTableRow</a></li><li><a href="global.html#UserUpdate">UserUpdate</a></li><li><a href="global.html#UsersCard">UsersCard</a></li><li><a href="global.html#UsersTable">UsersTable</a></li><li><a href="global.html#actions">actions</a></li><li><a href="global.html#authorizedFetch">authorizedFetch</a></li><li><a href="global.html#bindPageActions">bindPageActions</a></li><li><a href="global.html#store">store</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Tue Jun 20 2023 18:35:40 GMT+0200 (Central European Summer Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Wed Jun 21 2023 00:05:38 GMT+0200 (Central European Summer Time)
 </footer>
 
 <script> prettyPrint(); </script>
