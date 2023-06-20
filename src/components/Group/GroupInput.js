@@ -1,8 +1,17 @@
 import { ArrowLeft, SaveFill } from "react-bootstrap-icons";
 /**
- * Component for the form that allows to add a group.
+ * Component for the form that allows adding a group.
+ * @component
+ * @param {Object} props - Component props
+ * @param {Object} props.page - The page object
+ * @param {Object} props.actions - An object with actions that can be performed, includes `onMutationAddGroup`
+ * @param {function} props.onCancel - Function to execute when canceling group addition
+ * @param {string} props.id - The id of the group to be added
+ * @param {function} props.setId - Function to update the id of the group to be added
+ * @returns {JSX.Element} A form-like structure with a text input for group ID, a cancel button, and a save button.
  */
-export const GroupForm = ({ page, actions, onCancel, id, setId }) => {
+
+const GroupInput = ({ page, actions, onCancel, id, setId }) => {
   const handleChange = (event) => {
     const value = event.target.value;
     setId(value);
@@ -13,7 +22,7 @@ export const GroupForm = ({ page, actions, onCancel, id, setId }) => {
       <label>
         Group's Id:
         <input
-          type="text"
+          type="id"
           name="name"
           value={id}
           placeholder="Enter group'ID "
@@ -46,3 +55,5 @@ export const GroupForm = ({ page, actions, onCancel, id, setId }) => {
     </>
   );
 };
+
+export default GroupInput;

@@ -1,7 +1,20 @@
 import { authorizedFetch } from "fetch/authorizedFetch";
 
+/**
+ * An asynchronous function that creates a mutation to remove a group.
+ * This function first prepares the query and variables, then makes a POST request to the server.
+ * It does not dispatch any actions to update the application state after receiving the response.
+ *
+ * @function
+ * @param {string} groupId - The ID of the group to be removed.
+ * @param {Object} page - The current page object.
+ * @param {number} accesslevel - The access level to be assigned to the group.
+ * @returns {Function} A function that makes a fetch request but does not dispatch any actions.
+ */
+
 export const RemoveGroupMutation =
   (groupId, page, accesslevel) => (dispatch, getState) => {
+    // Function to construct the JSON for the mutation request.
     const authorizationRemoveGroupMutationJSON = () => {
       return {
         query: `mutation (
@@ -41,6 +54,7 @@ export const RemoveGroupMutation =
       };
     };
 
+    // Parameters for the fetch request.
     const params = {
       method: "POST",
       headers: {
@@ -51,6 +65,7 @@ export const RemoveGroupMutation =
       body: JSON.stringify(authorizationRemoveGroupMutationJSON()),
     };
 
+    // Make the authorized fetch request and handle the response.
     return authorizedFetch("/api/gql", params)
       .then((resp) => resp.json())
       .then((json) => {

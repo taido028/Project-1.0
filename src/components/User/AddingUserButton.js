@@ -1,86 +1,50 @@
 import { useState, useCallback } from "react";
-import { PersonFillAdd, SaveFill, ArrowLeft } from "react-bootstrap-icons";
+import { PersonFillAdd } from "react-bootstrap-icons";
+import UserInput from "./UserInput";
 
-export const Adding_User = ({
-  setState0,
-  setState1,
-  state,
-  id,
-  page,
-  actions,
-}) => {
-  if (state === 0) {
-    return (
-      <button
-        className="btn btn-sm btn-primary"
-        onClick={setState1}
-        class="add"
-      >
-        <PersonFillAdd class="iconadd" />
-        Add
-      </button>
-    );
-  } else {
-    const handleChange = (event) => {
-      const value = event.target.value;
-      id = value;
-    };
+/**
+ * AddButton is a button that initiates adding of a user.
+ * @component
+ * @param {Object} props
+ * @param {function} props.onClick - Function to be executed on button click
+ * @returns {JSX.Element} Add button
+ */
 
-    return (
-      <>
-        <label>
-          User's ID:
-          <input
-            type="text"
-            name="id"
-            value={id}
-            placeholder="Enter user ID"
-            onChange={handleChange}
-          />
-        </label>
-        <button
-          className="btn btn-sm btn-warning"
-          class="cancel"
-          onClick={setState0}
-        >
-          <ArrowLeft class="iconadd"></ArrowLeft>Return
-        </button>
-        <button
-          className="btn btn-sm btn-success"
-          onClick={() => {
-            actions.onMutationAddUser({
-              page: page,
-              userId: id,
-              accesslevel: 1,
-            });
-            setState0();
-          }}
-          class="save"
-        >
-          <SaveFill class="iconadd"></SaveFill>Save
-        </button>
-      </>
-    );
-  }
+export const AddButton = ({ onClick }) => {
+  return (
+    <button className="btn btn-sm btn-primary" onClick={onClick} class="add">
+      <PersonFillAdd class="iconadd" />
+      Add
+    </button>
+  );
 };
 
-export const Adding_User_Button = ({ page, actions }) => {
+/**
+ * AddingUserButton is a button that shows the form for adding a new user or an add button, based on the state.
+ *
+ * @component
+ *
+ * @param {Object} props
+ * @param {Object} props.page - Page object
+ * @param {Object} props.actions - Actions object
+ *
+ * @returns {JSX.Element} UserInput form or AddButton based on the state
+ */
+export const AddingUserButton = ({ page, actions }) => {
   const [state, setState] = useState(0);
-
+  const [id, setId] = useState("");
   const setState0 = useCallback(() => setState(0));
-
   const setState1 = useCallback(() => setState(1));
 
-  return (
-    // pass function for adding user
-    <Adding_User
-      state={state}
-      setState0={setState0}
-      setState1={setState1}
+  return state === 0 ? (
+    <AddButton onClick={setState1} />
+  ) : (
+    <UserInput
       page={page}
       actions={actions}
-    >
-      <PersonFillAdd></PersonFillAdd> Add a user{" "}
-    </Adding_User>
+      onCancel={setState0}
+      id={id}
+      setId={setId}
+    />
   );
 };

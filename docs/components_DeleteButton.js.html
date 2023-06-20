@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: fetch/authorizedFetch.js</title>
+    <title>JSDoc: Source: components/DeleteButton.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: fetch/authorizedFetch.js</h1>
+    <h1 class="page-title">Source: components/DeleteButton.js</h1>
 
     
 
@@ -26,39 +26,46 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>// Default parameters for fetch requests.
-
-const globalFetchParams = {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-  redirect: "follow", // manual, *follow, error
-};
+            <pre class="prettyprint source linenums"><code>import { useState, useCallback } from "react";
 
 /**
- * A wrapper function for fetch which creates a communication layer with the server.
- * This function allows fetch requests to be customized while maintaining certain defaults.
+ * A reusable DeleteButton component that manages its internal state to ask for confirmation before triggering an action.
+ * The DeleteButton first appears in a "warning" state. When clicked, it transitions to a "confirmation" state.
+ * If clicked again, it triggers the provided onClick function.
  *
- * @function
- * @param {string} path - The API path to send the request to. Note: This is overridden in the current implementation.
- * @param {Object} params - Additional or overriding parameters for the fetch request.
- * @returns {Promise} The Promise returned by the fetch API.
+ * @component
+ *
+ * @param {Object} props - The properties passed to this component.
+ * @param {React.ReactNode} props.children - The child elements to be rendered within this button.
+ * @param {Function} props.onClick - The function to be executed when the button is confirmed (clicked in "confirmation" state).
+ *
+ * @returns {JSX.Element} A JSX element representing the delete button in one of two states: "warning" or "confirmation".
  */
 
-export const authorizedFetch = (path, params) => {
-  // Merge the globalFetchParams with the provided params.
-  // This allows the provided params to override the defaults in globalFetchParams.
-  const newParams = { ...globalFetchParams, ...params };
+export const DeleteButton = ({ children, onClick }) => {
+  const [state, setState] = useState(0);
 
-  // Override the provided path with "/api/gql".
-  // In a real implementation, you might use the provided path instead.
+  const setState0 = useCallback(() => setState(0));
+  const setState1 = useCallback(() => setState(1));
 
-  const overridenPath = "/api/gql";
-
-  // Perform the fetch request. Note that params.headers should be extended with the Authorization token.
-  return fetch(overridenPath, newParams);
+  if (state === 0) {
+    return (
+      &lt;button className="btn btn-sm btn-warning" onClick={setState1}>
+        {children}
+      &lt;/button>
+    );
+  } else {
+    return (
+      &lt;>
+        &lt;button className="btn btn-sm btn-warning" onClick={setState0}>
+          {children}
+        &lt;/button>
+        &lt;button className="btn btn-sm btn-danger" onClick={onClick}>
+          {children}
+        &lt;/button>
+      &lt;/>
+    );
+  }
 };
 </code></pre>
         </article>

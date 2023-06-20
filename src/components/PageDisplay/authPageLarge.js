@@ -3,9 +3,14 @@ import { UsersCard } from "components/User/UserCard";
 //import { PageUsersCard } from "./PageUsersCard";
 import { GroupCard } from "components/Group/GroupCard";
 /**
- * Renders a card describing a group im detailed form.
- * @param {*} param0
- * @returns
+ * Component for a page that displays user and group cards.
+ * @component
+ * @param {Object} props - Component props
+ * @param {Object} props.page - The page object, which is passed to the UsersCard and GroupCard components
+ * @param {Object} props.actions - An object with actions that can be performed, passed to the UsersCard and GroupCard components
+ * @returns {JSX.Element} A card with a page title, and user and group cards
+ *
+ *
  */
 export const PageLarge = ({ page, actions }) => {
   return (

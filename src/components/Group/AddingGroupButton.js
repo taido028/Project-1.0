@@ -1,9 +1,12 @@
 import { useState, useCallback } from "react";
 import { PersonFillAdd } from "react-bootstrap-icons";
-import { GroupForm } from "./GroupForm";
+import GroupInput from "./GroupInput";
 
 /**
  * Component for the button that initiates the adding of a group.
+ * @component
+ * @param {Object} props - Component props
+ * @param {function} props.onClick - Function to execute when the button is clicked
  */
 export const AddButton = ({ onClick }) => {
   return (
@@ -13,6 +16,13 @@ export const AddButton = ({ onClick }) => {
     </button>
   );
 };
+/**
+ * Component that displays a button to add a group or a form to input the group's details.
+ * @component
+ * @param {Object} props - Component props
+ * @param {Object} props.page - The page object
+ * @param {Object} props.actions - An object with actions that can be performed, includes `onMutationAddGroup`
+ */
 
 export const AddingGroupButton = ({ page, actions }) => {
   const [state, setState] = useState(0);
@@ -23,7 +33,7 @@ export const AddingGroupButton = ({ page, actions }) => {
   return state === 0 ? (
     <AddButton onClick={setState1} />
   ) : (
-    <GroupForm
+    <GroupInput
       page={page}
       actions={actions}
       onCancel={setState0}

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: fetch/authorizedFetch.js</title>
+    <title>JSDoc: Source: components/Group/RemovingGroupButton.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: fetch/authorizedFetch.js</h1>
+    <h1 class="page-title">Source: components/Group/RemovingGroupButton.js</h1>
 
     
 
@@ -26,39 +26,50 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>// Default parameters for fetch requests.
-
-const globalFetchParams = {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-  redirect: "follow", // manual, *follow, error
-};
-
+            <pre class="prettyprint source linenums"><code>import { DeleteButton } from "components/DeleteButton";
+import { Trash } from "react-bootstrap-icons";
 /**
- * A wrapper function for fetch which creates a communication layer with the server.
- * This function allows fetch requests to be customized while maintaining certain defaults.
- *
- * @function
- * @param {string} path - The API path to send the request to. Note: This is overridden in the current implementation.
- * @param {Object} params - Additional or overriding parameters for the fetch request.
- * @returns {Promise} The Promise returned by the fetch API.
+ * Component that displays a button for removing a group.
+ * @component
+ * @param {Object} props - Component props
+ * @param {Object} props.page - The page object, which contains a list of groups
+ * @param {Object} props.group - The group object to be removed
+ * @param {Object} props.actions - An object with actions that can be performed, used to remove the group and update the page
+ * @returns {JSX.Element} A button that, when clicked, removes the group and updates the page
  */
 
-export const authorizedFetch = (path, params) => {
-  // Merge the globalFetchParams with the provided params.
-  // This allows the provided params to override the defaults in globalFetchParams.
-  const newParams = { ...globalFetchParams, ...params };
+export const GroupRemoveButton = ({ page, group, actions }) => {
+  /**
+   * Function that gets called when the remove button is clicked. It removes the group from the page, logs the deleted group in the console,
+   * and updates the page.
+   */
 
-  // Override the provided path with "/api/gql".
-  // In a real implementation, you might use the provided path instead.
+  const onClick = () => {
+    // remove group from page
+    actions.onGroupRemove({ page: page, group: group });
 
-  const overridenPath = "/api/gql";
+    const GroupList = page.groups;
+    const Target = GroupList.find((g) => g.group.id === group.id);
 
-  // Perform the fetch request. Note that params.headers should be extended with the Authorization token.
-  return fetch(overridenPath, newParams);
+    // Remove group from server
+    actions.onMutationRemoveGroup({
+      groupId: group.id,
+      page: page,
+      accesslevel: Target.accesslevel,
+    });
+
+    // show deleted group in console
+    console.log("User deleted");
+    console.log(group);
+
+    // update page
+    //actions.pageFetch(page.id);
+  };
+  return (
+    &lt;DeleteButton onClick={onClick}>
+      &lt;Trash />
+    &lt;/DeleteButton>
+  );
 };
 </code></pre>
         </article>

@@ -1,4 +1,13 @@
 import { ArrowUpSquareFill, ArrowDownSquareFill } from "react-bootstrap-icons";
+/**
+ * Component that displays a button to change the access level of a group.
+ * @component
+ * @param {Object} props - Component props
+ * @param {Object} props.group - The group whose access level may be changed
+ * @param {Object} props.page - The page object, which contains a list of groups
+ * @param {Object} props.actions - An object with actions that can be performed, includes `onMutationAddGroup`
+ * @returns {JSX.Element|null} An upward arrow button if the group's access level is 1, a downward arrow button if the access level is 2, or null if the access level is neither
+ */
 
 export const ChangeAccessLevelButtonGroup = ({ group, page, actions }) => {
   const GroupList = page.groups;
@@ -29,4 +38,5 @@ export const ChangeAccessLevelButtonGroup = ({ group, page, actions }) => {
         }}
       />
     );
+  else return null;
 };

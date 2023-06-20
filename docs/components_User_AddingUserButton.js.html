@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: fetch/authorizedFetch.js</title>
+    <title>JSDoc: Source: components/User/AddingUserButton.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: fetch/authorizedFetch.js</h1>
+    <h1 class="page-title">Source: components/User/AddingUserButton.js</h1>
 
     
 
@@ -26,39 +26,55 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>// Default parameters for fetch requests.
+            <pre class="prettyprint source linenums"><code>import { useState, useCallback } from "react";
+import { PersonFillAdd } from "react-bootstrap-icons";
+import UserInput from "./UserInput";
 
-const globalFetchParams = {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-  redirect: "follow", // manual, *follow, error
+/**
+ * AddButton is a button that initiates adding of a user.
+ * @component
+ * @param {Object} props
+ * @param {function} props.onClick - Function to be executed on button click
+ * @returns {JSX.Element} Add button
+ */
+
+export const AddButton = ({ onClick }) => {
+  return (
+    &lt;button className="btn btn-sm btn-primary" onClick={onClick} class="add">
+      &lt;PersonFillAdd class="iconadd" />
+      Add
+    &lt;/button>
+  );
 };
 
 /**
- * A wrapper function for fetch which creates a communication layer with the server.
- * This function allows fetch requests to be customized while maintaining certain defaults.
+ * AddingUserButton is a button that shows the form for adding a new user or an add button, based on the state.
  *
- * @function
- * @param {string} path - The API path to send the request to. Note: This is overridden in the current implementation.
- * @param {Object} params - Additional or overriding parameters for the fetch request.
- * @returns {Promise} The Promise returned by the fetch API.
+ * @component
+ *
+ * @param {Object} props
+ * @param {Object} props.page - Page object
+ * @param {Object} props.actions - Actions object
+ *
+ * @returns {JSX.Element} UserInput form or AddButton based on the state
  */
+export const AddingUserButton = ({ page, actions }) => {
+  const [state, setState] = useState(0);
+  const [id, setId] = useState("");
+  const setState0 = useCallback(() => setState(0));
+  const setState1 = useCallback(() => setState(1));
 
-export const authorizedFetch = (path, params) => {
-  // Merge the globalFetchParams with the provided params.
-  // This allows the provided params to override the defaults in globalFetchParams.
-  const newParams = { ...globalFetchParams, ...params };
-
-  // Override the provided path with "/api/gql".
-  // In a real implementation, you might use the provided path instead.
-
-  const overridenPath = "/api/gql";
-
-  // Perform the fetch request. Note that params.headers should be extended with the Authorization token.
-  return fetch(overridenPath, newParams);
+  return state === 0 ? (
+    &lt;AddButton onClick={setState1} />
+  ) : (
+    &lt;UserInput
+      page={page}
+      actions={actions}
+      onCancel={setState0}
+      id={id}
+      setId={setId}
+    />
+  );
 };
 </code></pre>
         </article>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: fetch/authorizedFetch.js</title>
+    <title>JSDoc: Source: components/Group/AddingGroupButton.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: fetch/authorizedFetch.js</h1>
+    <h1 class="page-title">Source: components/Group/AddingGroupButton.js</h1>
 
     
 
@@ -26,39 +26,49 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>// Default parameters for fetch requests.
-
-const globalFetchParams = {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-  redirect: "follow", // manual, *follow, error
-};
+            <pre class="prettyprint source linenums"><code>import { useState, useCallback } from "react";
+import { PersonFillAdd } from "react-bootstrap-icons";
+import GroupInput from "./GroupInput";
 
 /**
- * A wrapper function for fetch which creates a communication layer with the server.
- * This function allows fetch requests to be customized while maintaining certain defaults.
- *
- * @function
- * @param {string} path - The API path to send the request to. Note: This is overridden in the current implementation.
- * @param {Object} params - Additional or overriding parameters for the fetch request.
- * @returns {Promise} The Promise returned by the fetch API.
+ * Component for the button that initiates the adding of a group.
+ * @component
+ * @param {Object} props - Component props
+ * @param {function} props.onClick - Function to execute when the button is clicked
+ */
+export const AddButton = ({ onClick }) => {
+  return (
+    &lt;button className="btn btn-sm btn-primary" onClick={onClick} class="add">
+      &lt;PersonFillAdd class="iconadd" />
+      Add
+    &lt;/button>
+  );
+};
+/**
+ * Component that displays a button to add a group or a form to input the group's details.
+ * @component
+ * @param {Object} props - Component props
+ * @param {Object} props.page - The page object
+ * @param {Object} props.actions - An object with actions that can be performed, includes `onMutationAddGroup`
  */
 
-export const authorizedFetch = (path, params) => {
-  // Merge the globalFetchParams with the provided params.
-  // This allows the provided params to override the defaults in globalFetchParams.
-  const newParams = { ...globalFetchParams, ...params };
+export const AddingGroupButton = ({ page, actions }) => {
+  const [state, setState] = useState(0);
+  const [id, setId] = useState("");
+  const setState0 = useCallback(() => setState(0));
+  const setState1 = useCallback(() => setState(1));
 
-  // Override the provided path with "/api/gql".
-  // In a real implementation, you might use the provided path instead.
-
-  const overridenPath = "/api/gql";
-
-  // Perform the fetch request. Note that params.headers should be extended with the Authorization token.
-  return fetch(overridenPath, newParams);
+  return state === 0 ? (
+    &lt;AddButton onClick={setState1} />
+  ) : (
+    &lt;GroupInput
+      page={page}
+      actions={actions}
+      onCancel={setState0}
+      id={id}
+      setId={setId}
+    />
+  );
 };
 </code></pre>
         </article>

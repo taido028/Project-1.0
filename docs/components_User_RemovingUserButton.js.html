@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: fetch/authorizedFetch.js</title>
+    <title>JSDoc: Source: components/User/RemovingUserButton.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: fetch/authorizedFetch.js</h1>
+    <h1 class="page-title">Source: components/User/RemovingUserButton.js</h1>
 
     
 
@@ -26,39 +26,48 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>// Default parameters for fetch requests.
-
-const globalFetchParams = {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-  redirect: "follow", // manual, *follow, error
-};
-
+            <pre class="prettyprint source linenums"><code>import { DeleteButton } from "components/DeleteButton";
+import { Trash } from "react-bootstrap-icons";
 /**
- * A wrapper function for fetch which creates a communication layer with the server.
- * This function allows fetch requests to be customized while maintaining certain defaults.
+ * UserRemoveButton is a component that allows the removal of a user when clicked.
  *
- * @function
- * @param {string} path - The API path to send the request to. Note: This is overridden in the current implementation.
- * @param {Object} params - Additional or overriding parameters for the fetch request.
- * @returns {Promise} The Promise returned by the fetch API.
+ * @component
+ *
+ * @param {Object} props - The properties that define the UserRemoveButton component
+ * @param {Object} props.page - The page containing the user
+ * @param {Object} props.user - The user that needs to be removed
+ * @param {Object} props.actions - The actions that can be performed on the user
+ *
+ * @returns {JSX.Element} The UserRemoveButton component
  */
 
-export const authorizedFetch = (path, params) => {
-  // Merge the globalFetchParams with the provided params.
-  // This allows the provided params to override the defaults in globalFetchParams.
-  const newParams = { ...globalFetchParams, ...params };
+export const UserRemoveButton = ({ page, user, actions }) => {
+  const onClick = () => {
+    // Get list of users from page
+    const UserList = page.users;
 
-  // Override the provided path with "/api/gql".
-  // In a real implementation, you might use the provided path instead.
+    // Find the user that matches the given user id
+    const Target = UserList.find((u) => u.user.id === user.id);
 
-  const overridenPath = "/api/gql";
+    // remove user form server
+    actions.onMutationRemoveUser({
+      userId: user.id,
+      page: page,
+      accesslevel: Target.accesslevel,
+    });
 
-  // Perform the fetch request. Note that params.headers should be extended with the Authorization token.
-  return fetch(overridenPath, newParams);
+    // Call action to remove user from state
+    actions.onUserRemove({ page: page, user: user });
+
+    // show deleted user in console
+    console.log("User deleted");
+    console.log(user);
+  };
+  return (
+    &lt;DeleteButton onClick={onClick}>
+      &lt;Trash />
+    &lt;/DeleteButton>
+  );
 };
 </code></pre>
         </article>

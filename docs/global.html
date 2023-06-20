@@ -104,8 +104,7 @@
 
 
 <div class="description">
-    <p>Displays an icon based on the access level of a group.
-The access level is determined by searching through the groups on the given page.</p>
+    <p>AccessLevelDisplay component</p>
 </div>
 
 
@@ -143,7 +142,255 @@ The access level is determined by searching through the groups on the given page
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_Group_AccessLevelDisplay.js.html">components/Group/AccessLevelDisplay.js</a>, <a href="components_Group_AccessLevelDisplay.js.html#line13">line 13</a>
+        <a href="components_User_AccessLevelDisplay.js.html">components/User/AccessLevelDisplay.js</a>, <a href="components_User_AccessLevelDisplay.js.html#line15">line 15</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="AddButton"><span class="type-signature">(constant) </span>AddButton<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>Component for the button that initiates the adding of a group.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="components_Group_AddingGroupButton.js.html">components/Group/AddingGroupButton.js</a>, <a href="components_Group_AddingGroupButton.js.html#line11">line 11</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="AddButton"><span class="type-signature">(constant) </span>AddButton<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>AddButton is a button that initiates adding of a user.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="components_User_AddingUserButton.js.html">components/User/AddingUserButton.js</a>, <a href="components_User_AddingUserButton.js.html#line13">line 13</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="AddingGroupButton"><span class="type-signature">(constant) </span>AddingGroupButton<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>Component that displays a button to add a group or a form to input the group's details.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="components_Group_AddingGroupButton.js.html">components/Group/AddingGroupButton.js</a>, <a href="components_Group_AddingGroupButton.js.html#line27">line 27</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="AddingUserButton"><span class="type-signature">(constant) </span>AddingUserButton<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>AddingUserButton is a button that shows the form for adding a new user or an add button, based on the state.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="components_User_AddingUserButton.js.html">components/User/AddingUserButton.js</a>, <a href="components_User_AddingUserButton.js.html#line33">line 33</a>
     </li></ul></dd>
     
 
@@ -167,7 +414,7 @@ The access level is determined by searching through the groups on the given page
 
 
 <div class="description">
-    <p>Fetch the page from server checks its type and asks once more for detailed data. Finally puts the result in the store.</p>
+    <p>Function that fetches the page data from the server and dispatches an action to update the state of the page in the Redux store.</p>
 </div>
 
 
@@ -205,7 +452,7 @@ The access level is determined by searching through the groups on the given page
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="reducer_AsyncActions.js.html">reducer/AsyncActions.js</a>, <a href="reducer_AsyncActions.js.html#line44">line 44</a>
+        <a href="reducer_AsyncActions.js.html">reducer/AsyncActions.js</a>, <a href="reducer_AsyncActions.js.html#line52">line 52</a>
     </li></ul></dd>
     
 
@@ -229,7 +476,7 @@ The access level is determined by searching through the groups on the given page
 
 
 <div class="description">
-    <p>Ask for the item on server and adds it or update it in the store to the heap</p>
+    <p>Function that performs a GraphQL request and updates the state of the page in the Redux store.</p>
 </div>
 
 
@@ -267,7 +514,197 @@ The access level is determined by searching through the groups on the given page
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="reducer_AsyncActions.js.html">reducer/AsyncActions.js</a>, <a href="reducer_AsyncActions.js.html#line10">line 10</a>
+        <a href="reducer_AsyncActions.js.html">reducer/AsyncActions.js</a>, <a href="reducer_AsyncActions.js.html#line16">line 16</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="ChangeAccessLevelButton"><span class="type-signature">(constant) </span>ChangeAccessLevelButton<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>ChangeAccessLevelButton is a component that allows changing user's access level by clicking on it.
+If the current access level of the user is 2, it renders a down arrow icon which on click will reduce the access level to 1.
+If the current access level of the user is 1, it renders an up arrow icon which on click will increase the access level to 2.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="components_User_ChangeAccessLevelButton.js.html">components/User/ChangeAccessLevelButton.js</a>, <a href="components_User_ChangeAccessLevelButton.js.html#line18">line 18</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="ChangeAccessLevelButtonGroup"><span class="type-signature">(constant) </span>ChangeAccessLevelButtonGroup<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>Component that displays a button to change the access level of a group.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="components_Group_ChangeAccessLevelButtonGroup.js.html">components/Group/ChangeAccessLevelButtonGroup.js</a>, <a href="components_Group_ChangeAccessLevelButtonGroup.js.html#line12">line 12</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="DeleteButton"><span class="type-signature">(constant) </span>DeleteButton<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>A reusable DeleteButton component that manages its internal state to ask for confirmation before triggering an action.
+The DeleteButton first appears in a &quot;warning&quot; state. When clicked, it transitions to a &quot;confirmation&quot; state.
+If clicked again, it triggers the provided onClick function.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="components_DeleteButton.js.html">components/DeleteButton.js</a>, <a href="components_DeleteButton.js.html#line17">line 17</a>
     </li></ul></dd>
     
 
@@ -291,7 +728,7 @@ The access level is determined by searching through the groups on the given page
 
 
 <div class="description">
-    <p>Renders a card containing a list of group members.</p>
+    <p>Component that displays a card containing a list of group members.</p>
 </div>
 
 
@@ -329,7 +766,69 @@ The access level is determined by searching through the groups on the given page
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_Group_GroupCard.js.html">components/Group/GroupCard.js</a>, <a href="components_Group_GroupCard.js.html#line8">line 8</a>
+        <a href="components_Group_GroupCard.js.html">components/Group/GroupCard.js</a>, <a href="components_Group_GroupCard.js.html#line14">line 14</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="GroupRemoveButton"><span class="type-signature">(constant) </span>GroupRemoveButton<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>Component that displays a button for removing a group.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="components_Group_RemovingGroupButton.js.html">components/Group/RemovingGroupButton.js</a>, <a href="components_Group_RemovingGroupButton.js.html#line13">line 13</a>
     </li></ul></dd>
     
 
@@ -353,7 +852,7 @@ The access level is determined by searching through the groups on the given page
 
 
 <div class="description">
-    <p>List of members as a table</p>
+    <p>Component that displays a list of group members as a table.</p>
 </div>
 
 
@@ -391,7 +890,7 @@ The access level is determined by searching through the groups on the given page
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_Group_GroupTable.js.html">components/Group/GroupTable.js</a>, <a href="components_Group_GroupTable.js.html#line9">line 9</a>
+        <a href="components_Group_GroupTable.js.html">components/Group/GroupTable.js</a>, <a href="components_Group_GroupTable.js.html#line13">line 13</a>
     </li></ul></dd>
     
 
@@ -415,7 +914,7 @@ The access level is determined by searching through the groups on the given page
 
 
 <div class="description">
-    <p>One member as a table row</p>
+    <p>Component that displays a group member as a row in a table.</p>
 </div>
 
 
@@ -453,7 +952,7 @@ The access level is determined by searching through the groups on the given page
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_Group_GroupTableRow.js.html">components/Group/GroupTableRow.js</a>, <a href="components_Group_GroupTableRow.js.html#line10">line 10</a>
+        <a href="components_Group_GroupTableRow.js.html">components/Group/GroupTableRow.js</a>, <a href="components_Group_GroupTableRow.js.html#line15">line 15</a>
     </li></ul></dd>
     
 
@@ -477,7 +976,7 @@ The access level is determined by searching through the groups on the given page
 
 
 <div class="description">
-    <p>Renders a card describing a group im detailed form.</p>
+    <p>Component for a page that displays user and group cards.</p>
 </div>
 
 
@@ -515,7 +1014,7 @@ The access level is determined by searching through the groups on the given page
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_PageDisplay_authPageLarge.js.html">components/PageDisplay/authPageLarge.js</a>, <a href="components_PageDisplay_authPageLarge.js.html#line10">line 10</a>
+        <a href="components_PageDisplay_authPageLarge.js.html">components/PageDisplay/authPageLarge.js</a>, <a href="components_PageDisplay_authPageLarge.js.html#line15">line 15</a>
     </li></ul></dd>
     
 
@@ -539,7 +1038,8 @@ The access level is determined by searching through the groups on the given page
 
 
 <div class="description">
-    <p>Komponenta, ktera je zaclenena ve strukture s Providerem, tedy se store, importuje si akce a poskytuje je podrizenym komponentam</p>
+    <p>The component fetches a page from the store and passes it down to the PageLarge component.
+If the page is not in the store, a loading message is displayed.</p>
 </div>
 
 
@@ -577,7 +1077,7 @@ The access level is determined by searching through the groups on the given page
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_PageDisplay_authPageProvider.js.html">components/PageDisplay/authPageProvider.js</a>, <a href="components_PageDisplay_authPageProvider.js.html#line13">line 13</a>
+        <a href="components_PageDisplay_authPageProvider.js.html">components/PageDisplay/authPageProvider.js</a>, <a href="components_PageDisplay_authPageProvider.js.html#line15">line 15</a>
     </li></ul></dd>
     
 
@@ -720,13 +1220,13 @@ Obsluhuje skupiny</p>
 
         
             
-<h4 class="name" id="UserTableRow"><span class="type-signature">(constant) </span>UserTableRow<span class="type-signature"></span></h4>
+<h4 class="name" id="UserRemoveButton"><span class="type-signature">(constant) </span>UserRemoveButton<span class="type-signature"></span></h4>
 
 
 
 
 <div class="description">
-    <p>One member as a table row</p>
+    <p>UserRemoveButton is a component that allows the removal of a user when clicked.</p>
 </div>
 
 
@@ -764,7 +1264,71 @@ Obsluhuje skupiny</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_User_UserTableRow.js.html">components/User/UserTableRow.js</a>, <a href="components_User_UserTableRow.js.html#line9">line 9</a>
+        <a href="components_User_RemovingUserButton.js.html">components/User/RemovingUserButton.js</a>, <a href="components_User_RemovingUserButton.js.html#line16">line 16</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="UserTableRow"><span class="type-signature">(constant) </span>UserTableRow<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>Represents one user as a row in the table. Each user has an id, name, surname,
+email, access level and associated actions. There's also an option to remove the user
+and change their access level.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="components_User_UserTableRow.js.html">components/User/UserTableRow.js</a>, <a href="components_User_UserTableRow.js.html#line19">line 19</a>
     </li></ul></dd>
     
 
@@ -850,7 +1414,8 @@ Obsluhuje skupiny</p>
 
 
 <div class="description">
-    <p>List of members as a table</p>
+    <p>Renders a table displaying a list of users. Each user has an id, name, surname,
+email, access level and associated actions. There's also an option to add a new user.</p>
 </div>
 
 
@@ -888,69 +1453,7 @@ Obsluhuje skupiny</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_User_UserTable.js.html">components/User/UserTable.js</a>, <a href="components_User_UserTable.js.html#line8">line 8</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id="authorizedFetch"><span class="type-signature">(constant) </span>authorizedFetch<span class="type-signature"></span></h4>
-
-
-
-
-<div class="description">
-    <p>Zapouzdrujici funkce pro fetch, vytvari mezi vrstvu pro komunikace ze serverem</p>
-</div>
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fetch_authorizedFetch.js.html">fetch/authorizedFetch.js</a>, <a href="fetch_authorizedFetch.js.html#line16">line 16</a>
+        <a href="components_User_UserTable.js.html">components/User/UserTable.js</a>, <a href="components_User_UserTable.js.html#line16">line 16</a>
     </li></ul></dd>
     
 
@@ -974,8 +1477,7 @@ Obsluhuje skupiny</p>
 
 
 <div class="description">
-    <p>vytvori actions, ktere pri volani uz vse radne provedou
-jsou zahrnuty i &quot;asynchronni&quot; akce</p>
+    <p>Binds page actions that perform necessary operations upon invocation, including &quot;asynchronous&quot; actions.</p>
 </div>
 
 
@@ -1013,7 +1515,7 @@ jsou zahrnuty i &quot;asynchronni&quot; akce</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="reducer_main.js.html">reducer/main.js</a>, <a href="reducer_main.js.html#line14">line 14</a>
+        <a href="reducer_main.js.html">reducer/main.js</a>, <a href="reducer_main.js.html#line16">line 16</a>
     </li></ul></dd>
     
 
@@ -1034,6 +1536,1668 @@ jsou zahrnuty i &quot;asynchronni&quot; akce</p>
 
     
         <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="AccessLevelDisplay"><span class="type-signature"></span>AccessLevelDisplay<span class="signature">(props)</span><span class="type-signature"> &rarr; {JSX.Element}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Displays an icon based on the access level of a group.
+The access level is determined by searching through the groups on the given page.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>props</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Component props</p>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>group</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The group object, it contains the group id.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>page</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The page object, it contains a list of groups with their access levels.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="components_Group_AccessLevelDisplay.js.html">components/Group/AccessLevelDisplay.js</a>, <a href="components_Group_AccessLevelDisplay.js.html#line13">line 13</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>A <code>Book</code> icon for read access (access level 1), a <code>Pencil</code> icon for write access (access level 2), or nothing if no matching group is found or if the access level doesn't match 1 or 2.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">JSX.Element</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="AddGroupMutation"><span class="type-signature"></span>AddGroupMutation<span class="signature">(groupId, page, accesslevel)</span><span class="type-signature"> &rarr; {function}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>An asynchronous function that creates a mutation to add a group.
+This function first prepares the query and variables, then makes a POST request to the server.
+After receiving the response, it dispatches relevant actions to update the application state.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>groupId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The ID of the group to be added.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>page</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The current page object.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>accesslevel</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The access level to be assigned to the group.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="mutations_authAddGroup.js.html">mutations/authAddGroup.js</a>, <a href="mutations_authAddGroup.js.html#line16">line 16</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>A function that dispatches actions to update the application state.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">function</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="AddUserMutation"><span class="type-signature"></span>AddUserMutation<span class="signature">(userId, page, accesslevel)</span><span class="type-signature"> &rarr; {function}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>An asynchronous function that creates a mutation to add a user.
+This function first prepares the query and variables, then makes a POST request to the server.
+After receiving the response, it dispatches relevant actions to update the application state.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>userId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The ID of the user to be added.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>page</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The current page object.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>accesslevel</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The access level to be assigned to the user.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="mutations_authAddUser.js.html">mutations/authAddUser.js</a>, <a href="mutations_authAddUser.js.html#line16">line 16</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>A function that dispatches actions to update the application state.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">function</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="GroupInput"><span class="type-signature"></span>GroupInput<span class="signature">(props)</span><span class="type-signature"> &rarr; {JSX.Element}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Component for the form that allows adding a group.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>props</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Component props</p>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>page</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The page object</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>actions</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>An object with actions that can be performed, includes <code>onMutationAddGroup</code></p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>onCancel</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Function to execute when canceling group addition</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The id of the group to be added</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>setId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Function to update the id of the group to be added</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="components_Group_GroupInput.js.html">components/Group/GroupInput.js</a>, <a href="components_Group_GroupInput.js.html#line14">line 14</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>A form-like structure with a text input for group ID, a cancel button, and a save button.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">JSX.Element</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="RemoveGroupMutation"><span class="type-signature"></span>RemoveGroupMutation<span class="signature">(groupId, page, accesslevel)</span><span class="type-signature"> &rarr; {function}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>An asynchronous function that creates a mutation to remove a group.
+This function first prepares the query and variables, then makes a POST request to the server.
+It does not dispatch any actions to update the application state after receiving the response.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>groupId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The ID of the group to be removed.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>page</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The current page object.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>accesslevel</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The access level to be assigned to the group.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="mutations_authRemoveGroup.js.html">mutations/authRemoveGroup.js</a>, <a href="mutations_authRemoveGroup.js.html#line15">line 15</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>A function that makes a fetch request but does not dispatch any actions.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">function</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="RemoveUserMutation"><span class="type-signature"></span>RemoveUserMutation<span class="signature">(userId, page, accesslevel)</span><span class="type-signature"> &rarr; {function}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>An asynchronous function that creates a mutation to remove a user.
+This function first prepares the query and variables, then makes a POST request to the server.
+It does not dispatch any actions to update the application state after receiving the response.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>userId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The ID of the user to be removed.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>page</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The current page object.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>accesslevel</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The access level to be assigned to the user.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="mutations_authRemoveUser.js.html">mutations/authRemoveUser.js</a>, <a href="mutations_authRemoveUser.js.html#line15">line 15</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>A function that makes a fetch request but does not dispatch any actions.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">function</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="UserInput"><span class="type-signature"></span>UserInput<span class="signature">(props)</span><span class="type-signature"> &rarr; {JSX.Element}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>UserInput is a component that renders a form to input the user's ID and two buttons.
+The 'Return' button dismisses the input form, while the 'Save' button calls the
+provided actions to add a user and dismisses the form.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>props</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The properties that define the UserInput component</p>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>page</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The page where the user will be added</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>actions</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The actions that can be performed on the user</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>onCancel</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>A callback function to dismiss the form</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The user's ID</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>setId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>A callback function to update the user's ID</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="components_User_UserInput.js.html">components/User/UserInput.js</a>, <a href="components_User_UserInput.js.html#line20">line 20</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>The UserInput component</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">JSX.Element</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
 
         
             
@@ -1202,6 +3366,189 @@ jsou zahrnuty i &quot;asynchronni&quot; akce</p>
 
 
         
+            
+
+    
+
+    
+    <h4 class="name" id="authorizedFetch"><span class="type-signature"></span>authorizedFetch<span class="signature">(path, params)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>A wrapper function for fetch which creates a communication layer with the server.
+This function allows fetch requests to be customized while maintaining certain defaults.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>path</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The API path to send the request to. Note: This is overridden in the current implementation.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>params</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Additional or overriding parameters for the fetch request.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fetch_authorizedFetch.js.html">fetch/authorizedFetch.js</a>, <a href="fetch_authorizedFetch.js.html#line22">line 22</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>The Promise returned by the fetch API.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
     
 
     
@@ -1217,13 +3564,13 @@ jsou zahrnuty i &quot;asynchronni&quot; akce</p>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AccessLevelDisplay">AccessLevelDisplay</a></li><li><a href="global.html#AuthorizationPageFetch">AuthorizationPageFetch</a></li><li><a href="global.html#AuthorizationPageFetchHelper">AuthorizationPageFetchHelper</a></li><li><a href="global.html#GroupCard">GroupCard</a></li><li><a href="global.html#GroupTable">GroupTable</a></li><li><a href="global.html#GroupTableRow">GroupTableRow</a></li><li><a href="global.html#PageLarge">PageLarge</a></li><li><a href="global.html#PageProvider">PageProvider</a></li><li><a href="global.html#PageSlice">PageSlice</a></li><li><a href="global.html#PageUsersCard">PageUsersCard</a></li><li><a href="global.html#UserRemove">UserRemove</a></li><li><a href="global.html#UserTableRow">UserTableRow</a></li><li><a href="global.html#UsersCard">UsersCard</a></li><li><a href="global.html#UsersTable">UsersTable</a></li><li><a href="global.html#authorizedFetch">authorizedFetch</a></li><li><a href="global.html#bindPageActions">bindPageActions</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AccessLevelDisplay">AccessLevelDisplay</a></li><li><a href="global.html#AddButton">AddButton</a></li><li><a href="global.html#AddGroupMutation">AddGroupMutation</a></li><li><a href="global.html#AddUserMutation">AddUserMutation</a></li><li><a href="global.html#AddingGroupButton">AddingGroupButton</a></li><li><a href="global.html#AddingUserButton">AddingUserButton</a></li><li><a href="global.html#AuthorizationPageFetch">AuthorizationPageFetch</a></li><li><a href="global.html#AuthorizationPageFetchHelper">AuthorizationPageFetchHelper</a></li><li><a href="global.html#ChangeAccessLevelButton">ChangeAccessLevelButton</a></li><li><a href="global.html#ChangeAccessLevelButtonGroup">ChangeAccessLevelButtonGroup</a></li><li><a href="global.html#DeleteButton">DeleteButton</a></li><li><a href="global.html#GroupCard">GroupCard</a></li><li><a href="global.html#GroupInput">GroupInput</a></li><li><a href="global.html#GroupRemoveButton">GroupRemoveButton</a></li><li><a href="global.html#GroupTable">GroupTable</a></li><li><a href="global.html#GroupTableRow">GroupTableRow</a></li><li><a href="global.html#PageLarge">PageLarge</a></li><li><a href="global.html#PageProvider">PageProvider</a></li><li><a href="global.html#PageSlice">PageSlice</a></li><li><a href="global.html#PageUsersCard">PageUsersCard</a></li><li><a href="global.html#RemoveGroupMutation">RemoveGroupMutation</a></li><li><a href="global.html#RemoveUserMutation">RemoveUserMutation</a></li><li><a href="global.html#UserInput">UserInput</a></li><li><a href="global.html#UserRemove">UserRemove</a></li><li><a href="global.html#UserRemoveButton">UserRemoveButton</a></li><li><a href="global.html#UserTableRow">UserTableRow</a></li><li><a href="global.html#UsersCard">UsersCard</a></li><li><a href="global.html#UsersTable">UsersTable</a></li><li><a href="global.html#authorizedFetch">authorizedFetch</a></li><li><a href="global.html#bindPageActions">bindPageActions</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Mon Jun 19 2023 18:16:25 GMT+0200 (Central European Summer Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Tue Jun 20 2023 18:35:40 GMT+0200 (Central European Summer Time)
 </footer>
 
 <script> prettyPrint(); </script>

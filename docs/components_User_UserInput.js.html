@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: fetch/authorizedFetch.js</title>
+    <title>JSDoc: Source: components/User/UserInput.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: fetch/authorizedFetch.js</h1>
+    <h1 class="page-title">Source: components/User/UserInput.js</h1>
 
     
 
@@ -26,40 +26,73 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>// Default parameters for fetch requests.
-
-const globalFetchParams = {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-  redirect: "follow", // manual, *follow, error
-};
+            <pre class="prettyprint source linenums"><code>import { ArrowLeft, SaveFill } from "react-bootstrap-icons";
 
 /**
- * A wrapper function for fetch which creates a communication layer with the server.
- * This function allows fetch requests to be customized while maintaining certain defaults.
+ * UserInput is a component that renders a form to input the user's ID and two buttons.
+ * The 'Return' button dismisses the input form, while the 'Save' button calls the
+ * provided actions to add a user and dismisses the form.
  *
- * @function
- * @param {string} path - The API path to send the request to. Note: This is overridden in the current implementation.
- * @param {Object} params - Additional or overriding parameters for the fetch request.
- * @returns {Promise} The Promise returned by the fetch API.
+ * @component
+ *
+ * @param {Object} props - The properties that define the UserInput component
+ * @param {Object} props.page - The page where the user will be added
+ * @param {Object} props.actions - The actions that can be performed on the user
+ * @param {Function} props.onCancel - A callback function to dismiss the form
+ * @param {string} props.id - The user's ID
+ * @param {Function} props.setId - A callback function to update the user's ID
+ *
+ * @returns {JSX.Element} The UserInput component
  */
 
-export const authorizedFetch = (path, params) => {
-  // Merge the globalFetchParams with the provided params.
-  // This allows the provided params to override the defaults in globalFetchParams.
-  const newParams = { ...globalFetchParams, ...params };
+const UserInput = ({ page, actions, onCancel, id, setId }) => {
+  // Get value from input event
+  const handleChange = (event) => {
+    const value = event.target.value;
+    setId(value);
+  };
 
-  // Override the provided path with "/api/gql".
-  // In a real implementation, you might use the provided path instead.
+  // Render form with input and two buttons
+  return (
+    &lt;>
+      &lt;label>
+        User's ID:
+        &lt;input
+          type="text"
+          name="id"
+          value={id}
+          placeholder="Enter user ID "
+          onChange={handleChange}
+        />{" "}
+      &lt;/label>
 
-  const overridenPath = "/api/gql";
-
-  // Perform the fetch request. Note that params.headers should be extended with the Authorization token.
-  return fetch(overridenPath, newParams);
+      &lt;button
+        className="btn btn-sm btn-warning"
+        onClick={onCancel}
+        class="cancel"
+      >
+        &lt;ArrowLeft class="icon">&lt;/ArrowLeft>Return
+      &lt;/button>
+      &lt;button
+        className="btn btn-sm btn-success"
+        class="save"
+        onClick={() => {
+          actions.onMutationAddUser({
+            page: page,
+            userId: id,
+            accesslevel: 1,
+          });
+          onCancel();
+        }}
+      >
+        &lt;SaveFill class="icon" />
+        Save
+      &lt;/button>
+    &lt;/>
+  );
 };
+
+export default UserInput;
 </code></pre>
         </article>
     </section>

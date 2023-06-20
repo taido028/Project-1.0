@@ -3,10 +3,16 @@ import { PageActions } from "./PageReducer";
 import { AuthorizationPageQuery } from "queries/authPageQuery";
 
 /**
- * Ask for the item on server and adds it or update it in the store to the heap
- * @param {*} id
- * @returns promise
+ * Function that performs a GraphQL request and updates the state of the page in the Redux store.
+ *
+ * @param {string} id - The id of the page.
+ * @param {function} query - The GraphQL query function.
+ * @param {function} resultselector - The function to select the desired data from the response.
+ * @param {function} dispatch - The Redux dispatch function.
+ * @param {function} getState - The Redux getState function.
+ * @returns {Promise} A promise that resolves to the updated state of the page.
  */
+
 export const AuthorizationPageFetchHelper = (
   id,
   query,
@@ -37,10 +43,12 @@ export const AuthorizationPageFetchHelper = (
   return p;
 };
 /**
- * Fetch the page from server checks its type and asks once more for detailed data. Finally puts the result in the store.
- * @param {*} id
- * @returns
+ * Function that fetches the page data from the server and dispatches an action to update the state of the page in the Redux store.
+ *
+ * @param {string} id - The id of the page.
+ * @returns {function} A Redux thunk action that fetches the page data and dispatches an action to update the state of the page.
  */
+
 export const AuthorizationPageFetch = (id) => (dispatch, getState) => {
   const pageSelector = (json) => json.data.authorizationById;
   const bodyfunc = async () => {

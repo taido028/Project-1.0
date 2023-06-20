@@ -6,11 +6,13 @@ import { RemoveGroupMutation } from "mutations/authRemoveGroup";
 import { RemoveUserMutation } from "mutations/authRemoveUser";
 
 /**
- * vytvori actions, ktere pri volani uz vse radne provedou
- * jsou zahrnuty i "asynchronni" akce
- * @param {*} dispatch
- * @returns
- */
+
+Binds page actions that perform necessary operations upon invocation, including "asynchronous" actions.
+
+@param {function} dispatch - The dispatch function from Redux.
+@returns {object} - An object containing bound page actions.
+*
+*/
 export const bindPageActions = (dispatch) => {
   return {
     // Store

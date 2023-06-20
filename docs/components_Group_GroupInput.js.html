@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: fetch/authorizedFetch.js</title>
+    <title>JSDoc: Source: components/Group/GroupInput.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: fetch/authorizedFetch.js</h1>
+    <h1 class="page-title">Source: components/Group/GroupInput.js</h1>
 
     
 
@@ -26,40 +26,65 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>// Default parameters for fetch requests.
-
-const globalFetchParams = {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-  redirect: "follow", // manual, *follow, error
-};
-
+            <pre class="prettyprint source linenums"><code>import { ArrowLeft, SaveFill } from "react-bootstrap-icons";
 /**
- * A wrapper function for fetch which creates a communication layer with the server.
- * This function allows fetch requests to be customized while maintaining certain defaults.
- *
- * @function
- * @param {string} path - The API path to send the request to. Note: This is overridden in the current implementation.
- * @param {Object} params - Additional or overriding parameters for the fetch request.
- * @returns {Promise} The Promise returned by the fetch API.
+ * Component for the form that allows adding a group.
+ * @component
+ * @param {Object} props - Component props
+ * @param {Object} props.page - The page object
+ * @param {Object} props.actions - An object with actions that can be performed, includes `onMutationAddGroup`
+ * @param {function} props.onCancel - Function to execute when canceling group addition
+ * @param {string} props.id - The id of the group to be added
+ * @param {function} props.setId - Function to update the id of the group to be added
+ * @returns {JSX.Element} A form-like structure with a text input for group ID, a cancel button, and a save button.
  */
 
-export const authorizedFetch = (path, params) => {
-  // Merge the globalFetchParams with the provided params.
-  // This allows the provided params to override the defaults in globalFetchParams.
-  const newParams = { ...globalFetchParams, ...params };
+const GroupInput = ({ page, actions, onCancel, id, setId }) => {
+  const handleChange = (event) => {
+    const value = event.target.value;
+    setId(value);
+  };
 
-  // Override the provided path with "/api/gql".
-  // In a real implementation, you might use the provided path instead.
+  return (
+    &lt;>
+      &lt;label>
+        Group's Id:
+        &lt;input
+          type="id"
+          name="name"
+          value={id}
+          placeholder="Enter group'ID "
+          onChange={handleChange}
+        />{" "}
+      &lt;/label>
 
-  const overridenPath = "/api/gql";
-
-  // Perform the fetch request. Note that params.headers should be extended with the Authorization token.
-  return fetch(overridenPath, newParams);
+      &lt;button
+        className="btn btn-sm btn-warning"
+        onClick={onCancel}
+        class="cancel"
+      >
+        &lt;ArrowLeft class="icon">&lt;/ArrowLeft>Return
+      &lt;/button>
+      &lt;button
+        className="btn btn-sm btn-success"
+        class="save"
+        onClick={() => {
+          actions.onMutationAddGroup({
+            page: page,
+            groupId: id,
+            accesslevel: 1,
+          });
+          onCancel();
+        }}
+      >
+        &lt;SaveFill class="icon" />
+        Save
+      &lt;/button>
+    &lt;/>
+  );
 };
+
+export default GroupInput;
 </code></pre>
         </article>
     </section>
