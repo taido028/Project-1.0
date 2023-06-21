@@ -1,9 +1,9 @@
 import { PageActions } from "./PageReducer";
 import { AuthorizationPageFetch } from "./AsyncActions";
-import { AddUserMutation } from "mutations/authAddUser";
-import { AddGroupMutation } from "mutations/authAddGroup";
-import { RemoveGroupMutation } from "mutations/authRemoveGroup";
-import { RemoveUserMutation } from "mutations/authRemoveUser";
+import { AddUserMutation } from "mutations/AddUserAsycActions";
+import { AddGroupMutation } from "mutations/AddGroupAsycActions";
+import { RemoveGroupMutation } from "mutations/RemoveGroupAsycActions";
+import { RemoveUserMutation } from "mutations/RemoveUserAsycActions";
 
 /**
  * This function binds a given dispatch function to several action creators.
