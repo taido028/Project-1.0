@@ -1,11 +1,11 @@
 .page-background{
     background-image: url('https://coolbackgrounds.io/images/backgrounds/index/sea-edge-79ab30e2.png');
     background-size: cover;
-    position: absolute;
+    background-repeat: repeat-y;
     top: 0;
     left: 0;
     right: 0;
-    bottom: -10000;
+    bottom: 0;
 }
 
 .page-title-background{
@@ -56,6 +56,7 @@
     background-size: cover;
     margin-left: 100px;
     margin-right: 100px;
+    margin-bottom: 100px;
     opacity: 0.75;
 }
 
