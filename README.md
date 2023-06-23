@@ -56,3 +56,5 @@ Contributors: Minh Quang Bui - Quang Tai Do
 13. 16.6: Made changes to access level button for both group and user. (Using user/group update)
 
 14. 19.6: Replaced fetch function with authorizedFetch and optimized css.
+
+15. 23.6: Adding navigation tab and search box by letters.
