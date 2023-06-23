@@ -2,6 +2,7 @@ import { Card } from "react-bootstrap";
 import { PlusSquareFill } from "react-bootstrap-icons";
 
 export const GroupResultList = ({ GroupsList, actions, page, onChange }) => {
+  //Check the size of GroupsList before rendering (because of function map)
   if (GroupsList.length > 0) {
     return (
       <Card className="result-list-card">
@@ -20,6 +21,8 @@ export const GroupResultList = ({ GroupsList, actions, page, onChange }) => {
                     groupId: g.id,
                     accesslevel: 1,
                   });
+
+                  //Change state to 0 to hide the GroupResultList
                   onChange();
                 }}
               />

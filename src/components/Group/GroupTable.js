@@ -48,7 +48,7 @@ export const GroupTable = ({ page, actions }) => {
       <td>
         <div className="searchbar">
           <td>
-            <h3>Group's search box: </h3>
+            <h3>Group search box: </h3>
           </td>
           <td>
             <GroupSearchBox page={page} actions={actions} />

@@ -31,11 +31,23 @@ export const PageLarge = ({ page, actions }) => {
 };
 
 const PageTabButton = ({ page, actions }) => {
+  //Using different states to display different cards (default is 0 which is home tab)
   const [state, setState] = useState(0);
 
   const setState0 = useCallback(() => setState(0), []);
   const setState1 = useCallback(() => setState(1), []);
   const setState2 = useCallback(() => setState(2), []);
+
+  //Arrow to indicate which tab is currently selected
+  const CurrentTabArrow = () => {
+    return (
+      <div>
+        <ArrowDown className="icon" />
+        <ArrowDown className="icon" />
+        <ArrowDown className="icon" />
+      </div>
+    );
+  };
 
   return (
     <div>
@@ -44,13 +56,7 @@ const PageTabButton = ({ page, actions }) => {
         onClick={setState0}
       >
         <h3>Home</h3>
-        {state === 0 && (
-          <div>
-            <ArrowDown className="icon" />
-            <ArrowDown className="icon" />
-            <ArrowDown className="icon" />
-          </div>
-        )}
+        {state === 0 && <CurrentTabArrow />}
       </button>
 
       <button
@@ -58,13 +64,7 @@ const PageTabButton = ({ page, actions }) => {
         onClick={setState1}
       >
         <h3>Users List</h3>
-        {state === 1 && (
-          <div>
-            <ArrowDown className="icon" />
-            <ArrowDown className="icon" />
-            <ArrowDown className="icon" />
-          </div>
-        )}
+        {state === 1 && <CurrentTabArrow />}
       </button>
 
       <button
@@ -72,13 +72,7 @@ const PageTabButton = ({ page, actions }) => {
         onClick={setState2}
       >
         <h3>Groups List</h3>
-        {state === 2 && (
-          <div>
-            <ArrowDown className="icon" />
-            <ArrowDown className="icon" />
-            <ArrowDown className="icon" />
-          </div>
-        )}
+        {state === 2 && <CurrentTabArrow />}
       </button>
 
       <CardDisplay page={page} actions={actions} state={state} />
@@ -87,6 +81,7 @@ const PageTabButton = ({ page, actions }) => {
 };
 
 const CardDisplay = ({ page, actions, state }) => {
+  //Display the card based on the state
   return state === 0 ? (
     <div></div>
   ) : state === 1 ? (

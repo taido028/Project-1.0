@@ -51,7 +51,7 @@ export const UsersTable = ({ page, actions }) => {
 
         <td className="searchbar">
           <td>
-            <h3>User's search box: </h3>
+            <h3>User search box: </h3>
           </td>
           <td>
             <UserSearchBox page={page} actions={actions} />
