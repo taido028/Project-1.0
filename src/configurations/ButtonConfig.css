@@ -29,11 +29,26 @@
     width: 30px;
 }
 
-/*Other buttons icon config */
+/*Icon config */
 .icon{
     height: 30px;
     width: 30px;
+    margin-right: 14px;
 }
+
+.read{
+    height: 30px;
+    width: 30px;
+    color: green;
+}
+
+.write{
+    height: 30px;
+    width: 30px;
+    color: orangered;
+}
+
+/*Save buttons config*/
 
 .save{
     height: 50px;
@@ -57,6 +72,8 @@
     transform: translateY(4px);
 }
 
+/*Cancel buttons config*/
+
 .cancel{
     height: 50px;
     color: white;
@@ -79,17 +96,7 @@
     transform: translateY(4px);
 }
 
-.read{
-    height: 30px;
-    width: 30px;
-    color: green;
-}
-
-.write{
-    height: 30px;
-    width: 30px;
-    color: orangered;
-}
+/*Up buttons config*/
 
 .up{
     height: 30px;
@@ -106,6 +113,8 @@
     transform: translateY(4px);
 }
 
+/*Down buttons config*/
+
 .down{
     height: 30px;
     width: 30px;
@@ -119,4 +128,91 @@
 .down:active{
     box-shadow: 0 5px #666;
     transform: translateY(4px);
+}
+
+/*Add in search box*/
+
+.addsearch{
+    height: 30px;
+    width: 30px;
+    color: rgb(0, 117, 0);
+    margin-left: 20px;
+    position: absolute;
+    right: 0;
+}
+
+.addsearch:hover{
+    background-color: rgb(172, 241, 172);
+}
+
+.addsearch:active{
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+/*Home tab button*/
+.hometab{
+    border: none;
+    outline: none;
+    width: 33.333%;
+    background-color: greenyellow;
+    opacity: 0.65;
+    text-shadow: black 0.01em 0.01em 0.01em
+}
+
+.hometab:hover{
+    background-color: green;
+}
+
+.hometab:active{
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+
+/*User tab button*/
+.usertab{
+    border: none;
+    outline: none;
+    width: 33.333%;
+    background-color: lightcoral;
+    opacity: 0.65;
+    text-shadow: black 0.01em 0.01em 0.01em
+}
+
+.usertab:hover{
+    background-color: red;
+}
+
+.usertab:active{
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+
+/*Group tab button*/
+.grouptab{
+    border: none;
+    outline: none;
+    width: 33.333%;
+    background-color: lightblue;
+    opacity: 0.65;
+    text-shadow: black 0.01em 0.01em 0.01em
+}
+
+.grouptab:hover{
+    background-color: blue;
+}
+
+.grouptab:active{
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+/*On active tab*/
+.hometab.active,
+.usertab.active,
+.grouptab.active {
+  background-color: gray;
+  
 }

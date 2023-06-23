@@ -1,3 +1,5 @@
+/*Table config*/
+
 .first{
     margin-top: 10px;
     background-color: #f2f2f2;
@@ -21,10 +23,43 @@
     padding: 5px;
 }
 
-.inputbox{
-    width: 100%;
-    border: 2px solid #000;
+.group-table{
+    width: 800px;
 }
+
+.user-table{
+    width: 800px;
+}
+
+/*Inputbox config*/
+
+.inputbox{
+    border: 2px solid #000;
+    height: 40px;
+}
+
+.searchbox{
+    border: 2px solid #000;
+    height: 40px;
+    width: 300px;
+}
+
+.searchbar{
+    height: 40px;
+    position: absolute;
+    right: 0;
+    top: 70px;
+}
+
+.resultlist{
+    margin-bottom: 15px;
+}
+
+.result-list-card{
+    max-height: 300px;
+    overflow-y: auto;
+}
+/*Text config*/
 
 .textheader{
     font-weight: bold;
@@ -39,6 +74,8 @@
     text-align: left;
     text-underline-offset: 2px;
 }
+
+/*Card config*/
 
 .groupcard{
     margin-top: 100px;

@@ -2,6 +2,9 @@ import Card from "react-bootstrap/Card";
 import { UsersCard } from "components/User/UserCard";
 //import { PageUsersCard } from "./PageUsersCard";
 import { GroupCard } from "components/Group/GroupCard";
+import { useState, useCallback } from "react";
+import { ArrowDown } from "react-bootstrap-icons";
+
 /**
  * Component for a page that displays user and group cards.
  * @component
@@ -19,11 +22,76 @@ export const PageLarge = ({ page, actions }) => {
         <Card.Title className="page-title">AuthorizationPage</Card.Title>
       </Card.Header>
       <Card.Body>
-        <UsersCard page={page} actions={actions} />
         {/*<PageUsersCard page={page} actions={actions} />}
         {<h1>---------</h1>*/}
-        <GroupCard page={page} actions={actions} />
+        <PageTabButton page={page} actions={actions} />
       </Card.Body>
     </Card>
+  );
+};
+
+const PageTabButton = ({ page, actions }) => {
+  const [state, setState] = useState(0);
+
+  const setState0 = useCallback(() => setState(0), []);
+  const setState1 = useCallback(() => setState(1), []);
+  const setState2 = useCallback(() => setState(2), []);
+
+  return (
+    <div>
+      <button
+        class={`hometab ${state === 0 ? "active" : ""}`}
+        onClick={setState0}
+      >
+        <h3>Home</h3>
+        {state === 0 && (
+          <div>
+            <ArrowDown className="icon" />
+            <ArrowDown className="icon" />
+            <ArrowDown className="icon" />
+          </div>
+        )}
+      </button>
+
+      <button
+        class={`usertab ${state === 1 ? "active" : ""}`}
+        onClick={setState1}
+      >
+        <h3>Users List</h3>
+        {state === 1 && (
+          <div>
+            <ArrowDown className="icon" />
+            <ArrowDown className="icon" />
+            <ArrowDown className="icon" />
+          </div>
+        )}
+      </button>
+
+      <button
+        class={`grouptab ${state === 2 ? "active" : ""}`}
+        onClick={setState2}
+      >
+        <h3>Groups List</h3>
+        {state === 2 && (
+          <div>
+            <ArrowDown className="icon" />
+            <ArrowDown className="icon" />
+            <ArrowDown className="icon" />
+          </div>
+        )}
+      </button>
+
+      <CardDisplay page={page} actions={actions} state={state} />
+    </div>
+  );
+};
+
+const CardDisplay = ({ page, actions, state }) => {
+  return state === 0 ? (
+    <div></div>
+  ) : state === 1 ? (
+    <UsersCard page={page} actions={actions} />
+  ) : (
+    <GroupCard page={page} actions={actions} />
   );
 };

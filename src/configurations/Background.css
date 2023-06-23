@@ -1,7 +1,10 @@
+/*Page config*/
+
 .page-background{
     background-image: url('https://coolbackgrounds.io/images/backgrounds/index/sea-edge-79ab30e2.png');
     background-size: cover;
     background-repeat: repeat-y;
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
@@ -27,6 +30,22 @@
     0% { transform: translateX(-60%); }
     100% { transform: translateX(60%); }
 }
+
+.loading-background{
+    background-image: url('https://cdn.discordapp.com/attachments/1108373856613306458/1120352309189296220/to_the_end_of_the_world.gif');
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-shadow: black 0.1em 0.1em 0.2em;
+    text-rendering: optimizeLegibility;
+    background-blend-mode: darken;
+}
+
+/*Card config*/
+
 .usercard-title{
     font-size: x-large;
     font-weight: bold;
@@ -50,25 +69,12 @@
 }
 
 .group-card-background{
-    margin-top: 100px;
+    margin-top: 50px;
     background-color: rgb(241, 241, 214);
     text-shadow: black 0.01em 0.01em 0.01em;
     background-size: cover;
     margin-left: 100px;
     margin-right: 100px;
-    margin-bottom: 100px;
+    margin-bottom: 150px;
     opacity: 0.75;
-}
-
-.loading-background{
-    background-image: url('https://cdn.discordapp.com/attachments/1108373856613306458/1120352309189296220/to_the_end_of_the_world.gif');
-    background-size: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    text-shadow: black 0.1em 0.1em 0.2em;
-    text-rendering: optimizeLegibility;
-    background-blend-mode: darken;
 }

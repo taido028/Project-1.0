@@ -31,6 +31,7 @@ const UserInput = ({ page, actions, onCancel, id, setId }) => {
         User's ID:
         <input
           type="text"
+          className="inputbox"
           name="id"
           value={id}
           placeholder="Enter user ID "
@@ -45,6 +46,7 @@ const UserInput = ({ page, actions, onCancel, id, setId }) => {
       >
         <ArrowLeft class="icon"></ArrowLeft>Return
       </button>
+
       <button
         className="btn btn-sm btn-success"
         class="save"

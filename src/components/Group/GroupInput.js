@@ -25,7 +25,8 @@ const GroupInput = ({ page, actions, onCancel, id, setId }) => {
           type="id"
           name="name"
           value={id}
-          placeholder="Enter group'ID "
+          placeholder="Enter group ID "
+          className="inputbox"
           onChange={handleChange}
         />{" "}
       </label>
