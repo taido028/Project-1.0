@@ -24,11 +24,13 @@
 }
 
 .group-table{
-    width: 800px;
+    width: 1000px;
+    margin-left: 70px;
 }
 
 .user-table{
-    width: 800px;
+    width: 1000px;
+    margin-left: 70px;
 }
 
 /*Inputbox config*/

@@ -17,6 +17,7 @@ const GroupInput = ({ page, actions, onCancel, id, setId }) => {
     setId(value);
   };
 
+  const GroupCheck = page.groups.find((g) => g.group.id === id);
   return (
     <>
       <label>
@@ -42,11 +43,14 @@ const GroupInput = ({ page, actions, onCancel, id, setId }) => {
         className="btn btn-sm btn-success"
         class="save"
         onClick={() => {
-          actions.onMutationAddGroup({
-            page: page,
-            groupId: id,
-            accesslevel: 1,
-          });
+          if (!GroupCheck) {
+            actions.onMutationAddGroup({
+              page: page,
+              groupId: id,
+              accesslevel: 1,
+            });
+          }
+
           onCancel();
         }}
       >

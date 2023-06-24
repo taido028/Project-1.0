@@ -1,4 +1,5 @@
 import { ArrowLeft, SaveFill } from "react-bootstrap-icons";
+import { useState } from "react";
 
 /**
  * UserInput is a component that renders a form to input the user's ID and two buttons.
@@ -24,6 +25,7 @@ const UserInput = ({ page, actions, onCancel, id, setId }) => {
     setId(value);
   };
 
+  const UserCheck = page.users.find((u) => u.user.id === id);
   // Render form with input and two buttons
   return (
     <>
@@ -51,11 +53,14 @@ const UserInput = ({ page, actions, onCancel, id, setId }) => {
         className="btn btn-sm btn-success"
         class="save"
         onClick={() => {
-          actions.onMutationAddUser({
-            page: page,
-            userId: id,
-            accesslevel: 1,
-          });
+          if (!UserCheck) {
+            actions.onMutationAddUser({
+              page: page,
+              userId: id,
+              accesslevel: 1,
+            });
+          }
+
           onCancel();
         }}
       >
