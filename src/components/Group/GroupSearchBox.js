@@ -16,6 +16,7 @@ export const GroupSearchBox = ({ page, actions }) => {
 
   //Handle the change of input letters
   const handleLettersChange = (event) => {
+    setState1();
     const value = event.target.value;
     setLetters(value);
     getGroupByLetters(value).then((GroupsList) => {
@@ -28,7 +29,6 @@ export const GroupSearchBox = ({ page, actions }) => {
       } else {
         setGroupsList(GroupsList);
       }
-      setState1();
     });
   };
 

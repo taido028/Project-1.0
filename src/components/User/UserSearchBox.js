@@ -16,6 +16,7 @@ export const UserSearchBox = ({ page, actions }) => {
 
   //Handle the change of input letters
   const handleLettersChange = (event) => {
+    setState1();
     const value = event.target.value;
     setLetters(value);
     getUserByLetters(value).then((UsersList) => {
@@ -28,7 +29,6 @@ export const UserSearchBox = ({ page, actions }) => {
       } else {
         setUsersList(UsersList);
       }
-      setState1();
     });
   };
 

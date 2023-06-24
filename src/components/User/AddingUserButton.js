@@ -33,8 +33,8 @@ export const AddButton = ({ onClick }) => {
 export const AddingUserButton = ({ page, actions }) => {
   const [state, setState] = useState(0);
   const [id, setId] = useState("");
-  const setState0 = useCallback(() => setState(0));
-  const setState1 = useCallback(() => setState(1));
+  const setState0 = useCallback(() => setState(0), []);
+  const setState1 = useCallback(() => setState(1), []);
 
   return state === 0 ? (
     <AddButton onClick={setState1} />

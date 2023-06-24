@@ -1,5 +1,4 @@
 import { ArrowLeft, SaveFill } from "react-bootstrap-icons";
-import { useState } from "react";
 
 /**
  * UserInput is a component that renders a form to input the user's ID and two buttons.
