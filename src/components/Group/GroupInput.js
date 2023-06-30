@@ -12,12 +12,15 @@ import { ArrowLeft, SaveFill } from "react-bootstrap-icons";
  */
 
 const GroupInput = ({ page, actions, onCancel, id, setId }) => {
+  // handle input change
   const handleChange = (event) => {
     const value = event.target.value;
     setId(value);
   };
 
+  // check if group already exist
   const GroupCheck = page.groups.find((g) => g.group.id === id);
+
   return (
     <>
       <label>
@@ -37,7 +40,8 @@ const GroupInput = ({ page, actions, onCancel, id, setId }) => {
         onClick={onCancel}
         class="cancel"
       >
-        <ArrowLeft class="icon"></ArrowLeft>Return
+        <ArrowLeft class="icon" />
+        Return
       </button>
       <button
         className="btn btn-sm btn-success"

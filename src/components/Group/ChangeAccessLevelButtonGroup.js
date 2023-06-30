@@ -10,33 +10,34 @@ import { ArrowUpSquareFill, ArrowDownSquareFill } from "react-bootstrap-icons";
  */
 
 export const ChangeAccessLevelButtonGroup = ({ group, page, actions }) => {
+  // get grouplist from page
   const GroupList = page.groups;
+
+  // find the group in the grouplist
   const Target = GroupList.find((g) => g.group.id === group.id);
-  if (Target.accesslevel === 2)
-    return (
-      <ArrowDownSquareFill
-        class="down"
-        onClick={() => {
-          actions.onMutationAddGroup({
-            groupId: group.id,
-            accesslevel: 1,
-            page: page,
-          });
-        }}
-      />
-    );
-  else if (Target.accesslevel === 1)
-    return (
-      <ArrowUpSquareFill
-        class="up"
-        onClick={() => {
-          actions.onMutationAddGroup({
-            groupId: group.id,
-            accesslevel: 2,
-            page: page,
-          });
-        }}
-      />
-    );
-  else return null;
+
+  // return icon base on accesslevel
+  return Target.accesslevel === 2 ? (
+    <ArrowDownSquareFill
+      class="down"
+      onClick={() => {
+        actions.onMutationAddGroup({
+          groupId: group.id,
+          accesslevel: 1,
+          page: page,
+        });
+      }}
+    />
+  ) : (
+    <ArrowUpSquareFill
+      class="up"
+      onClick={() => {
+        actions.onMutationAddGroup({
+          groupId: group.id,
+          accesslevel: 2,
+          page: page,
+        });
+      }}
+    />
+  );
 };

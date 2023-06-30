@@ -20,7 +20,7 @@ export const UserSearchBox = ({ page, actions }) => {
     const value = event.target.value;
     setLetters(value);
     getUserByLetters(value).then((UsersList) => {
-      //Filter out the users that are already in the table
+      //Filter out the users those are already in the table
       if (page.users.length > 0) {
         page.users.forEach((user) => {
           UsersList = UsersList.filter((u) => u.id !== user.user.id);
@@ -35,41 +35,27 @@ export const UserSearchBox = ({ page, actions }) => {
   //Return the UserSearchBox base on state (default state = 0)
   return state === 1 ? (
     <Card>
-      <tr>
-        <input
-          placeholder={"Input user's name or surname"}
-          className="searchbox"
-          value={letters}
-          onChange={handleLettersChange}
-        />
-      </tr>
-      <tr>
-        <UserResultList
-          UsersList={UsersList}
-          actions={actions}
-          page={page}
-          onChange={setState0}
-        />
-      </tr>
+      <input
+        placeholder={"Input user's name or surname"}
+        className="searchbox"
+        value={letters}
+        onChange={handleLettersChange}
+      />
+      <UserResultList
+        UsersList={UsersList}
+        actions={actions}
+        page={page}
+        onChange={setState0}
+      />
     </Card>
   ) : (
     <Card>
-      <tr>
-        <input
-          placeholder={"Input user's name or surname"}
-          className="searchbox"
-          value={""}
-          onChange={handleLettersChange}
-        />
-      </tr>
-      <tr>
-        <UserResultList
-          UsersList={""}
-          actions={actions}
-          page={page}
-          onChange={setState0}
-        />
-      </tr>
+      <input
+        placeholder={"Input user's name or surname"}
+        className="searchbox"
+        value={""}
+        onChange={handleLettersChange}
+      />
     </Card>
   );
 };

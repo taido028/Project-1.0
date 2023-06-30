@@ -18,13 +18,15 @@ import { ArrowLeft, SaveFill } from "react-bootstrap-icons";
  */
 
 const UserInput = ({ page, actions, onCancel, id, setId }) => {
-  // Get value from input event
+  // handle input change
   const handleChange = (event) => {
     const value = event.target.value;
     setId(value);
   };
 
+  // check if user already exist
   const UserCheck = page.users.find((u) => u.user.id === id);
+
   // Render form with input and two buttons
   return (
     <>
@@ -45,7 +47,8 @@ const UserInput = ({ page, actions, onCancel, id, setId }) => {
         onClick={onCancel}
         class="cancel"
       >
-        <ArrowLeft class="icon"></ArrowLeft>Return
+        <ArrowLeft class="icon" />
+        Return
       </button>
 
       <button

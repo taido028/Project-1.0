@@ -135,12 +135,15 @@ export const PageSlice = createSlice({
   name: "pages",
   initialState: {},
   reducers: {
+    // page
     page_update: UpdateItem,
 
+    // user
     page_userRemove: UserRemove,
     page_userAdd: UserAdd,
     page_userUpdate: UserUpdate,
 
+    // group
     page_groupRemove: GroupRemove,
     page_groupAdd: GroupAdd,
     page_groupUpdate: GroupUpdate,

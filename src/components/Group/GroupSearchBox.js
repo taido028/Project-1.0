@@ -19,8 +19,9 @@ export const GroupSearchBox = ({ page, actions }) => {
     setState1();
     const value = event.target.value;
     setLetters(value);
+
     getGroupByLetters(value).then((GroupsList) => {
-      // Filter out the users that are already in the table
+      // Filter out the users those are already in the table
       if (page.groups.length > 0) {
         page.groups.forEach((group) => {
           GroupsList = GroupsList.filter((g) => g.id !== group.group.id);
@@ -35,41 +36,27 @@ export const GroupSearchBox = ({ page, actions }) => {
   //Return the GroupSearchBox base on state (default state = 0)
   return state === 1 ? (
     <Card>
-      <tr>
-        <input
-          placeholder={"Input group's name"}
-          className="searchbox"
-          value={letters}
-          onChange={handleLettersChange}
-        />
-      </tr>
-      <tr>
-        <GroupResultList
-          GroupsList={GroupsList}
-          actions={actions}
-          page={page}
-          onChange={setState0}
-        />
-      </tr>
+      <input
+        placeholder={"Input group's name"}
+        className="searchbox"
+        value={letters}
+        onChange={handleLettersChange}
+      />
+      <GroupResultList
+        GroupsList={GroupsList}
+        actions={actions}
+        page={page}
+        onChange={setState0}
+      />
     </Card>
   ) : (
     <Card>
-      <tr>
-        <input
-          placeholder={"Input user's name or surname"}
-          className="searchbox"
-          value={""}
-          onChange={handleLettersChange}
-        />
-      </tr>
-      <tr>
-        <GroupResultList
-          GroupsList={""}
-          actions={actions}
-          page={page}
-          onChange={setState0}
-        />
-      </tr>
+      <input
+        placeholder={"Input user's name or surname"}
+        className="searchbox"
+        value={""}
+        onChange={handleLettersChange}
+      />
     </Card>
   );
 };

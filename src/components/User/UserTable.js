@@ -44,6 +44,7 @@ export const UsersTable = ({ page, actions }) => {
           </tbody>
         </table>
       </tr>
+
       <tr>
         <td>
           <AddingUserButton page={page} actions={actions} />
