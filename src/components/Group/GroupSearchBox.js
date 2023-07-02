@@ -2,6 +2,15 @@ import { useState, useCallback } from "react";
 import { GroupResultList } from "./GroupResultList";
 import { getGroupByLetters } from "mutations/GroupByLettersAsyncAction";
 import { Card } from "react-bootstrap";
+/**
+ * GroupSearchBox component enables group search functionality.
+ *
+ * @param {object} props - Component props.
+ * @param {object} props.page - The current page object.
+ * @param {object} props.actions - An object containing various action dispatch functions.
+ *
+ * @returns {JSX.Element} The rendered GroupSearchBox component.
+ */
 
 export const GroupSearchBox = ({ page, actions }) => {
   //UseState to control input letters and result GroupsList
@@ -52,7 +61,7 @@ export const GroupSearchBox = ({ page, actions }) => {
   ) : (
     <Card>
       <input
-        placeholder={"Input user's name or surname"}
+        placeholder={"Input group's name"}
         className="searchbox"
         value={""}
         onChange={handleLettersChange}

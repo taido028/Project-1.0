@@ -1,4 +1,11 @@
 import { authorizedFetch } from "fetch/authorizedFetch";
+/**
+ * This function generates the JSON object for GraphQL request
+ * to fetch groups by letters
+ *
+ * @param {String} letters - The letters used to search for groups
+ * @returns {Object} The GraphQL query JSON object
+ */
 
 export const GroupByLettersQueryJSON = (letters) => ({
   query: `query($letters: String!){

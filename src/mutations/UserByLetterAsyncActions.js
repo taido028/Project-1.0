@@ -1,4 +1,11 @@
 import { authorizedFetch } from "fetch/authorizedFetch";
+/**
+ * This function generates the JSON object for GraphQL request
+ * to fetch users by letters
+ *
+ * @param {String} letters - The letters used to search for users
+ * @returns {Object} The GraphQL query JSON object
+ */
 
 export const UserByLettersQueryJSON = (letters) => ({
   query: `query($letters: String!){

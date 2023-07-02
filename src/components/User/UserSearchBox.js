@@ -2,6 +2,15 @@ import { useState, useCallback } from "react";
 import { getUserByLetters } from "mutations/UserByLetterAsyncActions";
 import { UserResultList } from "components/User/UserResultList";
 import { Card } from "react-bootstrap";
+/**
+ * UserSearchBox is a component that provides a search box for user search.
+ *
+ * @param {Object} props - The properties that define the component's behavior and display.
+ * @param {Object} props.page - The page data where the user is being searched.
+ * @param {Object} props.actions - An object containing bound actions for dispatch.
+ *
+ * @returns {JSX.Element} The UserSearchBox component.
+ */
 
 export const UserSearchBox = ({ page, actions }) => {
   //UseState to control input letters and result UsersList
