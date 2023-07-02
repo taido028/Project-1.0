@@ -78,3 +78,44 @@
     margin-bottom: 150px;
     opacity: 0.75;
 }
+.home-card-background{
+    margin-top: 50px;
+    background-color: darkgrey;
+    text-shadow: black 0.01em 0.01em 0.01em;
+    background-size: cover;
+    margin-left: 100px;
+    margin-right: 100px;
+    opacity: 0.75;
+}
+.logo {
+    width: 250px;
+}
+.contributors-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    padding-top: 10px;
+}
+  
+.names-container {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+.contributors-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px; 
+  }
+  
+  
+  
+  
+  
+  
+  

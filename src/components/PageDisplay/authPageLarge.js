@@ -4,6 +4,7 @@ import { UsersCard } from "components/User/UserCard";
 import { GroupCard } from "components/Group/GroupCard";
 import { useState, useCallback } from "react";
 import { ArrowDown } from "react-bootstrap-icons";
+import { HomeCard } from "./HomeCard";
 
 /**
  * Component for a page that displays user and group cards.
@@ -83,7 +84,9 @@ const PageTabButton = ({ page, actions }) => {
 const CardDisplay = ({ page, actions, state }) => {
   //Display the card based on the state
   return state === 0 ? (
-    <div></div>
+    <div>
+      <HomeCard />
+    </div>
   ) : state === 1 ? (
     <UsersCard page={page} actions={actions} />
   ) : (
