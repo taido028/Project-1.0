@@ -30,6 +30,10 @@
 import { UsersCard } from "components/User/UserCard";
 //import { PageUsersCard } from "./PageUsersCard";
 import { GroupCard } from "components/Group/GroupCard";
+import { useState, useCallback } from "react";
+import { ArrowDown } from "react-bootstrap-icons";
+import { HomeCard } from "./HomeCard";
+
 /**
  * Component for a page that displays user and group cards.
  * @component
@@ -47,12 +51,74 @@ export const PageLarge = ({ page, actions }) => {
         &lt;Card.Title className="page-title">AuthorizationPage&lt;/Card.Title>
       &lt;/Card.Header>
       &lt;Card.Body>
-        &lt;UsersCard page={page} actions={actions} />
         {/*&lt;PageUsersCard page={page} actions={actions} />}
         {&lt;h1>---------&lt;/h1>*/}
-        &lt;GroupCard page={page} actions={actions} />
+        &lt;PageTabButton page={page} actions={actions} />
       &lt;/Card.Body>
     &lt;/Card>
+  );
+};
+
+const PageTabButton = ({ page, actions }) => {
+  //Using different states to display different cards (default is 0 which is home tab)
+  const [state, setState] = useState(0);
+
+  const setState0 = useCallback(() => setState(0), []);
+  const setState1 = useCallback(() => setState(1), []);
+  const setState2 = useCallback(() => setState(2), []);
+
+  //Arrow to indicate which tab is currently selected
+  const CurrentTabArrow = () => {
+    return (
+      &lt;div>
+        &lt;ArrowDown className="icon" />
+        &lt;ArrowDown className="icon" />
+        &lt;ArrowDown className="icon" />
+      &lt;/div>
+    );
+  };
+
+  return (
+    &lt;div>
+      &lt;button
+        class={`hometab ${state === 0 ? "active" : ""}`}
+        onClick={setState0}
+      >
+        &lt;h3>Home&lt;/h3>
+        {state === 0 &amp;&amp; &lt;CurrentTabArrow />}
+      &lt;/button>
+
+      &lt;button
+        class={`usertab ${state === 1 ? "active" : ""}`}
+        onClick={setState1}
+      >
+        &lt;h3>Users List&lt;/h3>
+        {state === 1 &amp;&amp; &lt;CurrentTabArrow />}
+      &lt;/button>
+
+      &lt;button
+        class={`grouptab ${state === 2 ? "active" : ""}`}
+        onClick={setState2}
+      >
+        &lt;h3>Groups List&lt;/h3>
+        {state === 2 &amp;&amp; &lt;CurrentTabArrow />}
+      &lt;/button>
+
+      &lt;CardDisplay page={page} actions={actions} state={state} />
+    &lt;/div>
+  );
+};
+
+const CardDisplay = ({ page, actions, state }) => {
+  //Display the card based on the state
+  return state === 0 ? (
+    &lt;div>
+      &lt;HomeCard />
+    &lt;/div>
+  ) : state === 1 ? (
+    &lt;UsersCard page={page} actions={actions} />
+  ) : (
+    &lt;GroupCard page={page} actions={actions} />
   );
 };
 </code></pre>
@@ -65,13 +131,13 @@ export const PageLarge = ({ page, actions }) => {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AccessLevelDisplay">AccessLevelDisplay</a></li><li><a href="global.html#AddButton">AddButton</a></li><li><a href="global.html#AddGroupMutation">AddGroupMutation</a></li><li><a href="global.html#AddUserMutation">AddUserMutation</a></li><li><a href="global.html#AddingGroupButton">AddingGroupButton</a></li><li><a href="global.html#AddingUserButton">AddingUserButton</a></li><li><a href="global.html#App">App</a></li><li><a href="global.html#AppProvider">AppProvider</a></li><li><a href="global.html#AuthorizationPageFetch">AuthorizationPageFetch</a></li><li><a href="global.html#AuthorizationPageFetchHelper">AuthorizationPageFetchHelper</a></li><li><a href="global.html#AuthorizationPageQuery">AuthorizationPageQuery</a></li><li><a href="global.html#AuthorizationPageQueryJSON">AuthorizationPageQueryJSON</a></li><li><a href="global.html#ChangeAccessLevelButton">ChangeAccessLevelButton</a></li><li><a href="global.html#ChangeAccessLevelButtonGroup">ChangeAccessLevelButtonGroup</a></li><li><a href="global.html#DeleteButton">DeleteButton</a></li><li><a href="global.html#GroupAdd">GroupAdd</a></li><li><a href="global.html#GroupCard">GroupCard</a></li><li><a href="global.html#GroupInput">GroupInput</a></li><li><a href="global.html#GroupRemove">GroupRemove</a></li><li><a href="global.html#GroupRemoveButton">GroupRemoveButton</a></li><li><a href="global.html#GroupTable">GroupTable</a></li><li><a href="global.html#GroupTableRow">GroupTableRow</a></li><li><a href="global.html#GroupUpdate">GroupUpdate</a></li><li><a href="global.html#PageLarge">PageLarge</a></li><li><a href="global.html#PageProvider">PageProvider</a></li><li><a href="global.html#PageSlice">PageSlice</a></li><li><a href="global.html#PageUsersCard">PageUsersCard</a></li><li><a href="global.html#RemoveGroupMutation">RemoveGroupMutation</a></li><li><a href="global.html#RemoveUserMutation">RemoveUserMutation</a></li><li><a href="global.html#UpdateItem">UpdateItem</a></li><li><a href="global.html#UserAdd">UserAdd</a></li><li><a href="global.html#UserInput">UserInput</a></li><li><a href="global.html#UserRemove">UserRemove</a></li><li><a href="global.html#UserRemoveButton">UserRemoveButton</a></li><li><a href="global.html#UserTableRow">UserTableRow</a></li><li><a href="global.html#UserUpdate">UserUpdate</a></li><li><a href="global.html#UsersCard">UsersCard</a></li><li><a href="global.html#UsersTable">UsersTable</a></li><li><a href="global.html#actions">actions</a></li><li><a href="global.html#authorizedFetch">authorizedFetch</a></li><li><a href="global.html#bindPageActions">bindPageActions</a></li><li><a href="global.html#store">store</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AccessLevelDisplay">AccessLevelDisplay</a></li><li><a href="global.html#AddButton">AddButton</a></li><li><a href="global.html#AddGroupMutation">AddGroupMutation</a></li><li><a href="global.html#AddUserMutation">AddUserMutation</a></li><li><a href="global.html#AddingGroupButton">AddingGroupButton</a></li><li><a href="global.html#AddingUserButton">AddingUserButton</a></li><li><a href="global.html#App">App</a></li><li><a href="global.html#AppProvider">AppProvider</a></li><li><a href="global.html#AuthorizationPageFetch">AuthorizationPageFetch</a></li><li><a href="global.html#AuthorizationPageFetchHelper">AuthorizationPageFetchHelper</a></li><li><a href="global.html#AuthorizationPageQuery">AuthorizationPageQuery</a></li><li><a href="global.html#AuthorizationPageQueryJSON">AuthorizationPageQueryJSON</a></li><li><a href="global.html#ChangeAccessLevelButton">ChangeAccessLevelButton</a></li><li><a href="global.html#ChangeAccessLevelButtonGroup">ChangeAccessLevelButtonGroup</a></li><li><a href="global.html#DeleteButton">DeleteButton</a></li><li><a href="global.html#GroupAdd">GroupAdd</a></li><li><a href="global.html#GroupByLettersQueryJSON">GroupByLettersQueryJSON</a></li><li><a href="global.html#GroupCard">GroupCard</a></li><li><a href="global.html#GroupInput">GroupInput</a></li><li><a href="global.html#GroupRemove">GroupRemove</a></li><li><a href="global.html#GroupRemoveButton">GroupRemoveButton</a></li><li><a href="global.html#GroupResultList">GroupResultList</a></li><li><a href="global.html#GroupSearchBox">GroupSearchBox</a></li><li><a href="global.html#GroupTable">GroupTable</a></li><li><a href="global.html#GroupTableRow">GroupTableRow</a></li><li><a href="global.html#GroupUpdate">GroupUpdate</a></li><li><a href="global.html#HomeCard">HomeCard</a></li><li><a href="global.html#PageLarge">PageLarge</a></li><li><a href="global.html#PageProvider">PageProvider</a></li><li><a href="global.html#PageSlice">PageSlice</a></li><li><a href="global.html#PageUsersCard">PageUsersCard</a></li><li><a href="global.html#RemoveGroupMutation">RemoveGroupMutation</a></li><li><a href="global.html#RemoveUserMutation">RemoveUserMutation</a></li><li><a href="global.html#UpdateItem">UpdateItem</a></li><li><a href="global.html#UserAdd">UserAdd</a></li><li><a href="global.html#UserByLettersQueryJSON">UserByLettersQueryJSON</a></li><li><a href="global.html#UserInput">UserInput</a></li><li><a href="global.html#UserRemove">UserRemove</a></li><li><a href="global.html#UserRemoveButton">UserRemoveButton</a></li><li><a href="global.html#UserResultList">UserResultList</a></li><li><a href="global.html#UserSearchBox">UserSearchBox</a></li><li><a href="global.html#UserTableRow">UserTableRow</a></li><li><a href="global.html#UserUpdate">UserUpdate</a></li><li><a href="global.html#UsersCard">UsersCard</a></li><li><a href="global.html#UsersTable">UsersTable</a></li><li><a href="global.html#actions">actions</a></li><li><a href="global.html#authorizedFetch">authorizedFetch</a></li><li><a href="global.html#bindPageActions">bindPageActions</a></li><li><a href="global.html#store">store</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Wed Jun 21 2023 00:05:38 GMT+0200 (Central European Summer Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Mon Jul 03 2023 01:25:55 GMT+0200 (Central European Summer Time)
 </footer>
 
 <script> prettyPrint(); </script>

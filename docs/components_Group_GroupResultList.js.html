@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/User/UserTableRow.js</title>
+    <title>JSDoc: Source: components/Group/GroupResultList.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/User/UserTableRow.js</h1>
+    <h1 class="page-title">Source: components/Group/GroupResultList.js</h1>
 
     
 
@@ -26,44 +26,53 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { UserRemoveButton } from "./RemovingUserButton";
-import { AccessLevelDisplay } from "components/User/AccessLevelDisplay";
-import { ChangeAccessLevelButton } from "components/User/ChangeAccessLevelButton";
+            <pre class="prettyprint source linenums"><code>import { Card } from "react-bootstrap";
+import { PlusSquareFill } from "react-bootstrap-icons";
 /**
- * Represents one user as a row in the table. Each user has an id, name, surname,
- * email, access level and associated actions. There's also an option to remove the user
- * and change their access level.
+ * GroupResultList component displays a list of groups and allows adding a group.
  *
- * @component
+ * @param {object} props - Component props.
+ * @param {Array} props.GroupsList - An array of groups to be displayed.
+ * @param {object} props.actions - An object containing various action dispatch functions.
+ * @param {object} props.page - Current page object.
+ * @param {Function} props.onChange - Function to be called when a change event occurs.
  *
- * @param {Object} props - The properties passed to this component.
- * @param {Object} props.user - User object containing information about the user.
- * @param {Object} props.actions - Actions which can be performed on the user.
- * @param {Object} props.page - Page object which contains information about the users.
- *
- * @returns {JSX.Element} JSX to create a row in the user table.
+ * @returns {JSX.Element} The rendered GroupResultList component.
  */
 
-export const UserTableRow = ({ user, actions, page }) => {
-  return (
-    &lt;tr>
-      &lt;td className="user">{user.id}&lt;/td>
-      &lt;td className="user">{user.name}&lt;/td>
-      &lt;td className="user">{user.surname}&lt;/td>
-      &lt;td className="user">{user.email}&lt;/td>
-      &lt;td className="user">
-        &lt;AccessLevelDisplay user={user} page={page} />
-      &lt;/td>
-      &lt;td className="user">
-        &lt;td>
-          &lt;UserRemoveButton page={page} user={user} actions={actions} />
-        &lt;/td>
-        &lt;td>
-          &lt;ChangeAccessLevelButton page={page} user={user} actions={actions} />
-        &lt;/td>
-      &lt;/td>
-    &lt;/tr>
-  );
+export const GroupResultList = ({ GroupsList, actions, page, onChange }) => {
+  //Check the size of GroupsList before rendering (because of function map)
+  if (GroupsList.length > 0) {
+    return (
+      &lt;Card className="result-list-card">
+        {GroupsList.map((g) => (
+          &lt;tr className="resultlist">
+            &lt;td>
+              {g.name} {"  "} {g.surname}
+            &lt;/td>
+
+            &lt;td>
+              &lt;PlusSquareFill
+                className="addsearch"
+                onClick={() => {
+                  actions.onMutationAddGroup({
+                    page: page,
+                    groupId: g.id,
+                    accesslevel: 1,
+                  });
+
+                  //Change state to 0 to hide the GroupResultList
+                  onChange();
+                }}
+              />
+            &lt;/td>
+          &lt;/tr>
+        ))}
+      &lt;/Card>
+    );
+  } else {
+    return &lt;Card>No group found&lt;/Card>;
+  }
 };
 </code></pre>
         </article>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/User/UserTableRow.js</title>
+    <title>JSDoc: Source: components/PageDisplay/HomeCard.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/User/UserTableRow.js</h1>
+    <h1 class="page-title">Source: components/PageDisplay/HomeCard.js</h1>
 
     
 
@@ -26,43 +26,65 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { UserRemoveButton } from "./RemovingUserButton";
-import { AccessLevelDisplay } from "components/User/AccessLevelDisplay";
-import { ChangeAccessLevelButton } from "components/User/ChangeAccessLevelButton";
+            <pre class="prettyprint source linenums"><code>import React from "react";
+import Card from "react-bootstrap/Card";
+import { PlusSquareFill } from "react-bootstrap-icons";
+import { Trash } from "react-bootstrap-icons";
+import { ArrowDownUp } from "react-bootstrap-icons";
 /**
- * Represents one user as a row in the table. Each user has an id, name, surname,
- * email, access level and associated actions. There's also an option to remove the user
- * and change their access level.
+ * The HomeCard component is used to display basic information and features on the home page.
+ * It also shows a logo and the current year.
  *
- * @component
- *
- * @param {Object} props - The properties passed to this component.
- * @param {Object} props.user - User object containing information about the user.
- * @param {Object} props.actions - Actions which can be performed on the user.
- * @param {Object} props.page - Page object which contains information about the users.
- *
- * @returns {JSX.Element} JSX to create a row in the user table.
+ * @returns {JSX.Element} The HomeCard component.
  */
 
-export const UserTableRow = ({ user, actions, page }) => {
+export const HomeCard = () => {
+  const logoUrl =
+    "https://upload.wikimedia.org/wikipedia/commons/d/da/Logo_of_UO.svg";
+  const currentYear = new Date().getFullYear();
   return (
-    &lt;tr>
-      &lt;td className="user">{user.id}&lt;/td>
-      &lt;td className="user">{user.name}&lt;/td>
-      &lt;td className="user">{user.surname}&lt;/td>
-      &lt;td className="user">{user.email}&lt;/td>
-      &lt;td className="user">
-        &lt;AccessLevelDisplay user={user} page={page} />
-      &lt;/td>
-      &lt;td className="user">
-        &lt;td>
-          &lt;UserRemoveButton page={page} user={user} actions={actions} />
-        &lt;/td>
-        &lt;td>
-          &lt;ChangeAccessLevelButton page={page} user={user} actions={actions} />
-        &lt;/td>
-      &lt;/td>
-    &lt;/tr>
+    &lt;div>
+      &lt;img className="logo" src={logoUrl} alt="Logo" />
+      &lt;Card className="home-card-background">
+        &lt;Card.Header className="homecard-title">Features&lt;/Card.Header>
+        &lt;Card.Body>
+          &lt;Card.Title>
+            &lt;h4 className="adding">
+              Adding &lt;PlusSquareFill className="icon" />
+            &lt;/h4>
+          &lt;/Card.Title>
+          &lt;Card.Text>
+            Add a user or group base on ID or name in search box
+          &lt;/Card.Text>
+          &lt;Card.Title>
+            &lt;h4 className="deleting">
+              Deleting &lt;Trash className="icon" />
+            &lt;/h4>
+          &lt;/Card.Title>
+          &lt;Card.Text>Remove a user or group &lt;/Card.Text>
+          &lt;Card.Title>
+            &lt;h4 className="changing">
+              Changing Access Level &lt;ArrowDownUp className="icon" />
+            &lt;/h4>
+          &lt;/Card.Title>
+          &lt;Card.Text>
+            Allow to change the user's access or edit permission in this page
+          &lt;/Card.Text>
+        &lt;/Card.Body>
+      &lt;/Card>
+      &lt;div>
+        &lt;div>
+          &lt;h2 className=" contributors-container end endtitle">Contributors&lt;/h2>
+          &lt;div className="names-container end">
+            &lt;h5>Do Quang Tai &lt;/h5>
+            {" * ------ * "}
+            &lt;h5>Bui Minh Quang &lt;/h5>
+          &lt;/div>
+        &lt;/div>
+      &lt;/div>
+
+      &lt;h6 className="end">© {currentYear} All Rights Reserved&lt;/h6>
+    &lt;/div>
   );
 };
 </code></pre>

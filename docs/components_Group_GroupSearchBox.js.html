@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/User/UserTableRow.js</title>
+    <title>JSDoc: Source: components/Group/GroupSearchBox.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/User/UserTableRow.js</h1>
+    <h1 class="page-title">Source: components/Group/GroupSearchBox.js</h1>
 
     
 
@@ -26,43 +26,75 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { UserRemoveButton } from "./RemovingUserButton";
-import { AccessLevelDisplay } from "components/User/AccessLevelDisplay";
-import { ChangeAccessLevelButton } from "components/User/ChangeAccessLevelButton";
+            <pre class="prettyprint source linenums"><code>import { useState, useCallback } from "react";
+import { GroupResultList } from "./GroupResultList";
+import { getGroupByLetters } from "mutations/GroupByLettersAsyncAction";
+import { Card } from "react-bootstrap";
 /**
- * Represents one user as a row in the table. Each user has an id, name, surname,
- * email, access level and associated actions. There's also an option to remove the user
- * and change their access level.
+ * GroupSearchBox component enables group search functionality.
  *
- * @component
+ * @param {object} props - Component props.
+ * @param {object} props.page - The current page object.
+ * @param {object} props.actions - An object containing various action dispatch functions.
  *
- * @param {Object} props - The properties passed to this component.
- * @param {Object} props.user - User object containing information about the user.
- * @param {Object} props.actions - Actions which can be performed on the user.
- * @param {Object} props.page - Page object which contains information about the users.
- *
- * @returns {JSX.Element} JSX to create a row in the user table.
+ * @returns {JSX.Element} The rendered GroupSearchBox component.
  */
 
-export const UserTableRow = ({ user, actions, page }) => {
-  return (
-    &lt;tr>
-      &lt;td className="user">{user.id}&lt;/td>
-      &lt;td className="user">{user.name}&lt;/td>
-      &lt;td className="user">{user.surname}&lt;/td>
-      &lt;td className="user">{user.email}&lt;/td>
-      &lt;td className="user">
-        &lt;AccessLevelDisplay user={user} page={page} />
-      &lt;/td>
-      &lt;td className="user">
-        &lt;td>
-          &lt;UserRemoveButton page={page} user={user} actions={actions} />
-        &lt;/td>
-        &lt;td>
-          &lt;ChangeAccessLevelButton page={page} user={user} actions={actions} />
-        &lt;/td>
-      &lt;/td>
-    &lt;/tr>
+export const GroupSearchBox = ({ page, actions }) => {
+  //UseState to control input letters and result GroupsList
+  const [letters, setLetters] = useState("");
+  const [GroupsList, setGroupsList] = useState("");
+
+  //State to control the display of GroupSearchBox
+  const [state, setState] = useState(0);
+
+  const setState0 = useCallback(() => setState(0), []);
+  const setState1 = useCallback(() => setState(1), []);
+
+  //Handle the change of input letters
+  const handleLettersChange = (event) => {
+    setState1();
+    const value = event.target.value;
+    setLetters(value);
+
+    getGroupByLetters(value).then((GroupsList) => {
+      // Filter out the users those are already in the table
+      if (page.groups.length > 0) {
+        page.groups.forEach((group) => {
+          GroupsList = GroupsList.filter((g) => g.id !== group.group.id);
+          setGroupsList(GroupsList);
+        });
+      } else {
+        setGroupsList(GroupsList);
+      }
+    });
+  };
+
+  //Return the GroupSearchBox base on state (default state = 0)
+  return state === 1 ? (
+    &lt;Card>
+      &lt;input
+        placeholder={"Input group's name"}
+        className="searchbox"
+        value={letters}
+        onChange={handleLettersChange}
+      />
+      &lt;GroupResultList
+        GroupsList={GroupsList}
+        actions={actions}
+        page={page}
+        onChange={setState0}
+      />
+    &lt;/Card>
+  ) : (
+    &lt;Card>
+      &lt;input
+        placeholder={"Input group's name"}
+        className="searchbox"
+        value={""}
+        onChange={handleLettersChange}
+      />
+    &lt;/Card>
   );
 };
 </code></pre>

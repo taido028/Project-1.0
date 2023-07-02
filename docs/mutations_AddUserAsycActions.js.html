@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/User/UserTableRow.js</title>
+    <title>JSDoc: Source: mutations/AddUserAsycActions.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/User/UserTableRow.js</h1>
+    <h1 class="page-title">Source: mutations/AddUserAsycActions.js</h1>
 
     
 
@@ -26,45 +26,114 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { UserRemoveButton } from "./RemovingUserButton";
-import { AccessLevelDisplay } from "components/User/AccessLevelDisplay";
-import { ChangeAccessLevelButton } from "components/User/ChangeAccessLevelButton";
+            <pre class="prettyprint source linenums"><code>import { actions } from "store/store";
+import { authorizedFetch } from "fetch/authorizedFetch";
+
 /**
- * Represents one user as a row in the table. Each user has an id, name, surname,
- * email, access level and associated actions. There's also an option to remove the user
- * and change their access level.
+ * An asynchronous function that creates a mutation to add a user.
+ * This function first prepares the query and variables, then makes a POST request to the server.
+ * After receiving the response, it dispatches relevant actions to update the application state.
  *
- * @component
- *
- * @param {Object} props - The properties passed to this component.
- * @param {Object} props.user - User object containing information about the user.
- * @param {Object} props.actions - Actions which can be performed on the user.
- * @param {Object} props.page - Page object which contains information about the users.
- *
- * @returns {JSX.Element} JSX to create a row in the user table.
+ * @function
+ * @param {string} userId - The ID of the user to be added.
+ * @param {Object} page - The current page object.
+ * @param {number} accesslevel - The access level to be assigned to the user.
+ * @returns {Function} A function that dispatches actions to update the application state.
  */
 
-export const UserTableRow = ({ user, actions, page }) => {
-  return (
-    &lt;tr>
-      &lt;td className="user">{user.id}&lt;/td>
-      &lt;td className="user">{user.name}&lt;/td>
-      &lt;td className="user">{user.surname}&lt;/td>
-      &lt;td className="user">{user.email}&lt;/td>
-      &lt;td className="user">
-        &lt;AccessLevelDisplay user={user} page={page} />
-      &lt;/td>
-      &lt;td className="user">
-        &lt;td>
-          &lt;UserRemoveButton page={page} user={user} actions={actions} />
-        &lt;/td>
-        &lt;td>
-          &lt;ChangeAccessLevelButton page={page} user={user} actions={actions} />
-        &lt;/td>
-      &lt;/td>
-    &lt;/tr>
-  );
-};
+export const AddUserMutation =
+  (userId, page, accesslevel) => (dispatch, getState) => {
+    const authorizationAddUserMutationJSON = () => {
+      // Function to construct the JSON for the mutation request.
+      return {
+        query: `mutation (
+        $authorizationId: ID!
+        $userId: ID!
+        $accesslevel: Int!
+      ) {
+        authorizationAddUser(
+          authorization: {
+            authorizationId: $authorizationId
+            userId: $userId
+            accesslevel: $accesslevel
+          }
+        ) {
+          id
+          msg
+          authorization{
+            id
+            users{
+              accesslevel
+              id
+              user{
+                id
+                name
+                surname
+                email
+                valid
+                lastchange
+              }
+            }
+          }
+        }
+      }
+    `,
+        variables: {
+          authorizationId: page.id,
+          userId: userId,
+          accesslevel: accesslevel,
+        },
+      };
+    };
+
+    // Parameters for the fetch request.
+    const params = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+      redirect: "follow", // manual, *follow, error
+      body: JSON.stringify(authorizationAddUserMutationJSON()),
+    };
+
+    // Make the authorized fetch request and handle the response.
+    return authorizedFetch("/api/gql", params)
+      .then((resp) => resp.json())
+      .then((json) => {
+        return json;
+      })
+      .then((json) => {
+        // Extract the list of users and the new page from the response.
+        const users = json.data.authorizationAddUser.authorization.users;
+        const newpage = json.data.authorizationAddUser.authorization;
+
+        // Find the newly added user in the list of users.
+        const FilterUser = users.filter((users) => users.user.id === userId)[0];
+        const AddedUser = FilterUser.user;
+
+        // Check if the user is already present on the page.
+        const CheckUser = page.users.find((users) => users.user.id === userId);
+
+        if (!CheckUser) {
+          // Log the added user and dispatch an action to add it to the state.
+          console.log("Added user: ");
+          console.log(AddedUser);
+
+          // Add user to store
+          actions.onUserAdd({ user: AddedUser, page: newpage });
+          console.log("Sucessfully added new user");
+        } else {
+          // If the user is already present, log an update message and dispatch an action to update it.
+          console.log("User's accesslevel updated: " + accesslevel);
+          actions.onUserUpdate({
+            user: AddedUser,
+            page: newpage,
+            accesslevel: accesslevel,
+          });
+        }
+      });
+  };
 </code></pre>
         </article>
     </section>

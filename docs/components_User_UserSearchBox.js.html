@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/User/UserTableRow.js</title>
+    <title>JSDoc: Source: components/User/UserSearchBox.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/User/UserTableRow.js</h1>
+    <h1 class="page-title">Source: components/User/UserSearchBox.js</h1>
 
     
 
@@ -26,43 +26,74 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { UserRemoveButton } from "./RemovingUserButton";
-import { AccessLevelDisplay } from "components/User/AccessLevelDisplay";
-import { ChangeAccessLevelButton } from "components/User/ChangeAccessLevelButton";
+            <pre class="prettyprint source linenums"><code>import { useState, useCallback } from "react";
+import { getUserByLetters } from "mutations/UserByLetterAsyncActions";
+import { UserResultList } from "components/User/UserResultList";
+import { Card } from "react-bootstrap";
 /**
- * Represents one user as a row in the table. Each user has an id, name, surname,
- * email, access level and associated actions. There's also an option to remove the user
- * and change their access level.
+ * UserSearchBox is a component that provides a search box for user search.
  *
- * @component
+ * @param {Object} props - The properties that define the component's behavior and display.
+ * @param {Object} props.page - The page data where the user is being searched.
+ * @param {Object} props.actions - An object containing bound actions for dispatch.
  *
- * @param {Object} props - The properties passed to this component.
- * @param {Object} props.user - User object containing information about the user.
- * @param {Object} props.actions - Actions which can be performed on the user.
- * @param {Object} props.page - Page object which contains information about the users.
- *
- * @returns {JSX.Element} JSX to create a row in the user table.
+ * @returns {JSX.Element} The UserSearchBox component.
  */
 
-export const UserTableRow = ({ user, actions, page }) => {
-  return (
-    &lt;tr>
-      &lt;td className="user">{user.id}&lt;/td>
-      &lt;td className="user">{user.name}&lt;/td>
-      &lt;td className="user">{user.surname}&lt;/td>
-      &lt;td className="user">{user.email}&lt;/td>
-      &lt;td className="user">
-        &lt;AccessLevelDisplay user={user} page={page} />
-      &lt;/td>
-      &lt;td className="user">
-        &lt;td>
-          &lt;UserRemoveButton page={page} user={user} actions={actions} />
-        &lt;/td>
-        &lt;td>
-          &lt;ChangeAccessLevelButton page={page} user={user} actions={actions} />
-        &lt;/td>
-      &lt;/td>
-    &lt;/tr>
+export const UserSearchBox = ({ page, actions }) => {
+  //UseState to control input letters and result UsersList
+  const [letters, setLetters] = useState("");
+  const [UsersList, setUsersList] = useState("");
+
+  //State to control the display of UserSearchBox
+  const [state, setState] = useState(0);
+
+  const setState0 = useCallback(() => setState(0), []);
+  const setState1 = useCallback(() => setState(1), []);
+
+  //Handle the change of input letters
+  const handleLettersChange = (event) => {
+    setState1();
+    const value = event.target.value;
+    setLetters(value);
+    getUserByLetters(value).then((UsersList) => {
+      //Filter out the users those are already in the table
+      if (page.users.length > 0) {
+        page.users.forEach((user) => {
+          UsersList = UsersList.filter((u) => u.id !== user.user.id);
+          setUsersList(UsersList);
+        });
+      } else {
+        setUsersList(UsersList);
+      }
+    });
+  };
+
+  //Return the UserSearchBox base on state (default state = 0)
+  return state === 1 ? (
+    &lt;Card>
+      &lt;input
+        placeholder={"Input user's name or surname"}
+        className="searchbox"
+        value={letters}
+        onChange={handleLettersChange}
+      />
+      &lt;UserResultList
+        UsersList={UsersList}
+        actions={actions}
+        page={page}
+        onChange={setState0}
+      />
+    &lt;/Card>
+  ) : (
+    &lt;Card>
+      &lt;input
+        placeholder={"Input user's name or surname"}
+        className="searchbox"
+        value={""}
+        onChange={handleLettersChange}
+      />
+    &lt;/Card>
   );
 };
 </code></pre>

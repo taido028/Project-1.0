@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/User/UserTableRow.js</title>
+    <title>JSDoc: Source: mutations/RemoveGroupAsycActions.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/User/UserTableRow.js</h1>
+    <h1 class="page-title">Source: mutations/RemoveGroupAsycActions.js</h1>
 
     
 
@@ -26,45 +26,68 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { UserRemoveButton } from "./RemovingUserButton";
-import { AccessLevelDisplay } from "components/User/AccessLevelDisplay";
-import { ChangeAccessLevelButton } from "components/User/ChangeAccessLevelButton";
+            <pre class="prettyprint source linenums"><code>import { authorizedFetch } from "fetch/authorizedFetch";
+
 /**
- * Represents one user as a row in the table. Each user has an id, name, surname,
- * email, access level and associated actions. There's also an option to remove the user
- * and change their access level.
+ * An asynchronous function that creates a mutation to remove a group.
+ * This function first prepares the query and variables, then makes a POST request to the server.
+ * It does not dispatch any actions to update the application state after receiving the response.
  *
- * @component
- *
- * @param {Object} props - The properties passed to this component.
- * @param {Object} props.user - User object containing information about the user.
- * @param {Object} props.actions - Actions which can be performed on the user.
- * @param {Object} props.page - Page object which contains information about the users.
- *
- * @returns {JSX.Element} JSX to create a row in the user table.
+ * @function
+ * @param {string} groupId - The ID of the group to be removed.
+ * @param {Object} page - The current page object.
+ * @param {number} accesslevel - The access level to be assigned to the group.
+ * @returns {Function} A function that makes a fetch request but does not dispatch any actions.
  */
 
-export const UserTableRow = ({ user, actions, page }) => {
-  return (
-    &lt;tr>
-      &lt;td className="user">{user.id}&lt;/td>
-      &lt;td className="user">{user.name}&lt;/td>
-      &lt;td className="user">{user.surname}&lt;/td>
-      &lt;td className="user">{user.email}&lt;/td>
-      &lt;td className="user">
-        &lt;AccessLevelDisplay user={user} page={page} />
-      &lt;/td>
-      &lt;td className="user">
-        &lt;td>
-          &lt;UserRemoveButton page={page} user={user} actions={actions} />
-        &lt;/td>
-        &lt;td>
-          &lt;ChangeAccessLevelButton page={page} user={user} actions={actions} />
-        &lt;/td>
-      &lt;/td>
-    &lt;/tr>
-  );
-};
+export const RemoveGroupMutation =
+  (groupId, page, accesslevel) => (dispatch, getState) => {
+    // Function to construct the JSON for the mutation request.
+    const authorizationRemoveGroupMutationJSON = () => {
+      return {
+        query: `mutation (
+        $authorizationId: ID!
+        $groupId: ID!
+        $accesslevel: Int!
+      ) {
+        authorizationRemoveGroup(
+          authorization: {
+            authorizationId: $authorizationId
+            groupId: $groupId
+            accesslevel: $accesslevel
+          }
+        ) {
+          id
+          msg
+        }
+      }
+    `,
+        variables: {
+          authorizationId: page.id,
+          groupId: groupId,
+          accesslevel: accesslevel,
+        },
+      };
+    };
+
+    // Parameters for the fetch request.
+    const params = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+      redirect: "follow", // manual, *follow, error
+      body: JSON.stringify(authorizationRemoveGroupMutationJSON()),
+    };
+
+    // Make the authorized fetch request and handle the response.
+    return authorizedFetch("/api/gql", params)
+      .then((resp) => resp.json())
+      .then((json) => {
+        return json;
+      });
+  };
 </code></pre>
         </article>
     </section>
