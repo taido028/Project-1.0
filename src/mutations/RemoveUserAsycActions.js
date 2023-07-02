@@ -31,20 +31,6 @@ export const RemoveUserMutation =
         ) {
           id
           msg
-          authorization{
-            id
-            users{
-              id
-              user{
-                id
-                name
-                surname
-                email
-                valid
-                lastchange
-              }
-            }
-          }
         }
       }
     `,

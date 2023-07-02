@@ -27,7 +27,6 @@ export const UpdateItem = (state, action) => {
 const UserRemove = (state, action) => {
   const p = action.payload.page;
   const u = action.payload.user;
-  console.log(u);
   const page = state[p.id];
   page.users = page.users.filter((m) => m.user.id !== u.id);
 
@@ -42,9 +41,9 @@ const UserRemove = (state, action) => {
  * @returns {Object} The updated state.
  */
 const UserAdd = (state, action) => {
-  const p = action.payload.page;
-  const user = state[p.id];
-  state[p.id] = { ...user, ...p };
+  const newpage = action.payload.page;
+  const oldpage = state[newpage.id];
+  state[newpage.id] = { ...oldpage, ...newpage };
   return state;
 };
 

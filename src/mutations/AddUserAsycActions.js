@@ -89,7 +89,7 @@ export const AddUserMutation =
 
         if (!CheckUser) {
           // Log the added user and dispatch an action to add it to the state.
-          console.log("Added user:");
+          console.log("Added user: ");
           console.log(AddedUser);
 
           // Add user to store

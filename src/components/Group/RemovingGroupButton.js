@@ -17,9 +17,10 @@ export const GroupRemoveButton = ({ page, group, actions }) => {
    */
 
   const onClick = () => {
-    // remove group from page
+    // Remove group from store
     actions.onGroupRemove({ page: page, group: group });
 
+    // Find the target group
     const GroupList = page.groups;
     const Target = GroupList.find((g) => g.group.id === group.id);
 
@@ -30,12 +31,9 @@ export const GroupRemoveButton = ({ page, group, actions }) => {
       accesslevel: Target.accesslevel,
     });
 
-    // show deleted group in console
-    console.log("User deleted");
+    // Show deleted group in console
+    console.log("Group deleted: ");
     console.log(group);
-
-    // update page
-    //actions.pageFetch(page.id);
   };
   return (
     <DeleteButton onClick={onClick}>

@@ -4,11 +4,6 @@
     background-image: url('https://coolbackgrounds.io/images/backgrounds/index/sea-edge-79ab30e2.png');
     background-size: cover;
     background-repeat: repeat-y;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
 }
 
 .page-title-background{
@@ -27,8 +22,8 @@
 }
 
 @keyframes moveText {
-    0% { transform: translateX(-60%); }
-    100% { transform: translateX(60%); }
+    0% { transform: translateX(-40%); }
+    100% { transform: translateX(40%); }
 }
 
 .loading-background{
@@ -45,6 +40,12 @@
 }
 
 /*Card config*/
+
+.homecard-title{
+    font-size: x-large;
+    font-weight: bold;
+    color: black;
+}
 
 .usercard-title{
     font-size: x-large;
@@ -65,6 +66,7 @@
     background-size: cover;
     margin-left: 100px;
     margin-right: 100px;
+    margin-bottom: 506px;
     opacity: 0.75;
 }
 
@@ -75,11 +77,12 @@
     background-size: cover;
     margin-left: 100px;
     margin-right: 100px;
-    margin-bottom: 150px;
+    margin-bottom: 506px;
     opacity: 0.75;
 }
+
 .home-card-background{
-    margin-top: 50px;
+    margin-top: 20px;
     background-color: darkgrey;
     text-shadow: black 0.01em 0.01em 0.01em;
     background-size: cover;
@@ -87,9 +90,11 @@
     margin-right: 100px;
     opacity: 0.75;
 }
+
 .logo {
     width: 250px;
 }
+
 .contributors-container {
     display: flex;
     flex-direction: column;
@@ -104,6 +109,7 @@
     justify-content: center;
     padding: 10px;
 }
+
 .contributors-container {
     display: flex;
     flex-direction: column;
@@ -111,9 +117,34 @@
     align-items: center;
     width: 100%;
     margin-top: 20px; 
-  }
-  
-  
+}
+
+.endtitle{
+    text-decoration: underline;
+}
+
+.adding{
+    color:rgb(43, 255, 0);
+    margin-right: 30%;
+    margin-left: 30%;
+}
+
+.deleting{
+    color:red;
+    margin-right: 30%;
+    margin-left: 30%;
+}
+
+.changing{
+    color:rgb(255, 123, 0);
+    margin-right: 30%;
+    margin-left: 30%;
+}
+
+.end{
+    color:gold;
+    text-shadow: gray 0.05em 0.05em 0.05em;
+}
   
   
   

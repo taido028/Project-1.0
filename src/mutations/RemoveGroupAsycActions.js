@@ -31,18 +31,6 @@ export const RemoveGroupMutation =
         ) {
           id
           msg
-          authorization{
-            id
-            groups{
-              id
-              group{
-                id
-                name
-                valid
-                lastchange
-              }
-            }
-          }
         }
       }
     `,

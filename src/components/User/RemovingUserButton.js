@@ -32,7 +32,7 @@ export const UserRemoveButton = ({ page, user, actions }) => {
     actions.onUserRemove({ page: page, user: user });
 
     // show deleted user in console
-    console.log("User deleted");
+    console.log("User deleted: ");
     console.log(user);
   };
   return (
