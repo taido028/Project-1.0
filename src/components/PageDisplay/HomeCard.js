@@ -1,5 +1,11 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
+/**
+ * The HomeCard component is used to display basic information and features on the home page.
+ * It also shows a logo and the current year.
+ *
+ * @returns {JSX.Element} The HomeCard component.
+ */
 
 export const HomeCard = () => {
   const logoUrl =
