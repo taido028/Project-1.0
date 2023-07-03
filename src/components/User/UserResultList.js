@@ -17,29 +17,35 @@ export const UserResultList = ({ UsersList, actions, page, onChange }) => {
   if (UsersList.length > 0) {
     return (
       <Card className="result-list-card">
-        {UsersList.map((u) => (
-          <tr className="resultlist">
-            <td>
-              {u.name} {"  "} {u.surname}
-            </td>
+        <table>
+          <tbody>
+            {UsersList.map((u) => (
+              <tr className="resultlist" key={u.id}>
+                <td className="user">
+                  {u.name} {"  "} {u.surname}
+                </td>
 
-            <td>
-              <PlusSquareFill
-                className="addsearch"
-                onClick={() => {
-                  actions.onMutationAddUser({
-                    page: page,
-                    userId: u.id,
-                    accesslevel: 1,
-                  });
+                <td className="user">
+                  <button>
+                    <PlusSquareFill
+                      //className="addsearch"
+                      onClick={() => {
+                        actions.onMutationAddUser({
+                          page: page,
+                          userId: u.id,
+                          accesslevel: 1,
+                        });
 
-                  //Change state to 0 to hide the UserResultList
-                  onChange();
-                }}
-              />
-            </td>
-          </tr>
-        ))}
+                        //Change state to 0 to hide the UserResultList
+                        onChange();
+                      }}
+                    />
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </Card>
     );
   } else {

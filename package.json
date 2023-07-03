@@ -1,13 +1,10 @@
 {
   "name": "@taido028/project_authorizationpage",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "main": "index.js",
   "private": false,
-  "license": "MIT",
   "homepage": "/ui",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
+  "license": "MIT",
   "proxy": "http://localhost:31180/",
   "dependencies": {
     "@apollo/client": "^3.7.15",

@@ -12,8 +12,8 @@ import UserInput from "./UserInput";
 
 export const AddButton = ({ onClick }) => {
   return (
-    <button className="btn btn-sm btn-primary" onClick={onClick} class="add">
-      <PersonFillAdd class="iconadd" />
+    <button className="add" onClick={onClick}>
+      <PersonFillAdd className="iconadd" />
       Add
     </button>
   );

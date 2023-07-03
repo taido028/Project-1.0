@@ -15,22 +15,20 @@ import { ChangeAccessLevelButtonGroup } from "./ChangeAccessLevelButtonGroup";
 export const GroupTableRow = ({ group, actions, page }) => {
   return (
     <tr>
-      <td class="user">{group.id}</td>
-      <td class="user">{group.name}</td>
-      <td class="user">
+      <td className="user">{group.id}</td>
+      <td className="user">{group.name}</td>
+      <td className="user">
         <AccessLevelDisplay group={group} page={page} />
       </td>
-      <td class="user">
-        <td>
-          <GroupRemoveButton page={page} group={group} actions={actions} />
-        </td>
-        <td>
-          <ChangeAccessLevelButtonGroup
-            page={page}
-            group={group}
-            actions={actions}
-          />
-        </td>
+      <td className="user">
+        <GroupRemoveButton page={page} group={group} actions={actions} />
+      </td>
+      <td className="user">
+        <ChangeAccessLevelButtonGroup
+          page={page}
+          group={group}
+          actions={actions}
+        />
       </td>
     </tr>
   );

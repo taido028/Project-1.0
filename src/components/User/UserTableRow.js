@@ -27,12 +27,10 @@ export const UserTableRow = ({ user, actions, page }) => {
         <AccessLevelDisplay user={user} page={page} />
       </td>
       <td className="user">
-        <td>
-          <UserRemoveButton page={page} user={user} actions={actions} />
-        </td>
-        <td>
-          <ChangeAccessLevelButton page={page} user={user} actions={actions} />
-        </td>
+        <UserRemoveButton page={page} user={user} actions={actions} />
+      </td>
+      <td className="user">
+        <ChangeAccessLevelButton page={page} user={user} actions={actions} />
       </td>
     </tr>
   );

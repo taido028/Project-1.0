@@ -25,7 +25,7 @@ export const ChangeAccessLevelButton = ({ user, page, actions }) => {
   // return icon base on accesslevel
   return Target.accesslevel === 2 ? (
     <ArrowDownSquareFill
-      class="down"
+      className="down"
       onClick={() => {
         actions.onMutationAddUser({
           userId: user.id,
@@ -36,7 +36,7 @@ export const ChangeAccessLevelButton = ({ user, page, actions }) => {
     />
   ) : (
     <ArrowUpSquareFill
-      class="up"
+      className="up"
       onClick={() => {
         actions.onMutationAddUser({
           userId: user.id,

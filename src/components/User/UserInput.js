@@ -42,18 +42,13 @@ const UserInput = ({ page, actions, onCancel, id, setId }) => {
         />{" "}
       </label>
 
-      <button
-        className="btn btn-sm btn-warning"
-        onClick={onCancel}
-        class="cancel"
-      >
-        <ArrowLeft class="icon" />
+      <button className="cancel" onClick={onCancel}>
+        <ArrowLeft className="icon" />
         Return
       </button>
 
       <button
-        className="btn btn-sm btn-success"
-        class="save"
+        className="save"
         onClick={() => {
           if (!UserCheck) {
             actions.onMutationAddUser({
@@ -66,7 +61,7 @@ const UserInput = ({ page, actions, onCancel, id, setId }) => {
           onCancel();
         }}
       >
-        <SaveFill class="icon" />
+        <SaveFill className="icon" />
         Save
       </button>
     </>

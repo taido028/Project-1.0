@@ -53,7 +53,7 @@ const PageTabButton = ({ page, actions }) => {
   return (
     <div>
       <button
-        class={`hometab ${state === 0 ? "active" : ""}`}
+        className={`hometab ${state === 0 ? "active" : ""}`}
         onClick={setState0}
       >
         <h3>Home</h3>
@@ -61,7 +61,7 @@ const PageTabButton = ({ page, actions }) => {
       </button>
 
       <button
-        class={`usertab ${state === 1 ? "active" : ""}`}
+        className={`usertab ${state === 1 ? "active" : ""}`}
         onClick={setState1}
       >
         <h3>Users List</h3>
@@ -69,7 +69,7 @@ const PageTabButton = ({ page, actions }) => {
       </button>
 
       <button
-        class={`grouptab ${state === 2 ? "active" : ""}`}
+        className={`grouptab ${state === 2 ? "active" : ""}`}
         onClick={setState2}
       >
         <h3>Groups List</h3>

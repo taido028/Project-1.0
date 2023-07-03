@@ -17,29 +17,35 @@ export const GroupResultList = ({ GroupsList, actions, page, onChange }) => {
   if (GroupsList.length > 0) {
     return (
       <Card className="result-list-card">
-        {GroupsList.map((g) => (
-          <tr className="resultlist">
-            <td>
-              {g.name} {"  "} {g.surname}
-            </td>
+        <table>
+          <tbody>
+            {GroupsList.map((g) => (
+              <tr className="resultlist" key={g.id}>
+                <td className="user">
+                  {g.name} {"  "} {g.surname}
+                </td>
 
-            <td>
-              <PlusSquareFill
-                className="addsearch"
-                onClick={() => {
-                  actions.onMutationAddGroup({
-                    page: page,
-                    groupId: g.id,
-                    accesslevel: 1,
-                  });
+                <td className="user">
+                  <button>
+                    <PlusSquareFill
+                      //className="addsearch"
+                      onClick={() => {
+                        actions.onMutationAddGroup({
+                          page: page,
+                          groupId: g.id,
+                          accesslevel: 1,
+                        });
 
-                  //Change state to 0 to hide the GroupResultList
-                  onChange();
-                }}
-              />
-            </td>
-          </tr>
-        ))}
+                        //Change state to 0 to hide the GroupResultList
+                        onChange();
+                      }}
+                    />
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </Card>
     );
   } else {

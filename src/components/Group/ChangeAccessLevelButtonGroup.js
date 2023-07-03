@@ -19,7 +19,7 @@ export const ChangeAccessLevelButtonGroup = ({ group, page, actions }) => {
   // return icon base on accesslevel
   return Target.accesslevel === 2 ? (
     <ArrowDownSquareFill
-      class="down"
+      className="down"
       onClick={() => {
         actions.onMutationAddGroup({
           groupId: group.id,
@@ -30,7 +30,7 @@ export const ChangeAccessLevelButtonGroup = ({ group, page, actions }) => {
     />
   ) : (
     <ArrowUpSquareFill
-      class="up"
+      className="up"
       onClick={() => {
         actions.onMutationAddGroup({
           groupId: group.id,
