@@ -20,9 +20,6 @@ export const PageProvider = ({ id }) => {
   //Get the requested page based on the id provided
   const page = pages[id]; //|| {id: id}
 
-  //console.log(group)
-  console.log("prekresleni");
-
   // Fetch page data when component mounts or id changes
   useEffect(() => {
     console.log("PageProvider refetch " + id);

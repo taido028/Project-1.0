@@ -100,7 +100,9 @@ export const AddGroupMutation =
           console.log("Sucessfully added new group");
         } else {
           // If the group is already present, log an update message and dispatch an action to update it.
-          console.log("Group's accesslevel updated " + accesslevel);
+          console.log(
+            AddedGroup.name + "'s accesslevel updated " + accesslevel
+          );
           actions.onGroupUpdate({
             group: AddedGroup,
             page: newpage,

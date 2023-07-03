@@ -149,7 +149,7 @@ export const PageSlice = createSlice({
   },
 });
 
-//z rezu odvozene akce
+// Export actions and reducers
 export const PageActions = PageSlice.actions;
-//z rezu odvozeny stavovy automat
+
 export const PageReducer = PageSlice.reducer;

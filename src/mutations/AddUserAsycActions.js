@@ -97,7 +97,9 @@ export const AddUserMutation =
           console.log("Sucessfully added new user");
         } else {
           // If the user is already present, log an update message and dispatch an action to update it.
-          console.log("User's accesslevel updated: " + accesslevel);
+          console.log(
+            AddedUser.name + "'s accesslevel updated: " + accesslevel
+          );
           actions.onUserUpdate({
             user: AddedUser,
             page: newpage,

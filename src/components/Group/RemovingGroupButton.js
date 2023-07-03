@@ -32,8 +32,7 @@ export const GroupRemoveButton = ({ page, group, actions }) => {
     });
 
     // Show deleted group in console
-    console.log("Group deleted: ");
-    console.log(group);
+    console.log("Group deleted: " + group.name);
   };
   return (
     <DeleteButton onClick={onClick}>

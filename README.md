@@ -57,4 +57,10 @@ Contributors: Minh Quang Bui - Quang Tai Do
 
 14. 19.6: Replaced fetch function with authorizedFetch and optimized css.
 
-15. 23.6: Adding navigation tab and search box by letters.
+15. 23.6: Added navigation tab and search box by letters.
+
+16. 1.7: Added home tab.
+
+17. 2.7: Code cleaned up. Fixed some warning issues. Added package and publish as npm.
+
+18. 3.7: Adjust CSS and code structure diagram (Diagram.png).
