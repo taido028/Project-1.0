@@ -4,7 +4,9 @@ Contributors: Minh Quang Bui - Quang Tai Do
 
 ## How to run:
 
-1. Open new terminal and run command `npm start`
+1.Open new terminal and run command to install: `npm i @taido028/project_authorizationpage`
+
+2. Next run command `npm start`
 
 ## Features:
 
