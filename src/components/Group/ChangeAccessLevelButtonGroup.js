@@ -18,26 +18,30 @@ export const ChangeAccessLevelButtonGroup = ({ group, page, actions }) => {
 
   // return icon base on accesslevel
   return Target.accesslevel === 2 ? (
-    <ArrowDownSquareFill
-      className="down"
-      onClick={() => {
-        actions.onMutationAddGroup({
-          groupId: group.id,
-          accesslevel: 1,
-          page: page,
-        });
-      }}
-    />
+    <button className="button-with-icon">
+      <ArrowDownSquareFill
+        className="down"
+        onClick={() => {
+          actions.onMutationAddGroup({
+            groupId: group.id,
+            accesslevel: 1,
+            page: page,
+          });
+        }}
+      />
+    </button>
   ) : (
-    <ArrowUpSquareFill
-      className="up"
-      onClick={() => {
-        actions.onMutationAddGroup({
-          groupId: group.id,
-          accesslevel: 2,
-          page: page,
-        });
-      }}
-    />
+    <button className="button-with-icon">
+      <ArrowUpSquareFill
+        className="up"
+        onClick={() => {
+          actions.onMutationAddGroup({
+            groupId: group.id,
+            accesslevel: 2,
+            page: page,
+          });
+        }}
+      />
+    </button>
   );
 };

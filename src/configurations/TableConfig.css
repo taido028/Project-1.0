@@ -93,3 +93,11 @@
     margin-top: 100px;
     border: 3px solid rgb(229, 255, 0);
 }
+
+/*Searchbox config*/
+
+.button-with-icon{
+    padding: 0;
+    border: none;
+    background: none;
+}

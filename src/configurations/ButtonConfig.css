@@ -136,9 +136,6 @@
     height: 30px;
     width: 30px;
     color: rgb(0, 117, 0);
-    margin-left: 20px;
-    position: absolute;
-    right: 0;
 }
 
 .addsearch:hover{
@@ -215,4 +212,13 @@
 .grouptab.active {
   background-color: gray;
   
+}
+
+/*Result list button*/
+.button-with-icon{
+    padding: 0;
+    border: none;
+    background: none;
+    background-color: transparent;
+    outline: none;
 }

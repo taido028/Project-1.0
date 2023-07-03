@@ -26,9 +26,9 @@ export const GroupResultList = ({ GroupsList, actions, page, onChange }) => {
                 </td>
 
                 <td className="user">
-                  <button>
+                  <button className="button-with-icon">
                     <PlusSquareFill
-                      //className="addsearch"
+                      className="addsearch"
                       onClick={() => {
                         actions.onMutationAddGroup({
                           page: page,
